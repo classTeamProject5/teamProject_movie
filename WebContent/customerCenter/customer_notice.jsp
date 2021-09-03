@@ -15,7 +15,7 @@
 	      <button type="submit" class="glyphicon glyphicon-search"></button>
 	    </form>
 	  </div>
-	<nav class="navbar" style="width: 1200px; ">
+	<nav style="width: 1200px; ">
 	    <div class="container-fluid">
 			  <ul class="nav navbar-nav" style="width: 100%;">
 			  <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px;"><a href="#" style="color: #212121">전체</a></li>

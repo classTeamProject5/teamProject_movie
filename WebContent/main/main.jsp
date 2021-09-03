@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="assets/css/style19.css">
     <link rel="stylesheet" href="assets/css/swiper.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="assets/css/theme.css" rel="stylesheet" />
+   
+     
     
     <!-- 파비콘 -->
     <link rel="shortcut icon" href="assets/icons/favicon.ico">
@@ -55,6 +58,7 @@
 <body>
     
     <jsp:include page="header.jsp"/>
+    <jsp:include page="../customerCenter/customer_main.jsp"/>
    <%--  <jsp:include page="footer.jsp"/> --%>
     
 
@@ -67,5 +71,6 @@
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/iframe_api.js"></script>
     <script src="assets/js/movie.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 </body>
 </html>    

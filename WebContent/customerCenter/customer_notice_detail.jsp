@@ -8,13 +8,18 @@
 </head>
 <body>
     <div class="container">
-	  <div class="row">
+	  <div class="cus-row">
 	  	
 	    <table class="table">
 	      <tr>
 	        <th class="text-center danger" width=50%>제목</th>
 	        <th class="text-center danger" width=20%>작성일</th>
 	        <th class="text-center danger" width=20%>조회수</th>
+	      </tr>
+	      <tr>
+	        <td class="text-center" width=50%>제목 내용</td>
+	        <td class="text-center" width=20%>2021/01/01</td>
+	        <td class="text-center" width=20%>2</td>
 	      </tr>
 	    </table>
 	    <hr>

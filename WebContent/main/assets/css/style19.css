@@ -65,7 +65,7 @@
 .navbar{
 	margin-top: 4px;
 }
-.navbar .container-fluid{
+.container-fluid{
 	 float: none;
   position: absolute;
   top: 50%;

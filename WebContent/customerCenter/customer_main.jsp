@@ -16,8 +16,9 @@
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->
-    <link href="assets/css/theme.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    
+    
 </head>
 <body>
     <div class="container">
@@ -27,7 +28,7 @@
               <p class="mb-5">고객의 소리를 듣습니다</p>
             </div>
           </div>
-          <nav class="navbar" style="width: 1200px; ">
+          <nav style="width: 1200px; ">
 			<div class="container-fluid">
 			  <ul class="nav navbar-nav" style="width: 100%;">
 			      <li style="width: 32%; text-align: center; border: 1px solid black; border-radius: 8px; background-color: #d3d3d3;"><a href="#" style="color: #212121">FAQ</a></li>
@@ -40,12 +41,11 @@
     <jsp:include page="customer_notice_detail.jsp"/>
     
     
-    
-    <script src="vendors/bootstrap/bootstrap.min.js"></script>
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    
+
+    
+ 
     
     
 </body>

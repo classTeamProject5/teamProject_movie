@@ -19,15 +19,15 @@
 	     </div>
         
          
-		  <nav class="navbar" style="width: 1200px; ">
+		  <nav style="width: 1200px; ">
 			<div class="container-fluid">
-			  <ul class="nav navbar-nav" style="width: 100%;">
-			      <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px;"><a href="#" style="color: #212121">전체</a></li>
-			      <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">예매</a></li>
-			      <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">결제/취소</a></li>
-			      <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">멤버십</a></li>
-			      <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">회원정보</a></li>
-			      <li style="width: 16%; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">기타</a></li>
+			  <ul class="navbar-nav" style="width: 100%; ">
+			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px;"><a href="#" style="color: #212121">전체</a></li>
+			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">예매</a></li>
+			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">결제/취소</a></li>
+			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">멤버십</a></li>
+			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">회원정보</a></li>
+			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">기타</a></li>
 			  </ul>
 		    </div>
 		  </nav>
