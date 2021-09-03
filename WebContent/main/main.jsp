@@ -61,6 +61,7 @@
     
     <!-- 자바스크립트 라이브러리 -->
     <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script src="assets/js/modernizr-custom.js"></script>
     <script src="assets/js/ie-checker.js"></script>
     <script src="assets/js/swiper.min.js"></script>
