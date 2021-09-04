@@ -44,10 +44,7 @@
 						     </a>
 					     </div>
 					  </div>
-					 
-					
 					</div>
-                    
                     <nav class="navbar navbar-defualt">
                       <div class="container-fluid">
                         <ul class="nav navbar-nav">
@@ -85,7 +82,6 @@
                 </div>
             </div>
         </div>
-  
     </header>
     <!-- //header -->
      
