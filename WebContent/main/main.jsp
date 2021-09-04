@@ -13,7 +13,7 @@
     <meta name="author" content="webstoryboy">
     <meta name="description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
     <meta name="keywords" content="메가박스, 유투브, 영화, 최신영화, 영화관, CGV, 롯데시네마, 웹스토리보이, 웹스, 사이트 만들기, 따라하기, 이미지 슬라이드">
-    <title>메가박스 사이트 코딩하기</title>
+    <title>홍대극장</title>
 
     <!-- css -->
     <link rel="stylesheet" href="assets/css/reset19.css">
