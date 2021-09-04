@@ -17,10 +17,25 @@
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="css/core-style.css">
     <link rel="stylesheet" href="style.css">
+    <style type="text/css">
+.userInfo {
+    width: 900px;
+    height:300px;
+    border: 1px solid;
+    
+}    
+.inner {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  
+}
 
+    </style>
 </head>
 
 <body>
+    
     <!-- Search Wrapper Area Start -->
     <div class="search-wrapper section-padding-100">
         <div class="search-close">
@@ -40,7 +55,45 @@
         </div>
     </div>
     <!-- Search Wrapper Area End -->
-
+         <div class="container">
+            <div class="row">
+              <div class="userInfo inner" >
+	              <div style="width:30%;float: left;">
+	                <table >
+	                  <td><img src="#" style=" width:200px; height: 100px;"></td>
+	                </table>
+	              </div>
+	              <div style="width:70%;float: right;">
+	                <table >
+	                  <tr>
+	                    <td  style=" border: 1px solid;  width:400px; height: 50px;">이름</td>
+	                  </tr>
+	                  <tr>
+	                    <td  style=" border: 1px solid;  width:400px; height: 50px;">등급</td>
+	                  </tr>
+	                </table>
+	              </div>
+	              <table  style="width:800px;">
+	                <tr>
+	                  <td style=" border: 1px solid;  width:50%; height: 100px;">
+	                    <h4>My Coupon</h4>
+	                    <ul>
+	                      <li>혜택보기</li>
+	                      <li>할인쿠폰&nbsp;개수</li>
+	                      <li>영화쿠폰&nbsp;개수</li>
+	                    </ul>
+	                  </td>
+	                  <td style=" border: 1px solid;  width:50%; height: 100px;">
+	                    <h4>My Point</h4>
+	                    <ul>
+	                      <li>사용가능 포인트&nbsp;개수</li>
+	                    </ul>
+	                  </td>
+	                </tr>
+	              </table>
+	           </div>
+            </div>
+         
     <!-- ##### Main Content Wrapper Start ##### -->
     <div class="main-content-wrapper d-flex clearfix">
 
@@ -140,7 +193,7 @@
         </div>
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
-
+  </div>
  
             
 
