@@ -31,7 +31,11 @@
 
 <link rel="stylesheet" href="../event/css/event.css">
 </head>
+
+
 <body class="event_body">
+	
+
 	<!--  
 	<div class="where">
 		<div> 홈 > 이벤트 > 진행중인 이벤트 </div> <!-- 이부분은 홈,이벤트,진행중인이벤트, 링크식으로 걸어야함. 나중에 수정. 

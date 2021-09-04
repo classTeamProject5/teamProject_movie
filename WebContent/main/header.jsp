@@ -29,8 +29,8 @@
 					  <div class="topnav-centered">
 						  <h1>
 	                        <a href="#">
-	                            <em><img src="assets/img/logo.png" alt="MEGABOX"></em>
-	                            <strong><img src="assets/img/logo-sub.png" alt="LIFE THEATER"></strong>
+	                            <em><img src="assets/img/megaStyle_title.png" alt="MEGABOX"></em>
+	                            <!-- <strong><img src="assets/img/logo-sub.png" alt="LIFE THEATER"></strong>  -->
 	                        </a>    
 	                      </h1>
 					  </div>
@@ -73,7 +73,7 @@
                             <li class="dropdown">
                               <a class="dropdown-toggle" href="#">혜택</a>
                                 <ul class="dropdown-menu">
-						          <li><a href="#">멤버십</a></li>
+						          <li><a href="../viplounge/viplounge_main.jsp">멤버십</a></li>
 						        </ul>
                             </li>
                         </ul>
