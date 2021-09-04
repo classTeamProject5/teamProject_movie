@@ -51,7 +51,6 @@
 			        <input type="radio" nama="incoming">비수신
 			      </td>
 			    </tr>
-			    
 			  </table>
 			  <div>
 			    <textarea name="note" id="note" cols="120" rows="10"></textarea>
