@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- 회원가입 창 만들기 -->
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -13,7 +14,7 @@
         <div id="header">
             <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img src="NAVER_CI_Green.png" id="logo"></a>
         </div>
-
+    
 
         <!-- wrapper -->
         <div id="wrapper">
