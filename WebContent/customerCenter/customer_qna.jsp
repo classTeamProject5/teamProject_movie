@@ -10,7 +10,6 @@
   <div class="container">
     <div class="cus-row">
       <div>
-           
               <h2>1:1 문의</h2>
               <table class="table">
 			    <tr>
