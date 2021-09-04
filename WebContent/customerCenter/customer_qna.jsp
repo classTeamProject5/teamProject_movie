@@ -10,7 +10,6 @@
   <div class="container">
     <div class="cus-row">
       <div>
-           
               <h2>1:1 문의</h2>
               <table class="table">
 			    <tr>
@@ -52,7 +51,6 @@
 			        <input type="radio" nama="incoming">비수신
 			      </td>
 			    </tr>
-			    
 			  </table>
 			  <div>
 			    <textarea name="note" id="note" cols="120" rows="10"></textarea>
