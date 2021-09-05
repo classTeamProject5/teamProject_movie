@@ -30,6 +30,7 @@
 <title>홍대극장 | 이벤트</title>
 
 <link rel="stylesheet" href="../event/css/event.css">
+<link rel="stylesheet" href="../event/css/total.css">
 </head>
 
 
@@ -41,9 +42,14 @@
 		<div> 홈 > 이벤트 > 진행중인 이벤트 </div> <!-- 이부분은 홈,이벤트,진행중인이벤트, 링크식으로 걸어야함. 나중에 수정. 
 	</div>
 	-->
-	<div class="event_contentTitle">
-		진행중인 이벤트
-	</div>
+	<div class="event_header">
+		<div class="event_contentTitle">진행중인 이벤트
+		</div>
+		<div class="event_otherLinkBox"><a class="event_otherLink">지난 이벤트</a>
+		</div>
+		<div class="event_otherLinkBox"><a class="event_otherLink">당첨자 발표</a>
+		</div>
+	</div>	
 	
 	
 	

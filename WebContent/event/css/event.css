@@ -24,6 +24,8 @@ li{
 	list-style: none;
 }
 
+
+
 /***************************************************************************/
 
 
@@ -58,6 +60,13 @@ div.event_contentTitle{
 	padding-bottom: 20px;
 	
 }
+
+ div.event_otherLink{
+ 	font-size:14px;
+ 	width:100px;
+ 	float:right;
+ }
+
 /**************************************************************************************************/
 div.searchPart{
 	position: relative;
