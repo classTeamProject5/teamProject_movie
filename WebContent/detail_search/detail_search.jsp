@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<head>
+	<link rel="stylesheet" href="../detail_search/css/rSlider.min.css">
+</head>
 <div style="background: #1a2a6c; background: -webkit-linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c); background: linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c);">
+	<script src="../detail_search/js/rSlider.min.js"></script>
 	<div class="container" style="border-radius: 30px; background-color: #F22973;">
 		<div class="row">
 			<div class="col-md-2 col-md-offset-6">
@@ -11,7 +15,7 @@
 				  <option>감독</option>
 				</select>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px">
 			</div>
 		</div>
@@ -25,7 +29,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">전체
+		  							<input type="checkbox" id="selectAll" value="option1">전체
 								</label>
 							</div>
 						</div>
@@ -285,8 +289,55 @@
 					<div class="col-md-2">
 						<h4>개봉년도</h4>
 					</div>
+					<div class="col-md-10">
+						<div class="slider-container">
+            				<input type="text" id="slider" class="slider" />
+        				</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="row text-center" style="margin-bottom: 30px;">
+			<div class="col-md-4 col-md-offset-4">
+				<button class="btn btn-primary btn-lg" style="margin: 0px 20px;">검색</button>
+				<button class="btn btn-info btn-lg" style="margin: 0px 20px;">초기화</button>
+			</div>
+		</div>
 	</div>
+	<script>
+	 const mySlider = new rSlider({
+	        target: '#slider',
+	        values: [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020],
+	        range: true,
+	        tooltip: true,
+	        scale: true,
+	        labels: true,
+	        set: [1950, 2020],
+	        width: '700px',
+	    });
+	 
+	 const selectAll = document.querySelector('#selectAll');
+	 const checkboxs = document.querySelectorAll('input[type="checkbox"]');
+
+	 selectAll.addEventListener('change', function() {
+	     if (this.checked) {
+	         for (const checkbox of checkboxs) {
+	             checkbox.checked = true;
+	         }
+	     } else if (!this.checked) {
+	         for (const checkbox of checkboxs) {
+	             checkbox.checked = false;
+	         }
+	     }
+	 })
+	 
+	 for (const checkbox of checkboxs) {
+    	checkbox.addEventListener('change', function() {
+        if (!this.checked) {
+            selectAll.checked = false;
+        }
+    })
+}
+	
+	</script>
 </div>
