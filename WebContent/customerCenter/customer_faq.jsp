@@ -11,7 +11,7 @@
      <section class="py-8" id="faq" style="margin-top: 10px;">
        <div class="container">
        <div class="row">
-        <div class="search-container" style="float: right; margin-bottom: 10px;">
+        <div class="search-container" style="text-align: right;">
 	        <form action="#">
 	          <textarea name="search" placeholder="검색어를 입력해 주세요"></textarea>
 	          <button type="submit" class="glyphicon glyphicon-search"></button>
@@ -19,9 +19,9 @@
 	     </div>
         
          
-		  <nav style="width: 1200px; ">
+		  <nav class="navbar navbar-defualt" style="width: 1200px; ">
 			<div class="container-fluid">
-			  <ul class="navbar-nav" style="width: 100%; ">
+			  <ul class="navbar-nav" style="width: 950px; ">
 			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px;"><a href="#" style="color: #212121">전체</a></li>
 			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">예매</a></li>
 			      <li style="width: 16%; height: 40px; text-align: center; background-color: #dce4f0; border-radius: 5px; margin-left: 3px;"><a href="#" style="color: #212121">결제/취소</a></li>

@@ -59,8 +59,8 @@
     
     <jsp:include page="header.jsp"/>
     <%-- <jsp:include page="default.jsp" /> --%>
-    <jsp:include page="../detail_search/detail_search.jsp" />
-    <%-- <jsp:include page="../customerCenter/customer_main.jsp"/> --%>
+    <%-- <jsp:include page="../detail_search/detail_search.jsp" /> --%>
+    <jsp:include page="../customerCenter/customer_main.jsp"/>
    <%--  <jsp:include page="footer.jsp"/> --%>
     
 

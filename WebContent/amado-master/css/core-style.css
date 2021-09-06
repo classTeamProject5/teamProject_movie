@@ -307,7 +307,7 @@ img {
 /* Essence Button */
 .amado-btn {
   display: inline-block;
-  min-width: 160px;
+  min-width: 180px;
   height: 55px;
   color: #ffffff;
   border: none;
@@ -484,7 +484,7 @@ img {
         .main-content-wrapper .header-area .amado-nav li.active a::after {
           left: -50px; } }
     .main-content-wrapper .header-area .amado-btn-group .amado-btn {
-      width: 160px;
+      width: 180px;
       display: block; }
     .main-content-wrapper .header-area .cart-fav-search a {
       display: block;

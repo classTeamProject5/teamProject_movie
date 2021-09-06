@@ -10,7 +10,7 @@
     <!-- ===============================================-->
     <!--    Document Title-->
     <!-- ===============================================-->
-    <title>Applab | Landing, Corporate &amp; Business Templatee</title>
+    
 
 
     <!-- ===============================================-->
@@ -28,17 +28,19 @@
               <p class="mb-5">고객의 소리를 듣습니다</p>
             </div>
           </div>
-          <nav style="width: 1200px; ">
+          
+          <nav class="navbar navbar-defualt" style="width: 1200px; ">
 			<div class="container-fluid">
-			  <ul class="nav navbar-nav" style="width: 100%;">
-			      <li style="width: 32%; text-align: center; border: 1px solid black; border-radius: 8px; background-color: #d3d3d3;"><a href="#" style="color: #212121">FAQ</a></li>
-			      <li style="width: 32%; text-align: center; border: 1px solid black; border-radius: 8px; margin-left: 3px; background-color: #d3d3d3;"><a href="#" style="color: #212121">공지사항</a></li>
-			      <li style="width: 32%; text-align: center; border: 1px solid black; border-radius: 8px; margin-left: 3px; background-color: #d3d3d3;"><a href="#" style="color: #212121">1:1 문의</a></li>
+			  <ul class="nav navbar-nav" style="width: 400px; ">
+			      <li style="width: 32%; height:60px; text-align: center;  background-color:white;"><a href="#" style="color: #212121; border-bottom: 1px solid black;">FAQ</a></li>
+			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;"><a href="#" style="color: #212121; border-bottom: 1px solid black;">공지사항</a></li>
+			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;"><a href="#" style="color: #212121; border-bottom: 1px solid black;">1:1 문의</a></li>
 			  </ul>
 		    </div>
 		  </nav>
     </div>
-    <jsp:include page="customer_notice_detail.jsp"/>
+    
+    <jsp:include page="customer_notice.jsp"/>
     
     
 
