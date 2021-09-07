@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>영화정보</title>
-<link href="detailcss/main.css" rel="stylesheet">
-<link href="replycss/style.css" rel="stylesheet">
-<link href="replycss/normalize.css" rel="stylesheet">
-<link href="replycss/bootstrap.min.css" rel="stylesheet">
+<link href="detailcss/md-main.css" rel="stylesheet">
+<link href="replycss/md-style.css" rel="stylesheet">
+<link href="replycss/md-normalize.css" rel="stylesheet">
+<link href="replycss/md-bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -52,7 +52,7 @@
                   <div class="full comment_blog_line">
                      <div class="row">
                         <div class="col-md-1">
-                           <img src="testicon.png" alt="#" />
+                           <img src="testimage.png" alt="#" />
                         </div>
                         <div class="col-md-9">
                            <div class="full contact_text">
@@ -68,7 +68,7 @@
                   <div class="full comment_blog_line">
                      <div class="row">
                         <div class="col-md-1">
-                           <img src="testicon.png" alt="#" />
+                           <img src="testimage.png" alt="#" />
                         </div>
                         <div class="col-md-9">
                            <div class="full contact_text">
