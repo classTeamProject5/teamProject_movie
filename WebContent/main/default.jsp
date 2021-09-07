@@ -98,7 +98,7 @@
 			
 			<!-- 고객센터 -->
 			<div class="row" style="margin-top: 30px;">
-			  <div class="col-md-2">
+			  <div class="col-md-2 col-md-offset-3">
 			  <a href="#">
 			    <div class="thumbnail" style="background-color: transparent; border: none;">
 			      <img src="default/ico-main-customer.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
@@ -128,38 +128,6 @@
 			    </div>
 			    </a>
 			  </div>
-			  <div class="col-md-2">
-			  <a href="#">
-			    <div class="thumbnail" style="background-color: transparent; border: none;">
-			      <img src="default/ico-groupping.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
-			      <div class="caption">
-			        <h5 class="text-center" style="color: white;">단체/대관문의</h4>
-			      </div>
-			    </div>
-			    </a>
-			  </div>
-			  <div class="col-md-2">
-			  <a href="#">
-			    <div class="thumbnail" style="background-color: transparent; border: none;">
-			      <img src="default/ico-miss-question.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
-			      <div class="caption">
-			        <h5 class="text-center" style="color: white;">분실물 문의/접수</h4>
-			      </div>
-			    </div>
-			    </a>
-			  </div>
-			  <div class="col-md-2">
-			  <a href="#">
-			    <div class="thumbnail" style="background-color: transparent; border: none;">
-			      <img src="default/ico-butique.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
-			      <div class="caption">
-			        <h5 class="text-center" style="color: white;">더 부티크</h4>
-			        <h5 class="text-center" style="color: white;">프라이빗 대관예매</h4>
-			      </div>
-			    </div>
-			    </a>
-			  </div>
-			  
 			  </div>
 			</div>
 			
