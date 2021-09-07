@@ -19,17 +19,12 @@
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
 		<!-- Vendor CSS -->
+	
 		
-		<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.css" />
-		<link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />
-		<link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
-
 		<!-- Theme CSS -->
-		<link rel="stylesheet" href="assets/stylesheets/theme.css" />
+		<link rel="stylesheet" href="../event/css/theme.css" />
 		<link rel="stylesheet" href="../event/css/total.css"/>
-
-		<!-- Head Libs -->
-		<script src="assets/vendor/modernizr/modernizr.js"></script>
+		
 
 	</head>
 	<body>
@@ -37,10 +32,10 @@
 
 		
 
-			<div class="inner-wrapper">
+			<div class="event_board_list_inner-wrapper">
 				
 
-				<section role="main" class="content-body">
+				<section role="event_board_list_main" class="event_board_list_content-body">
 				
 				
 					<div class="event_header">
@@ -60,13 +55,13 @@
 						<a class="event_board_categoryMenu">극장</a>
 					</div>
 					
-						<div class="row">
+						<div class="event_board_list_row">
 							
-							<div class="col-md-6">
-								<section class="panel">
+							<div class="event_board_list_col-md-6">
+								<section class="event_board_list_panel">
 									
-									<div class="panel-body">
-										<div class="table-responsive">
+									<div class="event_board_list_panel-body">
+										<div class="event_board_list_table-responsive">
 											<table class="event_board_list_tableList">
 												<thead>
 													<tr>
@@ -102,23 +97,6 @@
 			
 		</section>
 
-		<!-- Vendor -->
-		<script src="assets/vendor/jquery/jquery.js"></script>
-		<script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-		<script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
-		<script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-		<script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
-		<script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-		
-		<!-- Theme Base, Components and Settings -->
-		<script src="assets/javascripts/theme.js"></script>
-		
-		<!-- Theme Custom -->
-		<script src="assets/javascripts/theme.custom.js"></script>
-		
-		<!-- Theme Initialization Files -->
-		<script src="assets/javascripts/theme.init.js"></script>
 
 	</body>
 </html>

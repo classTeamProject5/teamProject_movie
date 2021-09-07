@@ -1,4 +1,8 @@
 @charset "UTF-8";
+
+.viplounge_mycoupons{
+	text-align:center;
+}
 body.viplounge_body{
 	box-sizing: border-box; /*padding을 줘도 박스 크기는 그대로 유지. 콘텐츠가 줄어도 박스는 유지*/
 	font-family: 'Noto Sans KR', sans-serif;
@@ -91,6 +95,11 @@ div.viplounge_textbox div.viplounge_pointdata div.viplounge_basictext{
 	
 }
 /*******************************************************************************/
+.viplounge_link{
+	font-size: 16px;
+}
+
+
 div.viplounge_link div.viplounge_linkMypage{
 	color:#63387b;
 	position: relative;
@@ -109,6 +118,7 @@ div.viplounge_link div.viplounge_mycoupons{
 	font-weight: bold;
 	padding-right:95px;
 	border-right: 2px solid #ddcde6;
+	width:max-content;
 }
 div.viplounge_link div.viplounge_linkCustomerCenter{
 	color:#63387b;
@@ -117,7 +127,7 @@ div.viplounge_link div.viplounge_linkCustomerCenter{
 	left:50px;
 	float:left;
 	font-weight: bold;
-	padding-right:20px;
+	padding-right:27px;
 	border-right: 2px solid #ddcde6;
 }
 
