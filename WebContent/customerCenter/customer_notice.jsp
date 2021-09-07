@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
+  <div class="customer-container">
+    <div class="customer-row">
       <div class="search-container" style="text-align: right; ">
 	    <form action="#">
 	      <textarea name="search" placeholder="검색어를 입력해 주세요"></textarea>

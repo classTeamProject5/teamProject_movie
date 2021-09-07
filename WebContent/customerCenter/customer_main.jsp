@@ -21,7 +21,7 @@
     
 </head>
 <body>
-    <div class="container">
+    <div class="customer-container">
           <div class="row-cus justify-content-center">
             <div class="col-md-8 col-lg-6 text-center mb-3">
               <h2 class="fw-bold">고객센터</h2>
