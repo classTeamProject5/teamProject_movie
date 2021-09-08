@@ -16,11 +16,11 @@
     <title>홍대극장</title>
 
     <!-- css -->
-    <link rel="stylesheet" href="assets/css/reset19.css">
-    <link rel="stylesheet" href="assets/css/style19.css">
-    <link rel="stylesheet" href="assets/css/swiper.css">
+    <link rel="stylesheet" href="../main/assets/css/reset19.css">
+    <link rel="stylesheet" href="../main/assets/css/style19.css">
+    <link rel="stylesheet" href="../main/assets/css/swiper.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="assets/css/theme.css" rel="stylesheet" />
+    <link href="../main/assets/css/theme.css" rel="stylesheet" />
 
     
     <!-- 웹 폰트 -->
@@ -37,7 +37,7 @@
 <body>
     
     <jsp:include page="header.jsp"/>
-    <jsp:include page="default.jsp" />
+    <jsp:include page="${main_jsp }" />
     <%-- <jsp:include page="../detail_search/detail_search.jsp" /> --%>
     <%-- <jsp:include page="../customerCenter/customer_main.jsp"/> --%>
     <jsp:include page="footer.jsp"/>
@@ -45,13 +45,15 @@
 
     
     <!-- 자바스크립트 라이브러리 -->
-    <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script src="../main/assets/js/jquery.min_1.12.4.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
-    <script src="assets/js/modernizr-custom.js"></script>
-    <script src="assets/js/ie-checker.js"></script>
-    <script src="assets/js/swiper.min.js"></script>
-    <script src="assets/js/iframe_api.js"></script>
-    <script src="assets/js/movie.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="../main/assets/js/modernizr-custom.js"></script>
+    <script src="../main/assets/js/ie-checker.js"></script>
+    <script src="../main/assets/js/swiper.min.js"></script>
+    <script src="../main/assets/js/iframe_api.js"></script>
+    <script src="../main/assets/js/movie.js"></script>
+    <script src="../main/assets/js/bootstrap.min.js"></script>
+    
+
 </body>
 </html>    

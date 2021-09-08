@@ -122,21 +122,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu{display:block; margin:0;}
 
 
 /* 푸터 */
-.footer_sns {position: absolute; right: 17px; top: 33px; z-index: 1;}
-.footer_sns li {display: inline-block; width: 36px; height: 36px; margin-left: 4px;}
-.footer_sns li.s1 {background-position: 0 -375px;}
-.footer_sns li.s2 {background-position: -36px -375px;}
-.footer_sns li.s3 {background-position: -72px -375px;}
-.footer_sns li.s4 {background-position: -108px -375px;}
-.footer_sns li.s5 {background-position: -144px -375px;}
-.footer_sns li.s1:hover {background-position: 0 -411px;}
-.footer_sns li.s2:hover {background-position: -36px -411px;}
-.footer_sns li.s3:hover {background-position: -72px -411px;}
-.footer_sns li.s4:hover {background-position: -108px -411px;}
-.footer_sns li.s5:hover {background-position: -144px -411px;}
-.footer_sns .tel {text-align: right; padding-top: 5px;}
-.footer_sns .tel a {color: #8f8f8f; font-size: 21px;}
-.footer_sns .tel a em {color: #fff;}
+
 
 .footer_infor {padding: 50px 0; width: 80%;}
 .footer_infor h2 img {width: 150px;}

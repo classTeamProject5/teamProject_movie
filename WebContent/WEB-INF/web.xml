@@ -11,6 +11,10 @@
       <param-value>application-context.xml</param-value>
     </init-param>
   </servlet>
+  <servlet-mapping>
+     <servlet-name>dispatcher</servlet-name>
+     <url-pattern>*.do</url-pattern><!-- 개발자 정한다 -->
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>

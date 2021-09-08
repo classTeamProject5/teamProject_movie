@@ -15,7 +15,7 @@
                       <div class="header-topnav-side">
 	                      <!-- Left-aligned links (default) -->
 						  <a href="#news">멤버십</a>
-						  <a href="main.jsp">고객센터</a>
+						  <a href="../customerCenter/customer_main.do"">고객센터</a>
 						
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
@@ -29,7 +29,7 @@
 					  <div class="header-topnav-centered">
 						  <h1>
 	                        <a href="#">
-	                            <em><img src="assets/img/megaStyle_title.png" alt="MEGABOX"></em>
+	                            <em><img src="../main/assets/img/megaStyle_title.png" alt="MEGABOX"></em>
 	                            <!-- <strong><img src="assets/img/logo-sub.png" alt="LIFE THEATER"></strong>  -->
 	                        </a>    
 	                      </h1>
