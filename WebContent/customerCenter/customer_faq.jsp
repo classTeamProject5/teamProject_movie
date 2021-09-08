@@ -13,7 +13,7 @@
        <div class="row">
         <div class="search-container" style="text-align: right;">
 	        <form action="#">
-	          <textarea name="search" placeholder="검색어를 입력해 주세요"></textarea>
+	          <input type=text name="search" placeholder="검색어를 입력해 주세요"></input>
 	          <button type="submit" class="glyphicon glyphicon-search"></button>
 	        </form>
 	     </div>

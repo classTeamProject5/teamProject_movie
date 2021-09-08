@@ -32,15 +32,15 @@
           <nav class="navbar navbar-defualt" style="width: 1200px; ">
 			<div class="container-fluid">
 			  <ul class="nav navbar-nav" style="width: 400px; ">
-			      <li style="width: 32%; height:60px; text-align: center;  background-color:white;"><a href="#" style="color: #212121; border-bottom: 1px solid black;">FAQ</a></li>
-			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;"><a href="#" style="color: #212121; border-bottom: 1px solid black;">공지사항</a></li>
-			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;"><a href="#" style="color: #212121; border-bottom: 1px solid black;">1:1 문의</a></li>
+			      <li style="width: 32%; height:60px; text-align: center;  background-color:white;"><a href="../customerCenter/main.do" style="color: #212121; border-bottom: 1px solid black;">FAQ</a></li>
+			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;"><a href="../customerCenter/notice.do" style="color: #212121; border-bottom: 1px solid black;">공지사항</a></li>
+			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;"><a href="../customerCenter/qna.do" style="color: #212121; border-bottom: 1px solid black;">1:1 문의</a></li>
 			  </ul>
 		    </div>
 		  </nav>
     </div>
     
-    <jsp:include page="customer_notice.jsp"/>
+    <jsp:include page="${customer_main }"/>
     
     
 

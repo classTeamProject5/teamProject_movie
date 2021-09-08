@@ -17,7 +17,7 @@
                         <h2><img src="../main/assets/img/megaStyle_title.png" style="margin-left: 240px;"></h2>
                         <ul>
                             <li><a href="#">회사소개</a></li>
-                            <li><a href="#">고객센터</a></li>
+                            <li><a href="../customerCenter/customer_main.do">고객센터</a></li>
                         </ul>
                         <address>
                             <p>서울특별시 마포구 서교동 447-5 풍성빌딩 2,3,4층</p>

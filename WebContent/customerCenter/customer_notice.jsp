@@ -11,7 +11,7 @@
     <div class="customer-row">
       <div class="search-container" style="text-align: right; ">
 	    <form action="#">
-	      <textarea name="search" placeholder="검색어를 입력해 주세요"></textarea>
+	      <input type=text name="search" placeholder="검색어를 입력해 주세요"></input>
 	      <button type="submit" class="glyphicon glyphicon-search"></button>
 	    </form>
 	  </div>
@@ -27,11 +27,18 @@
     </nav>
     <table class="table">
       <tr style="background-color: #d3d3d3">
-        <th width=10% class="text-center">번호</th>
-        <th width=10% class="text-center">구분</th>
-        <th width=50% class="text-center">제목</th>
+        <th width=5% class="text-center">번호</th>
+        <th width=5% class="text-center">구분</th>
+        <th width=60% class="text-center">제목</th>
         <th width=15% class="text-center">등록일</th>
         <th width=5% class="text-center">조회수</th>
+      </tr>
+      <tr>
+        <td width=5% class="text-center">번호</td>
+        <td width=5% class="text-center">구분</td>
+        <td width=60%><a href="#">제목</a></td>
+        <td width=15% class="text-center">등록일</td>
+        <td width=5% class="text-center">조회수</td>
       </tr>
     </table>
     <table class="table">

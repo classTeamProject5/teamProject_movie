@@ -15,7 +15,7 @@
                       <div class="header-topnav-side">
 	                      <!-- Left-aligned links (default) -->
 						  <a href="#news">멤버십</a>
-						  <a href="../customerCenter/customer_main.do"">고객센터</a>
+						  <a href="../customerCenter/customer_main.do">고객센터</a>
 						
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
@@ -40,7 +40,7 @@
 					     </a>
 					     <div class="wrap_my">
 						     <a href="#" class="searchButton">
-						        <span title="마이페이지"><img src="mega_image/personicon.jpg" class="my_icon"></span>
+						        <span title="마이페이지"><img src="../main/mega_image/personicon.jpg" class="my_icon"></span>
 						     </a>
 					     </div>
 					  </div>
