@@ -193,8 +193,8 @@
 			
 			</div>
 			</main>
-			<script src="js/jquery.min.js"></script>
-	<script src="js/parallax.min.js"></script>
+			<script src="js/mc-jquery.min.js"></script>
+	<script src="js/mc-parallax.min.js"></script>
 	<script>
 		$(document).ready(function(){
 			// Handle click on paging links
