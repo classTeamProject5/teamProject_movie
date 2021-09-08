@@ -9,7 +9,7 @@ import com.sist.controller.RequestMapping;
 @Controller
 public class EventModel {
 	   @RequestMapping("event/event_main.do")
-	   public String movie_main(HttpServletRequest request,HttpServletResponse response)
+	   public String event_main(HttpServletRequest request,HttpServletResponse response)
 	   {
 		   request.setAttribute("main_jsp", "../event/event_main.jsp");
 		   return "../main/main.jsp";
