@@ -21,28 +21,7 @@
     <link rel="stylesheet" href="assets/css/swiper.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="assets/css/theme.css" rel="stylesheet" />
-   
-     
-    
-    <!-- 파비콘 -->
-    <link rel="shortcut icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" href="assets/icons/favicon_72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="96x96" href="assets/icons/favicon_96.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/icons/favicon_144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="assets/icons/favicon_192.png" />
-    
-    <!-- 페이스북 메타 태그 -->
-    <meta property="og:title" content="메가박스 사이트 만들기" />
-    <meta property="og:url" content="https://github.com/webstoryboy/megabox2019" />
-    <meta property="og:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg" />
-    <meta property="og:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다." />
-   
-    <!-- 트위터 메타 태그 -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="메가박스 사이트 만들기">
-    <meta name="twitter:url" content="https://github.com/webstoryboy/megabox2019/">
-    <meta name="twitter:image" content="https://webstoryboy.github.io/megabox2019/mega.jpg">
-    <meta name="twitter:description" content="메가박스 사이트 따라하면서 배우는 튜토리얼입니다.">
+
     
     <!-- 웹 폰트 -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&amp;subset=korean" rel="stylesheet">
@@ -61,7 +40,7 @@
     <jsp:include page="default.jsp" />
     <%-- <jsp:include page="../detail_search/detail_search.jsp" /> --%>
     <%-- <jsp:include page="../customerCenter/customer_main.jsp"/> --%>
-   <%--  <jsp:include page="footer.jsp"/> --%>
+    <jsp:include page="footer.jsp"/>
     
 
     
