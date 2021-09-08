@@ -5,14 +5,15 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>네이버 : 회원가입</title>
-        <link rel="stylesheet" href="css/join.css">
+        <title>홍대극장 회원가입</title>
+      
+        <link rel="stylesheet" href="../join/css/join.css">
         
     </head>
     <body>
         <!-- header -->
         <div id="header">
-            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="네이버 회원가입 페이지 보러가기"><img src="NAVER_CI_Green.png" id="logo"></a>
+            <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_blank" title="홍대극장 회원가입 페이지 보러가기"><img src="NAVER_CI_Green.png" id="logo"></a>
         </div>
     
 

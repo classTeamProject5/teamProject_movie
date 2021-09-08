@@ -11,14 +11,14 @@
         <div class="container">
             <div class="row">
                 <div class="header">
-                    <div class="topnav">
-                      <div class="topnav-side">
+                    <div class="header-topnav">
+                      <div class="header-topnav-side">
 	                      <!-- Left-aligned links (default) -->
 						  <a href="#news">멤버십</a>
 						  <a href="main.jsp">고객센터</a>
 						
 						  <!-- Right-aligned links -->
-						  <div class="topnav-right">
+						  <div class="header-topnav-right">
 						    <a href="#search">로그인</a>
 						    <a href="#about">회원가입</a>
 						    <a href="#about">빠른예매</a>
@@ -26,7 +26,7 @@
 					  </div>
 					  
 					  <!-- Centered link -->
-					  <div class="topnav-centered">
+					  <div class="header-topnav-centered">
 						  <h1>
 	                        <a href="#">
 	                            <em><img src="assets/img/megaStyle_title.png" alt="MEGABOX"></em>

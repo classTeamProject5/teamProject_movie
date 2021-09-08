@@ -5,10 +5,10 @@
 #footer {background: #211f1f;}
 
 /* 가운데 영역 */
-.container {position: relative; width: 1280px; margin: 0 auto; /* background:rgba(0,0,0,0.1); */ }
+.customer-container {position: relative; width: 1280px; margin: 0 auto; /* background:rgba(0,0,0,0.1); */ }
 
 /* 로우 영역 */
-.row {padding: 0 16px;}
+.customer-row {padding: 0 16px;}
 
                                                           
 /* 헤더 */
@@ -21,14 +21,14 @@
 .header h1 strong img {margin-top:5px; width: 110px;}
 
 /* 작은 메뉴*/
-.topnav {
+.header-topnav {
   position: relative;
   background-color: white;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.header-topnav a {
   float: left;
   color: gray;
   text-align: center;
@@ -38,18 +38,18 @@
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.header-topnav a:hover {
   color: black;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.header-topnav a.active {
   background-color: #04AA6D;
   color: white;
 }
 
 /* Centered section inside the top navigation */
-.topnav-centered a {
+.header-topnav-centered a {
   float: none;
   position: absolute;
   top: 50%;
@@ -57,7 +57,7 @@
   transform: translate(-50%, -50%);
 }
 /* Right-aligned section inside the top navigation */
-.topnav-right {
+.header-topnav-right {
   float: right;
 }
 
@@ -83,7 +83,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu{display:block; margin:0;}
     display: block;
   }
 
-  .topnav-centered a {
+  .header-topnav-centered a {
     position: relative;
     top: 0;
     left: 0;
