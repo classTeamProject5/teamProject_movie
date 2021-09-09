@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <head>
 	<link rel="stylesheet" href="../detail_search/css/rSlider.min.css">
 </head>
 <div style="background: #1a2a6c; background: -webkit-linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c); background: linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c);">
 	<script src="../detail_search/js/rSlider.min.js"></script>
 	<div class="container" style="border-radius: 30px; background-color: #F22973;">
+	<h1 id="test">안녕하세요</h1>
+		<form method="post" action="moviefind.do">
 		<div class="row">
 			<div class="col-md-2 col-md-offset-6">
 				<select class="form-control">
@@ -16,7 +20,7 @@
 				</select>
 			</div>
 			<div class="col-md-3">
-				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px">
+				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required>
 			</div>
 		</div>
 		<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
@@ -29,7 +33,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="selectAll" value="option1">전체
+		  							<input type="checkbox" id="selectAll" value="option1" checked>전체
 								</label>
 							</div>
 						</div>
@@ -40,22 +44,22 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">드라마
+		  							<input type="checkbox" id="inlineCheckbox1" value="드라마" name="genre" checked>드라마
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">판타지
+		  							<input type="checkbox" id="inlineCheckbox1" value="판타지" name="genre" checked>판타지
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">서부
+		  							<input type="checkbox" id="inlineCheckbox1" value="공포" name="genre" checked>공포
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">공포
+		  							<input type="checkbox" id="inlineCheckbox1" value="멜로/로맨스" name="genre" checked>멜로/로맨스
 								</label>
 							</div>
 						</div>
@@ -66,22 +70,22 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">멜로/로맨스
+		  							<input type="checkbox" id="inlineCheckbox1" value="모험" name="genre" checked>모험
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">모험
+		  							<input type="checkbox" id="inlineCheckbox1" value="스릴러" name="genre" checked>스릴러
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">스릴러
+		  							<input type="checkbox" id="inlineCheckbox1" value="느와르" name="genre" checked>느와르
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">느와르
+		  							<input type="checkbox" id="inlineCheckbox1" value="다큐멘터리" name="genre" checked>다큐멘터리
 								</label>
 							</div>
 						</div>
@@ -92,22 +96,22 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">컬트
+		  							<input type="checkbox" id="inlineCheckbox1" value="코미디" name="genre" checked>코미디
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">다큐멘터리
+		  							<input type="checkbox" id="inlineCheckbox1" value="가족" name="genre" checked>가족
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">코미디
+		  							<input type="checkbox" id="inlineCheckbox1" value="미스터리" name="genre" checked>미스터리
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">가족
+		  							<input type="checkbox" id="inlineCheckbox1" value="전쟁" name="genre" checked>전쟁
 								</label>
 							</div>
 						</div>
@@ -118,22 +122,22 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">미스터리
+		  							<input type="checkbox" id="inlineCheckbox1" value="애니메이션" name="genre" checked>애니메이션
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">전쟁
+		  							<input type="checkbox" id="inlineCheckbox1" value="범죄" name="genre" checked>범죄
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">애니메이션
+		  							<input type="checkbox" id="inlineCheckbox1" value="뮤지컬" name="genre" checked>뮤지컬
 								</label>
 							</div>
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">범죄
+		  							<input type="checkbox" id="inlineCheckbox1" value="SF" name="genre" checked>SF
 								</label>
 							</div>
 						</div>
@@ -144,103 +148,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">뮤지컬
-								</label>
-							</div>
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">sf
-								</label>
-							</div>
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">액션
-								</label>
-							</div>
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">무협
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-10 col-md-offset-2">
-						<div class="row">
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">에로
-								</label>
-							</div>
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">서스펜스
-								</label>
-							</div>
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">시사
-								</label>
-							</div>
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">블랙코미디
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-10 col-md-offset-2">
-						<div class="row">
-							<div class="col-md-3">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">실험
-								</label>
-							</div>
-							<div class="col-md-9">
-								<label class="checkbox-inline">
-		  							<input type="checkbox" id="inlineCheckbox1" value="option1">공연실황
-								</label>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row" style="margin-top: 30px;">
-					<div class="col-md-2">
-						<h4>제작국가</h4>
-					</div>
-					<div class="col-md-10">
-						<div class="row">
-							<div class="col-md-2">
-								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 전체
-								</label>
-							</div>
-							<div class="col-md-2">
-								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 미국
-								</label>
-							</div>
-							<div class="col-md-2">
-								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 일본
-								</label>
-							</div>
-							<div class="col-md-2">
-								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 중국
-								</label>
-							</div>
-							<div class="col-md-2">
-								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 홍콩
-								</label>
-							</div>
-							<div class="col-md-2">
-								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 기타
+		  							<input type="checkbox" id="inlineCheckbox1" value="액션" name="genre" checked>액션
 								</label>
 							</div>
 						</div>
@@ -254,32 +162,32 @@
 						<div class="row">
 							<div class="col-md-2">
 								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 전체
+  									<input type="checkbox" id="allRatebtn" value="option3" checked> 전체
 								</label>
 							</div>
 							<div class="col-md-2">
 								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> ALL
+  									<input type="checkbox" id="inlineCheckbox3" value="전체 관람가" checked name="rating"> 전체 관람가
 								</label>
 							</div>
 							<div class="col-md-2">
 								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 12
+  									<input type="checkbox" id="inlineCheckbox3" value="12세 관람가" checked name="rating"> 12세 관람가
 								</label>
 							</div>
 							<div class="col-md-2">
 								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 15
+  									<input type="checkbox" id="inlineCheckbox3" value="15세 관람가" checked name="rating"> 15세 관람가
 								</label>
 							</div>
 							<div class="col-md-2">
 								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 19
+  									<input type="checkbox" id="inlineCheckbox3" value="청소년 관람불가" checked name="rating"> 청소년 관람불가
 								</label>
 							</div>
 							<div class="col-md-2">
 								<label class="checkbox-inline">
-  									<input type="checkbox" id="inlineCheckbox3" value="option3"> 기타
+  									<input type="checkbox" id="inlineCheckbox3" value="등급없음" checked name="rating"> 등급없음
 								</label>
 							</div>
 						</div>
@@ -292,6 +200,7 @@
 					<div class="col-md-10">
 						<div class="slider-container">
             				<input type="text" id="slider" class="slider" />
+            				<input type="hidden" name="regdate" id="regdate" />
         				</div>
 					</div>
 				</div>
@@ -299,22 +208,54 @@
 		</div>
 		<div class="row text-center" style="margin-bottom: 30px;">
 			<div class="col-md-4 col-md-offset-4">
-				<button class="btn btn-primary btn-lg" style="margin: 0px 20px;">검색</button>
+				<button class="btn btn-primary btn-lg" style="margin: 0px 20px;" type="submit">검색</button>
 				<button class="btn btn-info btn-lg" style="margin: 0px 20px;">초기화</button>
 			</div>
 		</div>
+		</form>
+	</div>
+	
+	<c:if test="${!empty list}">
+	<div class="container" style="border-radius: 30px; background-color: #F22973; margin-top: 50px;">
+
+	<div class="row" style="margin-top: 30px;">
+		<c:forEach var="m" items="${list}">
+		<c:set var="title" value="${m.title}" />
+			  <div class="col-md-3">
+			    <div class="thumbnail">
+			      <img src="${m.poster}" alt="...">
+			      <div class="caption text-right">
+			        <c:if test="${fn:length(title) > 10 }">
+			        	<h3>${fn:substring(m.title, 0, 10)}...</h3>
+			        </c:if>
+			        <c:if test="${fn:length(title) <= 10 }">
+			        	<h3>${m.title}</h3>
+			        </c:if>
+			        <p><a href="#" class="btn btn-primary" role="button">예매하기</a></p>
+			      </div>
+			    </div>
+			  </div>
+			  </c:forEach>
+	</div>
+	</div>
+	</c:if>
 	</div>
 	<script>
 	 const mySlider = new rSlider({
 	        target: '#slider',
-	        values: [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020],
+	        values: [1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020, 2025],
 	        range: true,
 	        tooltip: true,
 	        scale: true,
 	        labels: true,
-	        set: [1950, 2020],
+	        set: [1950, 2025],
 	        width: '700px',
+	        onChange: function(val) {
+	        	regdate.value = val;
+	        }
 	    });
+	 const regdate = document.querySelector("#regdate");
+	 
 	 
 	 const selectAll = document.querySelector('#selectAll');
 	 const checkboxs = document.querySelectorAll('input[type="checkbox"]');
@@ -335,9 +276,29 @@
     	checkbox.addEventListener('change', function() {
         if (!this.checked) {
             selectAll.checked = false;
-        }
-    })
-}
-	
+	        }
+	    })
+		}
+	 const rateAll = document.querySelector('#allRatebtn');
+	 const rateBtns = document.querySelectorAll('input[name="rating"]');
+	 rateAll.addEventListener('change', function() {
+		 if (this.checked) {
+	         for (const checkbox of rateBtns) {
+	             checkbox.checked = true;
+	         }
+	     } else if (!this.checked) {
+	         for (const checkbox of rateBtns) {
+	             checkbox.checked = false;
+	         }
+	     }
+	 })
+	 
+	 for (const checkbox of rateBtns) {
+    	checkbox.addEventListener('change', function() {
+        if (!this.checked) {
+            rateAll.checked = false;
+	        }
+	    })
+		}
 	</script>
 </div>
