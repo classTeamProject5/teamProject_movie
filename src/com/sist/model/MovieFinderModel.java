@@ -22,18 +22,18 @@ public class MovieFinderModel{
 		String[] genres = request.getParameterValues("genre");
 		String[] ratings = request.getParameterValues("rating");
 		String regDate = request.getParameter("regdate");
-		if (title != null && !title.trim().equals("") && genres != null) {
-//			List<MovieFinderVO> list = movieFinderService.findMovie(title_);
-			for (String s: ratings) {
-				System.out.println(s);
-			}
-			System.out.println(regDate);
-			List<MovieFinderVO> list = movieFinderService.findMovie(genres, ratings, regDate, title);
+		String type = request.getParameter("type");
+		System.out.println(type);
+	if (title != null && !title.trim().equals("") && genres != null && !regDate.equals("")) {
+			List<MovieFinderVO> list = movieFinderService.findMovie(type, genres, ratings, regDate, title);
 			request.setAttribute("list", list);
+			request.setAttribute("main_jsp", "../detail_search/detail_search.jsp");
+			return "../main/main.jsp";
+		} else {
+			request.setAttribute("main_jsp", "../detail_search/detail_search.jsp");
+			return "../main/main.jsp";
 		}
 		
-		request.setAttribute("main_jsp", "../detail_search/detail_search.jsp");
-		return "../main/main.jsp";
 	}
 	
 	

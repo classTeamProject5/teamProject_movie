@@ -5,22 +5,21 @@
 <head>
 	<link rel="stylesheet" href="../detail_search/css/rSlider.min.css">
 </head>
-<div style="background: #1a2a6c; background: -webkit-linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c); background: linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c);">
+<div style="background: #1a2a6c; padding-top: 40px; padding-bottom: 40px; background: -webkit-linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c); background: linear-gradient(to left, #fdbb2d, #b21f1f, #1a2a6c);">
 	<script src="../detail_search/js/rSlider.min.js"></script>
 	<div class="container" style="border-radius: 30px; background-color: #F22973;">
-	<h1 id="test">안녕하세요</h1>
 		<form method="post" action="moviefind.do">
-		<div class="row">
+		<div class="row" style="margin-top: 30px;">
 			<div class="col-md-2 col-md-offset-6">
-				<select class="form-control">
-				  <option>전체</option>
-				  <option>제목</option>
-				  <option>배우</option>
-				  <option>감독</option>
+				<select class="form-control" name="type">
+				  <option value="all" ${(param.type == "all") ? "selected" : "" }>전체</option>
+				  <option value="title" ${(param.type == "title") ? "selected" : "" }>제목</option>
+				  <option value="actor" ${(param.type == "actor") ? "selected" : "" }>배우</option>
+				  <option value="director" ${(param.type == "director") ? "selected" : "" }>감독</option>
 				</select>
 			</div>
 			<div class="col-md-3">
-				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required>
+				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required value="${not empty param.title ? param.title : ''}">
 			</div>
 		</div>
 		<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
@@ -217,13 +216,12 @@
 	
 	<c:if test="${!empty list}">
 	<div class="container" style="border-radius: 30px; background-color: #F22973; margin-top: 50px;">
-
 	<div class="row" style="margin-top: 30px;">
 		<c:forEach var="m" items="${list}">
 		<c:set var="title" value="${m.title}" />
 			  <div class="col-md-3">
-			    <div class="thumbnail">
-			      <img src="${m.poster}" alt="...">
+			    <div class="thumbnail" style="width: 260px; height: 510px;">
+			      <img src="${m.poster}" alt="..." style="width: 100%;">
 			      <div class="caption text-right">
 			        <c:if test="${fn:length(title) > 10 }">
 			        	<h3>${fn:substring(m.title, 0, 10)}...</h3>
@@ -232,6 +230,7 @@
 			        	<h3>${m.title}</h3>
 			        </c:if>
 			        <p><a href="#" class="btn btn-primary" role="button">예매하기</a></p>
+			        <p>${m.regdate}</p>
 			      </div>
 			    </div>
 			  </div>
@@ -239,7 +238,21 @@
 	</div>
 	</div>
 	</c:if>
+	<c:if test="${empty list}">
+	<div class="container" style="border-radius: 30px; background-color: #F22973; margin-top: 50px">
+		<div class="row" style="margin-top: 30px;">
+			  <div class="col-md-6 col-md-offset-3">
+			    <div class="thumbnail">
+			      <div class="caption text-center">
+			        <h1>검색결과가 없습니다.</h1>
+			      </div>
+			    </div>
+			  </div>
+		</div>
 	</div>
+	</c:if>
+	
+	
 	<script>
 	 const mySlider = new rSlider({
 	        target: '#slider',

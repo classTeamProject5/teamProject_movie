@@ -131,26 +131,27 @@ public class MovieFinderService {
 	public List<MovieFinderVO> findMovie(String[] genre, String[] ratings, String regDate, String name) {
 		List<MovieFinderVO> list = new ArrayList<MovieFinderVO>();
 		
-		String genreStr = arrayToString(genre);
-		String ratingStr = arrayToString(ratings);
-		List<String> regDateArr = getDateArray(regDate);
-		System.out.println("시작 년도: " + regDateArr.get(0));
-		System.out.println("도착 년도: " + regDateArr.get(1));
-		String startYear = regDateArr.get(0);
-		String endYear = regDateArr.get(1);
-		final String sql = "SELECT title, poster FROM project_movie "
-				+ "WHERE title LIKE ? AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?))";
+		final String genreStr = arrayToString(genre);
+		final String ratingStr = arrayToString(ratings);
+		final List<String> regDateArr = getDateArray(regDate);
+		final String startYear = regDateArr.get(0);
+		final String endYear = regDateArr.get(1);
+		final String sql = "SELECT title, poster, regdate FROM project_movie "
+				+ "WHERE title LIKE ? AND REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?";
 		try {
 			getConnection();
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, "%" + name + "%");
 			ps.setString(2, genreStr);
 			ps.setString(3, ratingStr);
+			ps.setString(4, startYear);
+			ps.setString(5, endYear);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				MovieFinderVO vo = new MovieFinderVO();
 				vo.setTitle(rs.getString("title"));
 				vo.setPoster(rs.getString("poster"));
+				vo.setRegdate(rs.getString("regdate"));
 				list.add(vo);
 			}
 			rs.close();
@@ -163,7 +164,56 @@ public class MovieFinderService {
 		return list;
 	}
 	
-	
+	public List<MovieFinderVO> findMovie(String type, String[] genre, String[] ratings, String regDate, String name) {
+		List<MovieFinderVO> list = new ArrayList<MovieFinderVO>();
+		
+		final String genreStr = arrayToString(genre);
+		final String ratingStr = arrayToString(ratings);
+		final List<String> regDateArr = getDateArray(regDate);
+		final String startYear = regDateArr.get(0);
+		final String endYear = regDateArr.get(1);
+		getConnection();
+		String sql = makeSql(type);
+		ResultSet rs;
+		try {
+			if (type.equals("all")) {
+				System.out.println(type + "현재 타입 전체");
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, name);
+				ps.setString(2, name);
+				ps.setString(3, name);
+				ps.setString(4, genreStr);
+				ps.setString(5, ratingStr);
+				ps.setString(6, startYear);
+				ps.setString(7, endYear);
+				rs = ps.executeQuery();
+			} else {
+				System.out.println(type + " 현재 타입");
+				ps = conn.prepareStatement(sql);
+				ps.setString(1, name);
+				ps.setString(2, genreStr);
+				ps.setString(3, ratingStr);
+				ps.setString(4, startYear);
+				ps.setString(5, endYear);
+				rs = ps.executeQuery();
+			}
+			while(rs.next()) {
+				MovieFinderVO vo = new MovieFinderVO();
+				vo.setTitle(rs.getString("title"));
+				vo.setPoster(rs.getString("poster"));
+				vo.setRegdate(rs.getString("regdate"));
+				list.add(vo);
+			}
+			rs.close();
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			disConnection();
+		}
+		return list;
+	}
+		
 	public String arrayToString(String[] array) {
 		String temp = "";
 		
@@ -182,6 +232,29 @@ public class MovieFinderService {
 			result.add(st.nextToken());
 		}
 		return result;
+	}
+	
+	public String makeSql(String type) {
+		String sql = "";
+		
+		if (type.equals("all")) {
+			sql = "SELECT title, poster, regdate FROM project_movie "
+					+ "WHERE (REGEXP_LIKE(title, ?) OR REGEXP_LIKE(actor, ?) OR REGEXP_LIKE(director, ?)) "
+					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
+		} else if (type.equals("title")) {
+			sql = "SELECT title, poster, regdate FROM project_movie "
+					+ "WHERE (REGEXP_LIKE(title, ?)) "
+					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
+		} else if (type.equals("actor")) {
+			sql = "SELECT title, poster, regdate FROM project_movie "
+					+ "WHERE (REGEXP_LIKE(actor, ?)) "
+					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
+		} else if (type.equals("director")) {
+			sql = "SELECT title, poster, regdate FROM project_movie "
+					+ "WHERE (REGEXP_LIKE(director, ?)) "
+					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
+		}
+		return sql;
 	}
 	
 }
