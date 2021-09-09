@@ -15,7 +15,7 @@
                       <div class="header-topnav-side">
 	                      <!-- Left-aligned links (default) -->
 						  <a href="#news">멤버십</a>
-						  <a href="../customerCenter/customer_main.do">고객센터</a>
+						  <a href="../customerCenter/main.do">고객센터</a>
 						
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
