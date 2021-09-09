@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
- <link rel="stylesheet" href="../movietime/css/slide.css">
  <link
   rel="stylesheet"
   href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
@@ -32,10 +31,26 @@
 .txtBox::-webkit-scrollbar-track{
   background-color: #d3d3d3
 }
-.modal-dialog{
-	width:600px;
-	height: 350px;
+
+ .modal {
+        text-align: center;
 }
+ 
+@media screen and (min-width: 768px) { 
+        .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+        }
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+}
+
 
 input{
 	background-color:white;
@@ -110,8 +125,7 @@ color: white;
    <div class="swiper-slide">      
       <input type="button" class="btn3" value="09-10(금)">
    </div>
-    </c:forEach>
-   
+    </c:forEach>   
    </div>
    <!-- <div class="swiper-pagination"></div> -->
    <div class="swiper-button-next"></div>
@@ -177,8 +191,10 @@ color: white;
           <p>예매하시겠습니까?</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">네</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">아니요</button>
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="네" onClick="location.href='../reserve/seat.do'">
+          <input type="button" class="btn btn-default" data-dismiss="modal" value="아니오">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">네</button> -->
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">아니요</button> -->
         </div>
       </div>
     </div>
@@ -187,6 +203,7 @@ color: white;
        </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </body>

@@ -392,7 +392,7 @@
 						<input type="hidden" class="selectedSeat" name="selectedSeat">
 						<!-- 결제 정보 -->
 						<input type="hidden" class="payMoney" name="payMoney">
-						<button type="button" class="reserve-button">
+						<button type="button" class="reserve-button" onClick="location.href='../reserve/pay.do'">
 							결제하기<img src="#">
 						</button>
 					</form>
