@@ -58,14 +58,14 @@
                             <li class="dropdown">
                               <a class="dropdown-toggle" href="#">예매</a>
                                 <ul class="dropdown-menu">
-						          <li><a href="#">빠른 예매</a></li>
-						          <li><a href="#">상영시간표</a></li>
+						          <li><a href="../reserve/q_reserve.do">빠른 예매</a></li>
+						          <li><a href="../reserve/movie_time.do">상영시간표</a></li>
 						        </ul> 
                             </li>
                             <li class="dropdown">
                               <a class="dropdown-toggle" href="#">이벤트</a>
                                 <ul class="dropdown-menu">
-						          <li><a href="#">진행중인 이벤트</a></li>
+						          <li><a href="../event/event_main.do">진행중인 이벤트</a></li>
 						          <li><a href="#">당첨자 발표</a></li>
 						          <li><a href="#">지난 이벤트</a></li>
 						        </ul>

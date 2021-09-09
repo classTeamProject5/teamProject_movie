@@ -33,7 +33,7 @@ border-bottom:3px solid #63387b;
 color:#63387b;
 }
 
-.row{
+.event_board_list_row{
 	margin-top:40px;
 }
 
@@ -72,10 +72,12 @@ color:#63387b;
 
 
 
+.event_board_list_no,.event_board_list_category,.event_board_list_title,.event_board_list_release{
+	text-align: center;
+}
 
 
-
-.panel-body div table thead { /*no 구분 제목 발표일 있는곳*/
+.event_board_list_panel-body div table thead { /*no 구분 제목 발표일 있는곳*/
 	background-color:#354f91;
 	height:40px;
 	color:#f1f4fb;
