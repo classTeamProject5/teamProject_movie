@@ -11,6 +11,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.*;
 
+import com.sist.vo.EventVO;
+
 import javax.naming.*;
 public class EventDAO {
 
