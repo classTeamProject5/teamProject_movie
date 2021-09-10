@@ -218,3 +218,41 @@ div.content ul li.eventContent a span{
 	font-size: 12px;
 	padding-bottom: 14px;
 }
+
+
+
+/***********************페이지 나누는 버튼 *****************************************/
+.event_list_row{
+	font-family: 'Noto Sans KR', sans-serif;
+	width:500px;
+	position:relative;
+	margin:0 auto;	
+	text-align: center;
+}
+
+.event_list_page a{
+	text-decoration: none;
+}
+
+.event_list_pagination{
+	border:5px solid black;
+	text-align:center;
+	margin:20px auto 50px auto ;
+	width:max-content;
+	height:50px;
+}
+.event_list_pagination li{
+	width:max-content;
+	float:left;
+}
+
+.event_list_pagination a{
+	padding:0 10px;
+}
+.event_list_pagination a:hover{
+	text-decoration: none;
+}
+.event_list_pagination a:focus{
+	background-color: blue;
+}
+

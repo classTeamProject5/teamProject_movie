@@ -61,7 +61,7 @@
 
 div.viplounge_table {
 	width:1100px;
-	margin:100px auto 0 auto;
+	margin:100px auto 150px auto; /*상 우 하 좌*/
 
 }
 div.viplounge_table div.viplounge_container div.viplounge_table p{
