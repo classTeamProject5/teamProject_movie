@@ -20,7 +20,7 @@
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
 						    <a href="../login/login.do">로그인</a>
-						    <a href="../memeber/join.do">회원가입</a>
+						    <a href="../member/join.do">회원가입</a>
 						    <a href="#about">빠른예매</a>
 						  </div>
 					  </div>
