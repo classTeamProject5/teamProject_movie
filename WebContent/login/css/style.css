@@ -124,7 +124,7 @@ ol {
 .site-btn {
 	font-size: 13px;
 	color: #ffffff;
-	background: #e53637;
+	background: #9e28ce;
 	font-weight: 700;
 	border: none;
 	border-radius: 2px;
@@ -315,7 +315,7 @@ ol {
 }
 
 .login__register .primary-btn {
-	background: #e53637;
+	background: #9e28ce;
 	padding: 12px 42px;
 }
 

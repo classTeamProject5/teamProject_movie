@@ -52,7 +52,7 @@
                               <a class="dropdown-toggle" href="#">영화</a>
                                 <ul class="dropdown-menu">
 						          <li><a href="#">무비차트</a></li>
-						          <li><a href="moviefind.do">무비파인더</a></li>
+						          <li><a href="../main/moviefind.do">무비파인더</a></li>
 						        </ul>
                             </li>
                             <li class="dropdown">
@@ -67,7 +67,7 @@
                                 <ul class="dropdown-menu">
 						          <li><a href="../event/event_category_all.do">진행중인 이벤트</a></li>
 						          <li><a href="../event/event_board_list.do">당첨자 발표</a></li>
-						          <li><a href="#">지난 이벤트</a></li>
+						          <li><a href="../event/event_last_event.do">지난 이벤트</a></li>
 						        </ul>
                             </li>
                             <li class="dropdown">

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html class="fixed">
 	<head>
@@ -7,7 +9,7 @@
 		<!-- Basic -->
 		<meta charset="UTF-8">
 
-		<title>Basic Tables | Okler Themes | Porto-Admin</title>
+		<title>당첨자 발표</title>
 		<meta name="keywords" content="HTML5 Admin Template" />
 		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
 		<meta name="author" content="okler.net">
@@ -39,21 +41,17 @@
 				
 				
 					<div class="event_header">
-						<div class="event_contentTitle">당첨자 발표
+						<div class="event_contentTitle"><a class="event_otherLink" href="event_board_list.do">당첨자 발표</a>
 						</div>
-						<div class="event_otherLinkBox"><a class="event_otherLink">지난 이벤트</a>
+						<div class="event_otherLinkBox"><a class="event_otherLink" href="event_last_event.do">지난 이벤트</a>
 						</div>
-						<div class="event_otherLinkBox"><a class="event_otherLink">진행중인 이벤트</a>
+						<div class="event_otherLinkBox"><a class="event_otherLink" href="event_category_all.do">진행중인 이벤트</a>
 						</div>
 					</div>	
 					
 					
 					<!-- start: page -->
-					<div class="event_board_Menus">
-						<a class="event_board_categoryMenu">전체</a>
-						<a class="event_board_categoryMenu">영화</a>
-						<a class="event_board_categoryMenu">극장</a>
-					</div>
+					
 					
 						<div class="event_board_list_row">
 							
@@ -72,14 +70,19 @@
 													</tr>
 												</thead>
 												<tbody>
-													<%for(int i=1; i<=10; i++){ %>
+													<c:forEach var="vo" items="${list}">
 													<tr>
-														<td class="event_board_list_content" id="event_board_list_table_content_no">번호</td>
-														<td class="event_board_list_content" id="event_board_list_table_content_category">영화/극장</td>
-														<td class="event_board_list_content" id="event_board_list_table_content_title">제목 들어갈 자리</td>
-														<td class="event_board_list_content" id="event_board_list_table_content_release">날짜 들어갈 자리</td>
+														<td class="event_board_list_content" id="event_board_list_table_content_no">
+															${vo.mno}</td>
+														<td class="event_board_list_content" id="event_board_list_table_content_category">
+															${vo.category}</td>
+														<td class="event_board_list_content" id="event_board_list_table_content_title">
+															<a href="event_board_list_detail.do?mno=${vo.mno}">${vo.title}</a>
+														</td>
+														<td class="event_board_list_content" id="event_board_list_table_content_release">
+															${vo.release}</td>
 													</tr>
-													<%} %>
+													</c:forEach>
 												</tbody>
 											</table>
 										</div>
