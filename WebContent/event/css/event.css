@@ -24,7 +24,9 @@ li{
 	list-style: none;
 }
 
-
+a:hover{
+	text-decoration: none; !important;
+}
 
 /***************************************************************************/
 
@@ -65,6 +67,7 @@ div.event_contentTitle{
  	font-size:14px;
  	width:100px;
  	float:right;
+ 
  }
 
 /**************************************************************************************************/
@@ -100,13 +103,16 @@ button.btn-search-input{
 	right: 1px;
 	top:1px;
 	border: none;
-	background-image: url("../images/search_38x38.png");
-	background-color: transparent;
+	background-image: url("../imgs/search_38x38.png");
+	background-color: white;
+	border-left: 1px solid #eeeeee;
 }
 button.btn-search-input:hover{
 	cursor: pointer;
 }
-
+button.btn-search-input:active{
+	background-image: url("../imgs/search2_38x38.png");
+}
 
 
 
@@ -149,7 +155,7 @@ div.content{
 	width:1132px; /*header의 min-width와 맞춰주는 크기.*/
 	position:relative;
 	left:16px;
-	margin: 0 auto;
+	margin: 10px auto 80px auto;
 	
 	
 	
@@ -182,14 +188,15 @@ div.content ul li.eventContent a{
 div.content ul li.eventContent a span{
 	display: block; /* span을 div블락처럼 정렬*/
 }
+/*
 .eventImg_box{
 	height:172px;
-	overflow: hidden; /*가로 비율은 유지하되, 그냥 넘치는 부분을 잘라내기위해*/
+	overflow: hidden; /*가로 비율은 유지하되, 그냥 넘치는 부분을 잘라내기위해
 	border:1px solid #e0e0e0;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
 	
-}
+}*/
 .eventText_box{
 	background-color: white;
 	overflow: hidden;
@@ -199,19 +206,26 @@ div.content ul li.eventContent a span{
 	border-bottom-right-radius: 8px;
 	
 }
-.eventImg{
+
+.eventImgBox{
 	width: 250px;
-	position:relative;
-	top:0px;
-	
-	
+	height:172px;
+	overflow:hidden;
+	border:1px solid #e0e0e0;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.eventImg{
+	width:250px;
+	height:auto;
 	
 }
 .eventTitle{
 	color: black;
 	padding-top:8px;
 	padding-bottom:8px;
-	font-size: 13px;
+	font-size: 12px;
 }
 .eventDates{
 	color: #999999;
@@ -255,4 +269,48 @@ div.content ul li.eventContent a span{
 .event_list_pagination a:focus{
 	background-color: blue;
 }
-
+/**************************************************************************************************************/
+/*****아래부터는 이벤트 상세 페이지*************************************************************************************/
+.detailPageTitle{
+	width:max-content;
+	color:#354f91;
+	font-size:28px;
+	font-weight: bold;
+	margin:50px auto 30px auto;
+}
+.detailInfoBox{
+	margin:20px auto 50px auto;
+}
+.detailInfoTitle{
+	width:300px;
+	color:#333333;
+	font-size:17px;
+	font-weight:bold;
+	margin:0 auto 0 auto;
+	text-align: center;
+}
+.detailInfoTerm{
+	width:300px;
+	color:#555555;
+	font-size:13px;
+	margin:2px auto 0 auto;
+	text-align: center;
+}
+.detailInfoContent{
+	width:500px;
+	height: auto;
+	margin:0 auto 70px auto;
+}
+.topBtn{
+	background-image:url("../imgs/topBtn.png");
+	width:80px;
+	height:80px;
+	background-size: contain;
+	position: fixed;
+	bottom:20px;
+	right: 40px;
+	z-index:999;
+}
+ .event_ulli{
+ 	margin:0; 
+ }

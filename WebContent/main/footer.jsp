@@ -17,12 +17,11 @@
                         <h2><img src="../main/assets/img/megaStyle_title.png" style="margin-left: 240px;"></h2>
                         <ul>
                             <li><a href="#">회사소개</a></li>
-                            <li><a href="../customerCenter/customer_main.do">고객센터</a></li>
+                            <li><a href="../customerCenter/main.do">고객센터</a></li>
                         </ul>
                         <address>
-                            <p>서울특별시 마포구 서교동 447-5 풍성빌딩 2,3,4층</p>
-
-                            <p>Copyright 2014 by HondaeJoongAng Inc. All right reserved</p>
+                            <p>제작&copy; 2021 - 1 차 JSP프로젝트 - <a href=#>강북쌍용교육센터 G강의장</a></p>
+                            <p>Website by <a href="#">영화사이트</a></p>
                         </address>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,36 +17,51 @@
 	        <th class="text-center danger" width=20%>작성일</th>
 	        <th class="text-center danger" width=20%>조회수</th>
 	      </tr>
+	     
 	      <tr>
-	        <td class="text-center" width=50%>제목 내용</td>
-	        <td class="text-center" width=20%>2021/01/01</td>
-	        <td class="text-center" width=20%>2</td>
+	        <td class="text-center" width=50%>${vo.title}</td>
+	        <td class="text-center" width=20%>${vo.regdate }</td>
+	        <td class="text-center" width=20%>${vo.hit }</td>
 	      </tr>
 	    </table>
 	    <hr>
 	    <table class="table">
 	      <tr> 
-	        <td colspan="4" style="border: 1px solid #ccc; width:1200px; height : 400px; margin-top: 30px;">내용</td> 
+	        <td colspan="4" style="border: 1px solid #ccc; width:1200px; height : 400px; margin-top: 30px;"><pre>${vo.content }</pre></td> 
 	      </tr>
 	      <tr>
 	        <td colspan="4" class="text-right">
-	         <a href="list.do" class="btn btn-xs btn-info">목록</a>
+	         <a href="notice.do" class="btn btn-xs btn-info">목록</a>
 	        </td>
 	      </tr>
 	    </table>
 	    <table class="table">
-	      <tr>
-	        <td class="text-center" width=10%>이전글</td>
-	        <td class="text-center" width=10%>▲</td>
-	        <td class="text-center" width=50%><a href="#">제목</a></td>
-	        <td class="text-center text-right" width=20%>날짜</td>
-	      </tr>
-	      <tr>
-	        <td class="text-center" width=10%>다음글</td>
-	        <td class="text-center" width=10%>▼</td>
-	        <td class="text-center" width=50%><a href="#">제목</a></td>
-	        <td class="text-center text-right" width=20%>날짜</td>
-	      </tr>
+	     <c:choose >
+	      <c:when test="${empty vodown.title}">
+	        
+	      </c:when>
+	      <c:otherwise>
+	        <tr>
+	          <td class="text-center" width=10%>이전글</td>
+	          <td class="text-center" width=10%>▲</td>
+	          <td class="text-center" width=50%><a href="notice_detail.do?no=${vodown.no }">${vodown.title }</a></td>
+	          <td class="text-center text-right" width=20%>날짜</td>
+	        </tr>
+	      </c:otherwise>
+	     </c:choose>
+	     <c:choose >
+	      <c:when test="${empty voup.title}">
+	        
+	      </c:when>
+	      <c:otherwise>
+	        <tr>
+	          <td class="text-center" width=10%>다음글</td>
+	          <td class="text-center" width=10%>▼</td>
+	          <td class="text-center" width=50%><a href="notice_detail.do?no=${voup.no }">${voup.title }</a></td>
+	          <td class="text-center text-right" width=20%>날짜</td>
+	        </tr>
+	      </c:otherwise>
+	     </c:choose>
 	    </table>
 	  </div>
 	</div>

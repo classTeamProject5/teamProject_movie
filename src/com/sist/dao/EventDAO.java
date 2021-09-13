@@ -12,6 +12,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.*;
 
 import com.sist.vo.EventVO;
+import com.sist.vo.EventWinnerVO;
 
 import javax.naming.*;
 public class EventDAO {
@@ -358,13 +359,15 @@ public class EventDAO {
    
    /***********************************************************************************************************/
 	
-	public List<EventVO> eventAllData() //페이지와 관련되서 쓸까해서 만들었는데 쓰는 방법을 모르겠다.
+	public List<EventVO> eventAllData() 
 	   {
 		   List<EventVO> list=new ArrayList<EventVO>();
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT * FROM event_main2 WHERE event_poster IS NOT NULL";
+			   String sql="SELECT * FROM event_main2 "
+			   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' "
+			   		+ "ORDER BY event_term DESC";
 			   
 			   ps=conn.prepareStatement(sql);			
 			   
@@ -393,12 +396,234 @@ public class EventDAO {
 		   }
 		   return list;
 	   }
+	//****************************************************************************************************//
+	public List<EventVO> eventMovieData() 
+	   {
+		   List<EventVO> list=new ArrayList<EventVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT * FROM event_main2 "
+			   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND event_category = '영화'";
+			   
+			   ps=conn.prepareStatement(sql);			
+			   
+			   // 실행 
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   EventVO vo=new EventVO();
+				   vo.setMno(rs.getInt(1));
+				   vo.setCategory(rs.getString(2));
+				   vo.setPoster(rs.getString(3));
+				   vo.setTitle(rs.getString(4));
+				   vo.setTerm(rs.getString(5));
+				   vo.setState(rs.getString(6));
+				   vo.setContent(rs.getString(7));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return list;
+	   }
+	//***************************************************************************************************//
+	public List<EventVO> eventTheaterData() 
+	   {
+		   List<EventVO> list=new ArrayList<EventVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT * FROM event_main2 "
+			   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND event_category = '극장'";
+			   
+			   ps=conn.prepareStatement(sql);			
+			   
+			   // 실행 
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   EventVO vo=new EventVO();
+				   vo.setMno(rs.getInt(1));
+				   vo.setCategory(rs.getString(2));
+				   vo.setPoster(rs.getString(3));
+				   vo.setTitle(rs.getString(4));
+				   vo.setTerm(rs.getString(5));
+				   vo.setState(rs.getString(6));
+				   vo.setContent(rs.getString(7));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return list;
+	   }
+    //******************************************************************************************************//
+	public List<EventVO> eventLastEventData() 
+	   {
+		   List<EventVO> list=new ArrayList<EventVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT * FROM event_main2 "
+			   		+ "WHERE event_poster IS NOT NULL AND event_state = '지난 이벤트' "
+			   		+ "ORDER BY event_term DESC";
+			   
+			   ps=conn.prepareStatement(sql);			
+			   
+			   // 실행 
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   EventVO vo=new EventVO();
+				   vo.setMno(rs.getInt(1));
+				   vo.setCategory(rs.getString(2));
+				   vo.setPoster(rs.getString(3));
+				   vo.setTitle(rs.getString(4));
+				   vo.setTerm(rs.getString(5));
+				   vo.setState(rs.getString(6));
+				   vo.setContent(rs.getString(7));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return list;
+	   }
+	/******************************************************************************************************/
+	/*******************************************************************************************************/
+	public List<EventWinnerVO> boardListData() 
+	   {
+		   List<EventWinnerVO> list=new ArrayList<EventWinnerVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT * FROM event_winner_detail";
+			   
+			   ps=conn.prepareStatement(sql);			
+			   
+			   // 실행 
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   EventWinnerVO vo=new EventWinnerVO();
+				   vo.setMno(rs.getInt(1));
+				   vo.setCategory(rs.getString(2));
+				   vo.setTitle(rs.getString(3));
+				   vo.setRelease(rs.getString(4));
+				   vo.setContent(rs.getString(5));
+				   vo.setEvent_title(rs.getString(6));				   
+				   vo.setGift(rs.getString(7));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return list;
+	   }
 	
 	
-	
-    
     /****************************************************************************************************/
-   // 목록 출력 
+   // 지난이벤트페이지 페이징 : 이전 1page / totalpage 다음 스타일.
+	public List<EventVO> eventLastEventData_Paging(int page){
+		
+		List<EventVO> list = new ArrayList<EventVO>();
+		try {
+			getConnection();
+				
+			   String sql="SELECT mno,event_category,event_poster,event_title,event_term,event_state,event_content,rnum "
+					     +"FROM (SELECT mno,event_category,event_poster,event_title,event_term,event_state,event_content,rownum as rnum "
+					     +"FROM (SELECT mno,event_category,event_poster,event_title,event_term,event_state,event_content "
+					     +"FROM event_main2 WHERE event_poster IS NOT NULL AND event_state = '지난 이벤트')) "
+					     +"WHERE rnum BETWEEN ? AND ?";
+			   	
+			 
+			   ps=conn.prepareStatement(sql);
+			   
+			   ps=conn.prepareStatement(sql);
+			   int rowSize=12;
+			   int start=(rowSize*page)-(rowSize-1);
+			   int end=rowSize*page;
+			   ps.setInt(1, start);
+			   ps.setInt(2, end);
+			   
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   EventVO vo=new EventVO();
+				   vo.setMno(rs.getInt(1));
+				   vo.setCategory(rs.getString(2));
+				   vo.setPoster(rs.getString(3));
+				   vo.setTitle(rs.getString(4));
+				   vo.setTerm(rs.getString(5));
+				   vo.setState(rs.getString(6));
+				   vo.setContent(rs.getString(7));
+				   list.add(vo);
+			   }
+			   rs.close();
+			   
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}finally {
+			disConnection();
+		}
+		
+		
+		return list;
+	}
+	
+	public int eventLastEventTotal_Paging()
+	   {
+		   int total=0;
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT CEIL(COUNT(*)/12.0) FROM event_main2 WHERE event_poster IS NOT NULL AND event_state = '지난 이벤트'";
+			   ps=conn.prepareStatement(sql);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   total=rs.getInt(1);
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return total;
+	   }
+	
+	
+	
+	
+	
+/*
    public List<EventVO> eventListData(int page) //페이지와 관련되서 쓸까해서 만들었는데 쓰는 방법을 모르겠다.
    {
 	   List<EventVO> list=new ArrayList<EventVO>();
@@ -466,12 +691,63 @@ public class EventDAO {
 	   return total;
 	   
    }
+   */
    // 상세보기 
-   public EventVO EventDetailData(int mno)
+   public EventVO eventDetailData(int mno)
    {
 	   EventVO vo=new EventVO();
-	   try
+	   try{
+		   getConnection();
+		   String sql="SELECT * FROM event_main2 WHERE mno=?";
+		   
+		   ps=conn.prepareStatement(sql);			
+		   ps.setInt(1, mno);
+		   ResultSet rs=ps.executeQuery();
+			rs.next();
+		   // 실행 
+		   
+			   vo.setMno(rs.getInt(1));
+			   vo.setCategory(rs.getString(2));
+			   vo.setPoster(rs.getString(3));
+			   vo.setTitle(rs.getString(4));
+			   vo.setTerm(rs.getString(5));
+			   vo.setState(rs.getString(6));
+			   vo.setContent(rs.getString(7));
+			   rs.close();
+	   }catch(Exception ex)
 	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   disConnection();
+	   }
+	   return vo;
+   }
+   
+   
+   
+   public EventWinnerVO eventBoardDetailData(int mno)
+   {
+	   EventWinnerVO vo=new EventWinnerVO();
+	   try{
+		   getConnection();
+		   String sql="SELECT * FROM event_winner_detail WHERE mno=?";
+		   
+		   ps=conn.prepareStatement(sql);			
+		   ps.setInt(1, mno);
+		   ResultSet rs=ps.executeQuery();
+			rs.next();
+		   // 실행 
+		   
+				vo.setMno(rs.getInt(1));
+			   vo.setCategory(rs.getString(2));
+			   vo.setTitle(rs.getString(3));
+			   vo.setRelease(rs.getString(4));
+			   vo.setContent(rs.getString(5));
+			   vo.setEvent_title(rs.getString(6));				   
+			   vo.setGift(rs.getString(7));
+			   rs.close();
 	   }catch(Exception ex)
 	   {
 		   ex.printStackTrace();

@@ -15,12 +15,12 @@
                       <div class="header-topnav-side">
 	                      <!-- Left-aligned links (default) -->
 						  <a href="#news">멤버십</a>
-						  <a href="../customerCenter/customer_main.do">고객센터</a>
+						  <a href="../customerCenter/main.do">고객센터</a>
 						
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
-						    <a href="#search">로그인</a>
-						    <a href="#about">회원가입</a>
+						    <a href="../login/login.do">로그인</a>
+						    <a href="../member/join.do">회원가입</a>
 						    <a href="#about">빠른예매</a>
 						  </div>
 					  </div>
@@ -28,7 +28,7 @@
 					  <!-- Centered link -->
 					  <div class="header-topnav-centered">
 						  <h1>
-	                        <a href="#">
+	                        <a href="../main/main.do">
 	                            <em><img src="../main/assets/img/megaStyle_title.png" alt="MEGABOX"></em>
 	                            <!-- <strong><img src="assets/img/logo-sub.png" alt="LIFE THEATER"></strong>  -->
 	                        </a>    
@@ -52,7 +52,7 @@
                               <a class="dropdown-toggle" href="#">영화</a>
                                 <ul class="dropdown-menu">
 						          <li><a href="#">무비차트</a></li>
-						          <li><a href="moviefind.do">무비파인더</a></li>
+						          <li><a href="../main/moviefind.do">무비파인더</a></li>
 						        </ul>
                             </li>
                             <li class="dropdown">
@@ -67,7 +67,7 @@
                                 <ul class="dropdown-menu">
 						          <li><a href="../event/event_category_all.do">진행중인 이벤트</a></li>
 						          <li><a href="../event/event_board_list.do">당첨자 발표</a></li>
-						          <li><a href="#">지난 이벤트</a></li>
+						          <li><a href="../event/event_last_event.do">지난 이벤트</a></li>
 						        </ul>
                             </li>
                             <li class="dropdown">
