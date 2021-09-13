@@ -17,7 +17,7 @@
     rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../login/css/bootstrap.min.css" type="text/css">
+    <!-- <link rel="stylesheet" href="../login/css/bootstrap.min.css" type="text/css"> -->
     <link rel="stylesheet" href="../login/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="../login/css/elegant-icons.css" type="text/css">
     <link rel="stylesheet" href="../login/css/plyr.css" type="text/css">
