@@ -37,7 +37,6 @@
 				    <a href="notice.do?type=기타" style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;">기타</a>
 				  </li>
 	          </ul>
-	     
 		</div>
     </nav>
     <table class="table" style="width:1000px; margin: auto;">
