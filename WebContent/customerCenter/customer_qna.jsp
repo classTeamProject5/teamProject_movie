@@ -25,7 +25,7 @@
 			        </select>
 			      </td>
 			    </tr>
-			    
+			     
 			    <tr>
 			      <th width=20% class="text-center"  style="background-color: #d3d3d3">이름</th>
 			      <td width=80%><input type="text" name=name></td>
