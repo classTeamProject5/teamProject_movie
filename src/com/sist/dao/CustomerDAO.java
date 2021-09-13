@@ -93,6 +93,28 @@ public class CustomerDAO {
 		return list;
 	}
 	//공지사항
+	public void custmerNoticeInsert(CustomerNoticeVO vo)
+	{
+		try
+		{
+			getConnection();
+			String sql="INSERT INTO customer_notice "
+					+ "VALUES(no_seq.nextval,?,?,sysdate,?,0,?)";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, vo.getType());
+			ps.setString(2, vo.getTitle());
+			ps.setString(3, vo.getContent());
+			ps.setString(4, "전체");
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
 	public List<CustomerNoticeVO> customerNoticeList(String type2,int page)
 	{
 		List<CustomerNoticeVO> list=new ArrayList<CustomerNoticeVO>();

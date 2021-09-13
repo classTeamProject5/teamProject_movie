@@ -34,16 +34,16 @@ public class CustomerMainModel {
 	public String customer_notice(HttpServletRequest request,HttpServletResponse response)
 	{
 		
-		String type2=request.getParameter("type2"); 
-		if(type2==null) 
-			type2="전체";
+		String type=request.getParameter("type"); 
+		if(type==null) 
+			type="전체";
 		String page=request.getParameter("page");
 		if(page==null)
 			page="1";
 		int curpage=Integer.parseInt(page);
 		
 		CustomerDAO dao=CustomerDAO.newInstance();
-		List<CustomerNoticeVO> list=dao.customerNoticeList(type2,curpage);
+		List<CustomerNoticeVO> list=dao.customerNoticeList(type,curpage);
 		int totalPage=dao.noticeTotalPage();
 		final int BLOCK=5;
 		int startPage=(((curpage-1)/BLOCK)*BLOCK)+1;
@@ -60,6 +60,33 @@ public class CustomerMainModel {
 		request.setAttribute("main_jsp", "../customerCenter/customer_main.jsp");
 		request.setAttribute("customer_main", "customer_notice.jsp");
 		return "../main/main.jsp";
+	}
+	@RequestMapping("customerCenter/notice_insert.do")
+	public String customer_notice_insert(HttpServletRequest request,HttpServletResponse response)
+	{
+		request.setAttribute("main_jsp", "../customerCenter/customer_main.jsp");
+		request.setAttribute("customer_main", "customer_notice_insert.jsp");
+		return "../main/main.jsp";
+	}
+	@RequestMapping("notice_insert_ok.do")
+	public String customer_notice_insert_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		
+		String type=request.getParameter("type");
+		String title=request.getParameter("title");
+		String content=request.getParameter("content");
+		
+		CustomerNoticeVO vo=new CustomerNoticeVO();
+		vo.setType(type);
+		vo.setTitle(title);
+		vo.setContent(content);
+		CustomerDAO dao=CustomerDAO.newInstance();
+		dao.custmerNoticeInsert(vo);
+		return "redirect:customerCenter/notice.do";
 	}
 	@RequestMapping("customerCenter/notice_detail.do")
 	public String customer_notice_detail(HttpServletRequest request,HttpServletResponse response)
