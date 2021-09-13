@@ -52,7 +52,7 @@
                               <a class="dropdown-toggle" href="#">영화</a>
                                 <ul class="dropdown-menu">
 						          <li><a href="#">무비차트</a></li>
-						          <li><a href="moviefind.do">무비파인더</a></li>
+						          <li><a href="../main/moviefind.do">무비파인더</a></li>
 						        </ul>
                             </li>
                             <li class="dropdown">
