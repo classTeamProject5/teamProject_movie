@@ -23,17 +23,17 @@
 <body>
     <div class="customer-container">
           <div class="row-cus justify-content-center">
-            <div class="col-md-8 col-lg-6 text-center mb-3">
+            <div class="col-md-8 col-lg-6 text-center mb-3" style="margin-right: 100px;">
               <h2 class="fw-bold">고객센터</h2>
               <p class="mb-5">고객의 소리를 듣습니다</p>
             </div>
           </div>
           
-          <nav class="navbar navbar-defualt" style="width: 1200px; ">
-			<div class="container-fluid">
-			  <ul class="nav navbar-nav" style="width: 400px; ">			   
+          <nav class="navbar navbar-defualt" style="margin-right: 100px;">
+			<div class="container-fluid" style="margin-left: 50px;">
+			  <ul class="nav navbar-nav" style="width: 1000px; ">			   
 			      <li style="width: 32%; height:60px; text-align: center;  background-color:white;">
-			      <a href="../customerCenter/main.do" style="color: #212121; border-bottom: 1px solid black;">FAQ</a>
+			      <a href="../customerCenter/main.do" style="color: #212121; border-bottom: 1px solid black;">자주 묻는 질문</a>
 			      </li>
 			      <li style="width: 32%; height:60px; text-align: center;  margin-left: 3px; background-color: white;">
 			      <a href="../customerCenter/notice.do" style="color: #212121; border-bottom: 1px solid black;">공지사항</a>
@@ -51,24 +51,7 @@
     
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-$(function(){
-	$('#cus-all').click(function(){
-	    // 사용자 ID를 갖고 온다.
-	    
-	    $.ajax({
-	        url:'notice.do',
-	        type:'POST',
-	        data: {'type2':'기타'},
-	        success:function(data)
-	        {
-	        	alert("완료!!!")
-	        	$('#a').html(data)
-	        	
-	        }
-	        
-	    })
-	})
-})
+
 </script>
 
     

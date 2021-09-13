@@ -10,9 +10,9 @@
 </head>
 <body>
      <section class="py-8" id="faq" style="margin-top: 10px;">
-       <div class="container">
-       <div class="row">
-        <div class="search-container" style="text-align: right;">
+       <div class="customer-container">
+       <div class="customer-row">
+        <div class="search-container" style="text-align: right; width:1000px;">
 	        <form action="#">
 	          <input type=text name="search" placeholder="검색어를 입력해 주세요"></input>
 	          <button type="submit" class="glyphicon glyphicon-search"></button>
@@ -42,9 +42,9 @@
 		    </div>
 		  </nav>
           <div class="row-cus flex-center">
-            <div class="col-lg-9">
+            <div class="col-lg-9" style="margin-left: 75px;">
              <c:forEach var="vo" items="${list }" varStatus="s">
-              <div class="accordion" id="accordionExample" style="width: 1200px;">
+              <div class="accordion" id="accordionExample" style="width: 1000px;">
                 <div class="accordion-item mb-2">
                   <h2 class="accordion-header" id="heading1">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${s.index }" aria-controls="collapse${s.index }" >

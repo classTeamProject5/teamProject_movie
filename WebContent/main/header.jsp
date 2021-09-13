@@ -19,8 +19,8 @@
 						
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
-						    <a href="#search">로그인</a>
-						    <a href="#about">회원가입</a>
+						    <a href="../login/login.do">로그인</a>
+						    <a href="../memeber/join.do">회원가입</a>
 						    <a href="#about">빠른예매</a>
 						  </div>
 					  </div>
@@ -28,7 +28,7 @@
 					  <!-- Centered link -->
 					  <div class="header-topnav-centered">
 						  <h1>
-	                        <a href="#">
+	                        <a href="../main/main.do">
 	                            <em><img src="../main/assets/img/megaStyle_title.png" alt="MEGABOX"></em>
 	                            <!-- <strong><img src="assets/img/logo-sub.png" alt="LIFE THEATER"></strong>  -->
 	                        </a>    

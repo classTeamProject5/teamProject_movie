@@ -5,7 +5,7 @@
 #footer {background: #211f1f;}
 
 /* 가운데 영역 */
-.customer-container {position: relative; width: 1280px; margin: 0 auto; /* background:rgba(0,0,0,0.1); */ }
+.customer-container {position: relative; width: 1080px; margin: 0 auto; /* background:rgba(0,0,0,0.1); */ }
 
 /* 로우 영역 */
 .customer-row {padding: 0 16px;}

@@ -5,6 +5,7 @@ import javax.sql.*;
 
 import com.sist.vo.CustomerFAQVO;
 import com.sist.vo.CustomerNoticeVO;
+import com.sist.vo.CustomerQNAVO;
 
 import javax.naming.*;
 public class CustomerDAO {
@@ -92,7 +93,7 @@ public class CustomerDAO {
 		return list;
 	}
 	//공지사항
-	public List<CustomerNoticeVO> customerNoticeList(String type2)
+	public List<CustomerNoticeVO> customerNoticeList(String type2,int page)
 	{
 		List<CustomerNoticeVO> list=new ArrayList<CustomerNoticeVO>();
 		try
@@ -100,12 +101,20 @@ public class CustomerDAO {
 			getConnection();
 			if(type2.equals("전체"))
 			{
-				String sql="SELECT type,title,regdate,hit,no "
-						+ "FROM customer_notice "
+				String sql="SELECT type,title,regdate,hit,no,all_type,num "
+						+ "FROM (SELECT type,title,regdate,hit,no,all_type,rownum as num "
+						+ "FROM (SELECT type,title,regdate,hit,no,all_type "
+						+ "FROM customer_notice ORDER BY no DESC)) "
 						+ "WHERE all_type=? "
-						+ "ORDER BY no DESC ";
+						+ "AND (num BETWEEN ? AND ?)";
 				ps=conn.prepareStatement(sql);
+				int rowSize=10;
+				int start=(rowSize*page)-(rowSize-1);
+	    		int end=rowSize*page;
+	    		
 				ps.setString(1, type2);
+				ps.setInt(2, start);
+				ps.setInt(3, end);
 				ResultSet rs=ps.executeQuery();
 				while(rs.next())
 				{
@@ -119,27 +128,35 @@ public class CustomerDAO {
 				}
 				rs.close();
 			}
-			else
-			{
-				String sql="SELECT type,title,regdate,hit,no "
-						+ "FROM customer_notice "
-						+ "WHERE type=? "
-						+ "ORDER BY no DESC ";
+			else 
+			{ 
+				String sql="SELECT type,title,regdate,hit,no,all_type,num " +
+						"FROM (SELECT type,title,regdate,hit,no,all_type,rownum as num " +
+						"FROM (SELECT type,title,regdate,hit,no,all_type " +
+						"FROM customer_notice ORDER BY no DESC)) " + 
+						"WHERE type=? " +
+						"AND (num BETWEEN ? AND ?)"; 
 				ps=conn.prepareStatement(sql);
-				ps.setString(1, type2);
-				ResultSet rs=ps.executeQuery();
+				int rowSize=10;
+				int start=(rowSize*page)-(rowSize-1);
+				int end=rowSize*page; ps.setString(1,type2); 
+				ps.setInt(2, start);
+				ps.setInt(3, end); ResultSet
+				rs=ps.executeQuery();
 				while(rs.next())
-				{
-					CustomerNoticeVO vo=new CustomerNoticeVO();
+				{ 
+					CustomerNoticeVO vo=new
+					CustomerNoticeVO();
 					vo.setType(rs.getString(1));
-					vo.setTitle(rs.getString(2));
+					vo.setTitle(rs.getString(2)); 
 					vo.setRegdate(rs.getDate(3));
-					vo.setHit(rs.getInt(4));
-					vo.setNo(rs.getInt(5));
-					list.add(vo);
+					vo.setHit(rs.getInt(4)); 
+					vo.setNo(rs.getInt(5)); 
+					list.add(vo); 
 				}
 				rs.close();
-			}
+			  }
+			 
 			
 
 		}catch(Exception ex)
@@ -151,6 +168,28 @@ public class CustomerDAO {
 			disConnection();
 		}
 		return list;
+	}
+	public int noticeTotalPage()
+	{
+		int total=0;
+    	try
+    	{
+    		getConnection();
+    		String sql="SELECT CEIL(COUNT(*)/10.0) FROM customer_notice";
+    		ps=conn.prepareStatement(sql);
+    		ResultSet rs=ps.executeQuery();
+    		rs.next();
+    		total=rs.getInt(1);
+    		rs.close();
+    	}catch(Exception ex)
+    	{
+    		ex.printStackTrace();
+    	}
+    	finally
+    	{
+    		disConnection();
+    	}
+    	return total;
 	}
 	public CustomerNoticeVO customerNoticeDetail(int no)
 	{
@@ -181,5 +220,32 @@ public class CustomerDAO {
 			disConnection();
 		}
 		return vo;
+	}
+	
+	public void qnaInsert(CustomerQNAVO vo)
+	{
+		try
+		{
+			getConnection();
+			String sql="INSERT INTO customer_qna "
+					+ "VALUES(qna_no.nextval,?,?,?,?,?,?,?,sysdate)";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, vo.getType());
+			ps.setString(2, vo.getTitle());
+			ps.setString(3, vo.getContent());
+			ps.setString(4, vo.getAlert());
+			ps.setString(5, vo.getName());
+			ps.setString(6, vo.getTel());
+			ps.setString(7, vo.getEmail());
+			
+			ps.executeUpdate();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
 	}
 }
