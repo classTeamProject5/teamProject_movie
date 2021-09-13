@@ -19,7 +19,17 @@ public class MemberModel {
 	  return "../main/main.jsp";
   }
   
- 
+  // 실행 => 실행결과만 받아온다 (Ajax) => Shadowbox를 그대로하면 결과값만 받아서 출력 (페이지 자체 처리)
+  /*
+   *    클라이언트가 요청 ==> 서버 ==> 서로운 페이지를 만들어 준다 (화면이 초기화)
+   *    클라이언트가 요청 ==> 서버 ==> 현재 페이지에서 결과값을 읽어 온다 
+   *                            ========= Web2.0 (실무 => 대부분이 AJax)
+   *                                      Vue.js(Jquery보다 속도가 빠르다,Ajax)
+   *                                      자바 (Vue,react), (코볼 , 포트란:jquery)
+   *    => MVC 동작과정  (Model,Controller,View) => SpringMVC(AI:데이터분석,통계)
+   *    => SQL문장 익히기  => MyBatis
+   *    => Ajax(Javascript) => React,Vue
+   */
   @RequestMapping("member/idcheck.do")
   public String member_idcheck(HttpServletRequest request,HttpServletResponse response)
   {
@@ -48,12 +58,17 @@ public class MemberModel {
 	  MemberDAO dao=MemberDAO.newInstance(); // 한개의 메로리 사용(메모리 누수방지) = 싱글턴
 	  List<ZipcodeVO> list=dao.postfind(dong);
 	  int count=dao.postfindCount(dong);
-	 
+	  // postfind_result.jsp에 출력하기 위해서 데이터를 보내준다 (request,session)
+	  /*
+	   *  request : 해당 페이지에서만 출력할때
+	   *  session : 기간,여러군데 jsp에서 사용  ==> 개인 정보를 서버에 저장 (로그인,장바구니)
+	   */
 	  request.setAttribute("list", list);
 	  request.setAttribute("count", count);
 	  return "../member/postfind_result.jsp";
   }
- 
+  // 로그인 , 검색 => Ajax
+  // 회원가입 처리 
   @RequestMapping("member/join_ok.do")
   public String member_join_ok(HttpServletRequest request,HttpServletResponse response)
   {
@@ -132,4 +147,5 @@ public class MemberModel {
 	  return "redirect:../main/main.do";
   }
 }
+
 

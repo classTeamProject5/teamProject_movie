@@ -103,7 +103,7 @@ $(function(){
 <div class="wrapper row3">
   <main class="container clear">
     <div class="row">
-    <form method="post" action="../member/join_ok.do" id="joinFrm" name="joinFrm">
+    <form method="post" action="../member/login_ok.do" id="joinFrm" name="joinFrm">
      <table class="table">
        <tr>
          <th class="text-right" width=15%>ID</th>

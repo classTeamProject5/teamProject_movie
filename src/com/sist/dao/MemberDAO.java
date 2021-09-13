@@ -71,6 +71,7 @@ public class MemberDAO {
   // 기능 => 우편번호 검색 
   public List<ZipcodeVO> postfind(String dong)
   {
+	  System.out.println("postfind:"+dong);
 	  List<ZipcodeVO> list=new ArrayList<ZipcodeVO>();
 	  try
 	  {
@@ -134,7 +135,7 @@ public class MemberDAO {
 	  {
 		  getConnection();
 		  String sql="INSERT INTO project_member VALUES(?,?,?,?,?,"
-				   +"?,?,?,?,?,'n')"; // admin(n=일반,y=관리자)
+				   +"?,?,?,?,?,?,'n')"; // admin(n=일반,y=관리자)
 		  ps=conn.prepareStatement(sql);
 		  ps.setString(1, vo.getId());
 		  ps.setString(2, vo.getPwd());
@@ -147,6 +148,7 @@ public class MemberDAO {
 		  ps.setString(8, vo.getAddr1());
 		  ps.setString(9, vo.getAddr2());
 		  ps.setString(10, vo.getTel());
+		  ps.setString(11, vo.getGenre());
 		  
 		  ps.executeUpdate();
 	  }catch(Exception ex)
