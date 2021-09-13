@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>진행중인 이벤트 | 영화</title>
+<title>진행중인 이벤트 | 전체</title>
 <link rel="stylesheet" href="../event/css/event.css">
 <link rel="stylesheet" href="../event/css/total.css">
 </head>
@@ -56,6 +56,8 @@
 			</ul>
 		</c:forEach>
 	</div>
+	
 	<a href=#header class="topBtn"></a>
+
 </body>
 </html>
