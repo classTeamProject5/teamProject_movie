@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <style type="text/css">
-
 .container{
   margin-top: 50px;
 }
@@ -22,7 +20,8 @@
 // jquery시작점 (jquery:javascript라이브러리) => window.onload=function(){}
 // main()
 $(function(){
-	$('#postBtn').click(function(){
+   $('#postBtn').click(function(){
+	    // dong을 받는다 
 		let dong=$('#dong').val();
 		if(dong.trim()=="") // 공백문자 제거 (space문자)
 		{
@@ -40,8 +39,7 @@ $(function(){
 			}
 			
 		})
-	})
-	// dong을 받는다 
+   })
 	
 })
 </script>
@@ -67,5 +65,6 @@ $(function(){
   </div>
 </body>
 </html>
+
 
 

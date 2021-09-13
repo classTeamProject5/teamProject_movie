@@ -42,7 +42,7 @@ public class MemberDAO {
 	  return dao; // 이미 만들어진 dao객체를 사용한다 
 		  
   }
-  // 기능 => 아이디 중복 체크
+  // 기능 => 아이디 중복 체크!
   public int memberidCheck(String id)
   {
 	  int count=0;

@@ -43,7 +43,7 @@ function ok(zip,addr)
        <c:forEach var="vo" items="${list }">
          <tr>
            <td class="text-center">${vo.zipcode }</td>
-           <%-- 자바스크립트의 매개변수 = 숫자,문자 (문자일때 '') --%>
+           <%-- 자바스크립트의 매개변수 = 숫자,문자 (문자일때 '') 주의--%>
            <td><a href="javascript:ok('${vo.zipcode }','${vo.address }')">${vo.address }</a></td>
          </tr>
        </c:forEach>

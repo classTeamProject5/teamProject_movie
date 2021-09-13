@@ -124,7 +124,7 @@ public class MemberModel {
 	  if(!(result.equals("NOID")|| result.equals("NOPWD")))
 	  {
 		  HttpSession session=request.getSession(); // 세션 사용 
-		  // 세션/쿠키 => request를 이용한다  (request.getCookie())
+		  // 세션/쿠키 => request를 이용한다  (request.getCookie()))
 		  StringTokenizer st=new StringTokenizer(result,"|");
 		  String name=st.nextToken();
 		  String admin=st.nextToken();
