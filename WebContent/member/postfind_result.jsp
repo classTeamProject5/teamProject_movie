@@ -12,6 +12,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
+
 // 매개변수설정 => 변수명만 사용한다 
 function ok(zip,addr)
 {

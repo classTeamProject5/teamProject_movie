@@ -42,7 +42,7 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>로그인</h3>
-                        <form action="#">
+                        <form action="../login/loginAction.jsp">
                             <div class="input__item">
                                 <input type="text" placeholder="아이디">
                                 <span class="icon_profile"></span>
