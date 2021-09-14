@@ -1,0 +1,150 @@
+@charset "UTF-8";
+
+.mypage_event{
+	text-align:center;
+}
+body.main_mypage{
+	box-sizing: border-box; /*padding을 줘도 박스 크기는 그대로 유지. 콘텐츠가 줄어도 박스는 유지*/
+	font-family: 'Noto Sans KR', sans-serif;
+	width:100%;
+	min-width:1100px;
+	height:100%;
+	padding:0;
+	margin:0;
+	/* background-color:#fcf9f4; 밝은아이보리 */
+	background-color:white;
+
+	/*border: 1px solid gray; /*레이아웃 제작을 위한 테스트용. 나중에 지울부분*/
+	position: absolute;
+	top: 0px;
+	overflow-y:scroll;
+	padding:0;
+	margin: 0;
+}
+div.mypage_all{
+	widht:1100px;
+	position:relative;
+	top:50px;
+	margin: 0 auto;
+}
+div.mypage_info{
+	width:1100px;
+	height:401px;
+	margin:0 auto;
+	padding:0;
+	border: none;
+	background-image: url("../imgs/vip_info_purple2.png");
+	background-repeat:no-repeat;
+	background-size: contain; /*div크기에 이미지 사이즈를 맞춤*/
+}
+
+div.myimg{
+	font-size: 50px;
+	color:white;
+	position:relative;
+	top:192px;
+	left:237px;
+}
+div.mypage_infobox{
+	width:500px;
+	height:120px;
+	color:#63387b;
+	text-align:center;
+	font-weight:bold;
+	position:relative;
+	top:110px;
+	left:400px;
+}
+div.mypage_infobox div.mypage_user{
+	position:relative;
+	top:10px;
+	left:20px;
+	font-size: 28px;
+}
+div.mypage_infobox div.mypage_user div.mypage_id{
+	width:30%;
+	float:left;	
+	text-align:right;
+}
+div.mypage_infobox div.mypage_user div.mypage_grade{
+	width:18%;
+	float:left;
+	text-align:right;
+}
+div.mypage_infobox div.mypage_user div.point_number{
+	width:max-content;
+	float:left;
+}
+div.mypage_infobox div.mypage_point{
+	width:max-content;
+	position:relative;
+	top:35px;
+	font-size: 20px;
+	margin:0 auto;
+}
+div.mypage_infobox div.mypage_point div.point_number{
+	width:100px;
+	float:left;
+	text-align:right;
+	
+}
+div.mypage_infobox div.mypage_point div.point_number{
+	width:100px;
+	float:left;
+	text-align:left;
+	
+}
+/*******************************************************************************/
+.mypage_coupon{
+	font-size: 16px;
+}
+
+
+div.mypage_coupon div.mypage_often_theater{
+	color:#63387b;
+	position: relative;
+	left:264px;
+	float:left;
+	top:166px;
+	font-weight: bold;
+	
+}
+div.mypage_coupon div.mypage_event{
+	color:#63387b;
+	position: relative;
+	top:166px;
+	left:140px;
+	float:left;
+	font-weight: bold;
+	padding-right:95px;
+	border-right: 2px solid #ddcde6;
+	width:max-content;
+}
+div.mypage_coupon div.mypage_linkcoupon{
+	color:#63387b;
+	position: relative;
+	top:166px;
+	left:50px;
+	float:left;
+	font-weight: bold;
+	padding-right:27px;
+	border-right: 2px solid #ddcde6;
+}
+
+div.mypage_coupon a{
+	color:#63387b;
+	text-decoration: none;
+}
+div.mypage_coupon a:hover{
+	cursor: pointer;
+}
+div.mypage_coupon div.mypage_event div.mypage_event_text{
+	position: relative;
+	float:left;
+}
+div.mypage_coupon div.mypage_event div.mypage_event_number{
+	position: relative;
+	float:left;
+	width:30px;
+	text-align:right;
+}
