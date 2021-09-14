@@ -50,7 +50,7 @@
 
         <!-- Mobile Nav (max width 767px)-->
         <div class="mobile-nav">
-             <!-- 옆에 메뉴 바 -->
+             <!-- 옆에 메뉴 바  카페고리 -->
             <div class="amado-navbar-toggler">
                 <span></span><span></span><span></span>
             </div>
