@@ -18,7 +18,7 @@
 		<div class="mypage_info">
 			<div class="myimg">svip</div>
 			<div class="mypage_infobox">
-				<!-- id,grade,0 자리에 테이블 데이터가 들어갈 것임. -->
+				<!-- id,grade,0 자리에 테이블 데이터가 들어갈 것임. 그럴거임 -->
 				<div class="mypage_user">
 					<div class="mypage_id">name님</div>
 					<div class="mypage_text">id</div>
