@@ -10,7 +10,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../mypage/css/main_mypage.css">
 <link rel="stylesheet" href="../mypage/css/core-style.css">
-<link rel="stylesheet" href="../mypage/imgs/vip_info_purple2.png">
+<link rel="stylesheet" href="../mypage/imgs/mypage_main.png">
 
 </head>
 <body class="main_mypage">
@@ -50,7 +50,7 @@
 
         <!-- Mobile Nav (max width 767px)-->
         <div class="mobile-nav">
-             <!-- 옆에 메뉴 바  선택하면 노랑색 -->
+             <!-- 옆에 메뉴 바  선택하면 노랑색 나옴 -->
             <div class="amado-navbar-toggler">
                 <span></span><span></span><span></span>
             </div>

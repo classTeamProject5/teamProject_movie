@@ -27,15 +27,16 @@ div.mypage_all{
 	top:50px;
 	margin: 0 auto;
 }
+
 div.mypage_info{
 	width:1100px;
 	height:401px;
 	margin:0 auto;
 	padding:0;
 	border: none;
-	background-image: url("../imgs/vip_info_purple2.png");
+	background-image: url("../imgs/main_mypage.png");
 	background-repeat:no-repeat;
-	background-size: contain; /*div크기에 이미지 사이즈를 맞춤*/
+	background-size: contain; /*div크기에 이미지 사이즈를 맞춤 contain*/
 }
 
 div.myimg{
@@ -94,6 +95,7 @@ div.mypage_infobox div.mypage_point div.point_number{
 	text-align:left;
 	
 }
+/*******************************************************************************/
 /*******************************************************************************/
 .mypage_coupon{
 	font-size: 16px;
