@@ -219,6 +219,45 @@ public class CustomerDAO {
 		try
 		{
 			getConnection();
+			// 조회수 증가 
+			
+			String sql="UPDATE customer_notice SET "
+				     +"hit=hit+1 "
+				     +"WHERE no=?";
+		    ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+			sql="SELECT no,type,title,regdate,content,hit "
+					+ "FROM customer_notice "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setType(rs.getString(2));
+			vo.setTitle(rs.getString(3));
+			vo.setRegdate(rs.getDate(4));
+			vo.setContent(rs.getString(5));
+			vo.setHit(rs.getInt(6));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+	//detail 위아래목차
+	public CustomerNoticeVO customerNoticeDetailud(int no)
+	{
+		CustomerNoticeVO vo=new CustomerNoticeVO();
+		try
+		{
+			getConnection();
 			String sql="SELECT no,type,title,regdate,content,hit "
 					+ "FROM customer_notice "
 					+ "WHERE no=?";
@@ -243,7 +282,6 @@ public class CustomerDAO {
 		}
 		return vo;
 	}
-	
 	public void qnaInsert(CustomerQNAVO vo)
 	{
 		try
@@ -269,5 +307,81 @@ public class CustomerDAO {
 		{
 			disConnection();
 		}
+	}
+	public CustomerNoticeVO noticeUpdateData(int no)
+	{
+		   CustomerNoticeVO vo=new CustomerNoticeVO();
+		   try
+		   {
+			   getConnection();
+			   // 조회수 증가 
+			   String sql="SELECT no,type,title,content "
+				  +"FROM customer_notice "
+				  +"WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   vo.setNo(rs.getInt(1));
+			   vo.setType(rs.getString(2));
+			   vo.setTitle(rs.getString(3));
+			   vo.setContent(rs.getString(4));
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return vo;
+	}
+	public void noticeUpdate(CustomerNoticeVO vo)
+	{
+		try
+		{
+			getConnection();
+			String sql="UPDATE customer_notice SET "
+					+ "type=?,title=?,content=? "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, vo.getType());
+			ps.setString(2, vo.getTitle());
+			ps.setString(3, vo.getContent());
+			ps.setInt(4, vo.getNo());
+			ps.executeUpdate();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	public void noticeDelete(int no)
+    {
+		   
+		   try
+		   {
+			   getConnection();
+			   
+			   String sql="DELETE FROM customer_notice "
+					  +"WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   ps.executeUpdate();
+
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   
 	}
 }

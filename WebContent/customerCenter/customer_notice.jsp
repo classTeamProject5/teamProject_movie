@@ -20,15 +20,15 @@
 	    <div class="container-fluid">
 	        
 			  <ul class="nav navbar-nav" style="width: 1000px; margin-left: 350px; ">
-				  <li style="width: 16%; ">
+				  <li style="width: 16%; margin-right: 5px;">
 				   <!--  <input data-tab='notice1' type=button style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;" id="cus-all" value="전체"> -->
 				    <a href="notice.do?type=전체" style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;">전체</a>
 				  </li>
-				  <li style="width: 16%; ">
+				  <li style="width: 16%; margin-right: 5px;">
 				    <!-- <input type=button style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;" id="cus-system" value="시스템 점검"> -->
 				    <a href="notice.do?type=시스템 점검" style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;">시스템 점검</a>
 				  </li>
-				  <li style="width: 16%; ">
+				  <li style="width: 16%; margin-right: 5px;">
 				    <!-- <input type=button style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;" id="cus-theater" value="극장"> -->
 				    <a href="notice.do?type=극장" style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;">극장</a>
 				  </li>
@@ -56,9 +56,14 @@
         <td width=5% class="text-center">${vo.hit }</td>
       </tr>
   	  </c:forEach>
+  	  <c:if test="${sessionScope.id==null }">
   	  <tr>
-  	    <td><a href="notice_insert.do" class="btn btn-danger">공지 등록</a></td>
+  	    
   	  </tr>
+  	  </c:if>
+  	  <c:if test="${sessionScope.id!=null and sessionScope.admin=='y'}">
+  	    <td><a href="notice_insert.do" class="btn btn-danger">공지 등록</a></td>
+  	  </c:if>
     </table>
    
     <nav style="text-align: center;">

@@ -61,6 +61,23 @@ public class CustomerMainModel {
 		request.setAttribute("customer_main", "customer_notice.jsp");
 		return "../main/main.jsp";
 	}
+	@RequestMapping("customerCenter/notice_detail.do")
+	public String customer_notice_detail(HttpServletRequest request,HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		String noup=no;
+		String nodown=no;
+		CustomerDAO dao=CustomerDAO.newInstance();
+		CustomerNoticeVO vo=dao.customerNoticeDetail(Integer.parseInt(no));
+		CustomerNoticeVO voup=dao.customerNoticeDetailud(Integer.parseInt(noup)+1);
+		CustomerNoticeVO vodown=dao.customerNoticeDetailud(Integer.parseInt(nodown)-1);
+		request.setAttribute("vo", vo);
+		request.setAttribute("voup", voup);
+		request.setAttribute("vodown", vodown);
+		request.setAttribute("main_jsp", "../customerCenter/customer_notice_detail.jsp");
+		
+		return "../main/main.jsp";
+	}
 	@RequestMapping("customerCenter/notice_insert.do")
 	public String customer_notice_insert(HttpServletRequest request,HttpServletResponse response)
 	{
@@ -88,21 +105,77 @@ public class CustomerMainModel {
 		dao.custmerNoticeInsert(vo);
 		return "redirect:customerCenter/notice.do";
 	}
-	@RequestMapping("customerCenter/notice_detail.do")
-	public String customer_notice_detail(HttpServletRequest request,HttpServletResponse response)
+	@RequestMapping("customerCenter/notice_update.do")
+	public String customer_notice_update(HttpServletRequest request,HttpServletResponse response)
 	{
 		String no=request.getParameter("no");
 		CustomerDAO dao=CustomerDAO.newInstance();
-		CustomerNoticeVO vo=dao.customerNoticeDetail(Integer.parseInt(no));
-		CustomerNoticeVO voup=dao.customerNoticeDetail(Integer.parseInt(no)+1);
-		CustomerNoticeVO vodown=dao.customerNoticeDetail(Integer.parseInt(no)-1);
+		CustomerNoticeVO vo=dao.noticeUpdateData(Integer.parseInt(no));
 		request.setAttribute("vo", vo);
-		request.setAttribute("voup", voup);
-		request.setAttribute("vodown", vodown);
-		request.setAttribute("main_jsp", "../customerCenter/customer_main.jsp");
-		request.setAttribute("customer_main", "customer_notice_detail.jsp");
-		return "../main/main.jsp";
+		request.setAttribute("main_jsp", "../customerCenter/notice_update.jsp");
+		
+		// include => delete.jsp,main.jsp가 request를 공유할 수 있다 (필요한 JSP에서 request를 사용한다)
+		return "../main/main.jsp"; // 메뉴/footer가 없어진다 
 	}
+	
+	@RequestMapping("customerCenter/notice_update_ok.do")
+	public String customer_update_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		
+		String type=request.getParameter("type");
+		String title=request.getParameter("title");
+		String content=request.getParameter("content");
+	    String no=request.getParameter("no");
+		  
+	    CustomerNoticeVO vo=new CustomerNoticeVO();
+	    
+	    vo.setType(type);
+	    vo.setTitle(title);
+	    vo.setContent(content);
+	    vo.setNo(Integer.parseInt(no));
+		CustomerDAO dao=CustomerDAO.newInstance();
+		  // 메소드 호출 
+		dao.noticeUpdate(vo);
+		
+		  
+		
+		return "redirect:notice.do";
+	}
+	@RequestMapping("customerCenter/notice_delete.do")
+	public String customer_notice_delete(HttpServletRequest request,HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		request.setAttribute("no", no);
+		request.setAttribute("main_jsp", "../customerCenter/notice_delete.jsp");
+		// include => delete.jsp,main.jsp가 request를 공유할 수 있다 (필요한 JSP에서 request를 사용한다)
+		return "../main/main.jsp"; // 메뉴/footer가 없어진다 
+	}
+	
+	@RequestMapping("customerCenter/notice_delete_ok.do")
+	public String customer_delete_ok(HttpServletRequest request,HttpServletResponse response)
+	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		}catch(Exception ex) {}
+		
+		
+	    String no=request.getParameter("no");
+		  
+		  // pwd,no => 삭제 요청( DAO )
+		CustomerDAO dao=CustomerDAO.newInstance();
+		  // 메소드 호출 
+		dao.noticeDelete(Integer.parseInt(no));
+		  
+		
+		return "redirect:notice.do";
+	}
+	
+	
 	@RequestMapping("customerCenter/qna.do")
 	public String customer_qna(HttpServletRequest request,HttpServletResponse response)
 	{

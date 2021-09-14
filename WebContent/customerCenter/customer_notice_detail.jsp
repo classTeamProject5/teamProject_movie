@@ -19,8 +19,11 @@
 	      </tr>
 	     
 	      <tr>
+	        
 	        <td class="text-center" width=50%>${vo.title}</td>
-	        <td class="text-center" width=20%>${vo.regdate }</td>
+	        <td class="text-center" width=20%>${vo.regdate }
+	          
+	        </td>
 	        <td class="text-center" width=20%>${vo.hit }</td>
 	      </tr>
 	    </table>
@@ -29,8 +32,19 @@
 	      <tr> 
 	        <td colspan="4" style="border: 1px solid #ccc; width:1200px; height : 400px; margin-top: 30px;"><pre>${vo.content }</pre></td> 
 	      </tr>
-	      <tr>
-	        <td colspan="4" class="text-right">
+	    </table>
+	    <table class="table">
+	      <tr style="text-align: right;">
+	        <td>
+	         <c:if test="${sessionScope.id==null }">
+	          
+	         </c:if>
+	         <c:if test="${sessionScope.id!=null and sessionScope.admin=='y'}">
+	           <a href="notice_delete.do?no=${vo.no }" class="btn btn-xs btn-danger">삭제
+	             
+	           </a>
+	           <a href="notice_update.do?no=${vo.no }" class="btn btn-xs btn-primary">수정</a>
+	         </c:if>
 	         <a href="notice.do" class="btn btn-xs btn-info">목록</a>
 	        </td>
 	      </tr>

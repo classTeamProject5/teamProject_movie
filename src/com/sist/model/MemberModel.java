@@ -92,6 +92,8 @@ public class MemberModel {
 	  String tel2=request.getParameter("tel2");//
 	  String genre=request.getParameter("genre");
 	  
+	 
+	  
 	  MemberVO vo=new MemberVO();
 	  vo.setId(id);
 	  vo.setPwd(pwd);
