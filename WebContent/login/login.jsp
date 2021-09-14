@@ -42,17 +42,17 @@
                 <div class="col-lg-6">
                     <div class="login__form">
                         <h3>로그인</h3>
-                        <form action="../login/loginAction.jsp">
+                        <form method="post" action="login_ok.do" >
                             <div class="input__item">
-                                <input type="text" placeholder="아이디">
+                                <input type="text" name="id" placeholder="아이디">
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" placeholder="비밀번호">
+                                <input type="text" name="pwd" placeholder="비밀번호">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">로그인</button>
-                        </form>
+                         </form>
                         <a href="#" class="forget_pass">비밀번호를 잊어버리셨나요?</a>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
     </section>
     <!-- Login Section End -->
 
-   
+
 
     <!-- Js Plugins -->
     <script src="../login/js/jquery-3.3.1.min.js"></script>

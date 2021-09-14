@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +20,31 @@
 						
 						  <!-- Right-aligned links -->
 						  <div class="header-topnav-right">
+						   <c:if test="${sessionScope.id==null }">
 						    <a href="../login/login.do">로그인</a>
 						    <a href="../member/join.do">회원가입</a>
 						    <a href="#about">빠른예매</a>
+						   </c:if>
+						   <c:if test="${sessionScope.id!=null }">
+						     <table class="table" style="border:none">
+						        <tr class="inline">
+						          <td style="border:none">
+						            ${sessionScope.name }(${sessionScope.admin=='y'?"관리자":"일반유저" })
+						          </td>
+						          <td style="border:none">
+						            <a href="../login/logout.do" class="btn btn-sm btn-danger" style="color:white;">로그아웃</a>
+						          </td>
+						          <td style="border:none">
+						            <a href="#about">빠른예매</a>
+						          </td>
+						        </tr>
+						        
+						      </table>
+						      
+						   </c:if>
+						    
 						  </div>
+						  
 					  </div>
 					  
 					  <!-- Centered link -->

@@ -139,8 +139,8 @@ public class MemberDAO {
 		  ps=conn.prepareStatement(sql);
 		  ps.setString(1, vo.getId());
 		  ps.setString(2, vo.getPwd());
-		  ps.setString(3, vo.getName());
-		  ps.setString(4, vo.getSex());
+		  ps.setString(3, vo.getSex());
+		  ps.setString(4, vo.getName());
 		  ps.setString(5, vo.getBirthday());
 		  
 		  ps.setString(6, vo.getEmail());

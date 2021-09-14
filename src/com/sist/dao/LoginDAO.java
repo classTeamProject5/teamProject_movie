@@ -47,23 +47,56 @@ public class LoginDAO {
 			  
 	  }
 	  
-		public int login(String id, String pwd) {
-			String sql="SELECT pwd FROM project_login "
-				    +"WHERE id=?";
-			try {
-				ps = conn.prepareStatement(sql); 
-				ps.setString(1, id); //첫번째 '?'에 매개변수로 받아온 'userID'를 대입
-				ResultSet rs=ps.executeQuery(); //쿼리를 실행한 결과를 rs에 저장
-				if(rs.next()) {
-					if(rs.getString(1).equals(pwd)) {
-						return 1; //로그인 성공
-					}else
-						return 0; //비밀번호 틀림
-				}
-				return -1; //아이디 없음
-			}catch (Exception ex) {
-				ex.printStackTrace();
-			}
-			return -2; //오류
-		}
+	 public String login(String id, String pwd)
+	 {
+		 String result="";
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT COUNT(*) "
+					    +"FROM project_member "
+					    +"WHERE id=?";
+			  ps=conn.prepareStatement(sql); //id가 존재하는지 체크
+			  ps.setString(1, id);
+			  ResultSet rs=ps.executeQuery();
+			  rs.next();
+			  int count=rs.getInt(1);
+			  rs.close();
+			  
+			  if(count==0) //ID가 없는 상태
+			  {
+				  result="NOID";
+			  }
+			  else // ID가 있는 상태
+			  {
+				  sql="SELECT pwd,name,admin FROM project_member "
+					 +"WHERE id=?";
+				  ps=conn.prepareStatement(sql);
+				  ps.setString(1, id);
+				  rs=ps.executeQuery();
+				  rs.next();
+				  String db_pwd=rs.getString(1);
+				  String name=rs.getString(2);
+				  String admin=rs.getString(3);
+				  rs.close();
+				  // 비밀번호 확인 
+				  if(db_pwd.equals(pwd))//로그인
+				  {
+					  result=name+"|"+admin;
+				  }
+				  else
+				  {
+					  result="NOPWD";
+				  }
+			  }
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return result;
+	 }
 }
