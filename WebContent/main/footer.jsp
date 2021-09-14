@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<footer id="footer">
+	<footer id="footer" style="margin-top: 40px;">
         
         <div id="footer_infor">
             <div class="container">

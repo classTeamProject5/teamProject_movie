@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header id="header">
+	<header id="header" style="margin-bottom: 40px;">
         <div class="container">
             <div class="row">
                 <div class="header">
