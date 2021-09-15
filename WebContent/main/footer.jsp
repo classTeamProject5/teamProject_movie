@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<footer id="footer" style="margin-top: 40px;">
+	<footer id="footer" >
         
         <div id="footer_infor">
             <div class="container">
@@ -16,7 +16,7 @@
                     <div class="footer_infor">
                         <h2><img src="../main/assets/img/megaStyle_title.png" style="margin-left: 240px;"></h2>
                         <ul>
-                            <li><a href="#">회사소개</a></li>
+                            
                             <li><a href="../customerCenter/main.do">고객센터</a></li>
                         </ul>
                         <address>

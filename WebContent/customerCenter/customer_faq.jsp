@@ -12,12 +12,7 @@
      <section class="py-8" id="faq" style="margin-top: 10px;">
        <div class="customer-container">
        <div class="customer-row">
-        <div class="search-container" style="text-align: right; width:1000px;">
-	        <form action="#">
-	          <input type=text name="search" placeholder="검색어를 입력해 주세요"></input>
-	          <button type="submit" class="glyphicon glyphicon-search"></button>
-	        </form>
-	     </div>
+        
         
          
 		  <nav class="navbar navbar-defualt" style="width: 1200px; ">

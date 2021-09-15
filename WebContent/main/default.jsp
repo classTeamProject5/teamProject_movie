@@ -99,7 +99,7 @@
 			<!-- 고객센터 -->
 			<div class="row" style="margin-top: 30px;">
 			  <div class="col-md-2 col-md-offset-3">
-			  <a href="#">
+			  <a href="../customerCenter/main.do">
 			    <div class="thumbnail" style="background-color: transparent; border: none;">
 			      <img src="default/ico-main-customer.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
 			      <div class="caption">
@@ -109,7 +109,7 @@
 			    </a>
 			  </div>
 			  <div class="col-md-2">
-			  <a href="#">
+			  <a href="../customerCenter/notice.do">
 			    <div class="thumbnail" style="background-color: transparent; border: none;">
 			      <img src="default/ico-faq.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
 			      <div class="caption">
@@ -119,7 +119,7 @@
 			    </a>
 			  </div>
 			  <div class="col-md-2">
-			  <a href="#">
+			  <a href="../customerCenter/qna.do">
 			    <div class="thumbnail" style="background-color: transparent; border: none;">
 			      <img src="default/ico-oneandone.png" alt="..." style="padding: 50px; width: 150px; height: 150px;">
 			      <div class="caption">
