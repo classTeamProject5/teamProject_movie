@@ -28,6 +28,12 @@ public class EventModel {
 	   { 
 		   EventDAO dao = new EventDAO(); //newInstance형태로 수정해야함.
 		   List<EventVO> list = dao.eventAllData();	//진행중인 이벤트, all부분
+		   /*검색기능*/
+		   String findstr = request.getParameter("eventFindText");
+		   System.out.println(findstr);
+		   if(findstr!=null) {
+			   list = dao.eventAllData_Finder(findstr);
+		   }   
 		
 		   request.setAttribute("list", list);
 		   request.setAttribute("main_jsp", "../event/event_category_all.jsp");
@@ -37,8 +43,11 @@ public class EventModel {
 	   @RequestMapping("event/event_category_movie.do")
 	   public String event_category_movie(HttpServletRequest request,HttpServletResponse response)
 	   { 
+		   String findstr = request.getParameter("eventFindText");
+		   
 		   EventDAO dao = new EventDAO(); //newInstance형태로 수정해야함.
-		   List<EventVO> list = dao.eventMovieData();	//진행중인 이벤트, 영화부분
+		   List<EventVO> list = dao.eventMovieData(findstr);	//진행중인 이벤트, 영화부분
+		   //전체 와는 다른 방식으로 구현해보았다. movie파트가 더 효율적인듯 하다. 
 		
 		   request.setAttribute("list", list);
 		   request.setAttribute("main_jsp", "../event/event_category_movie.jsp");
@@ -48,15 +57,36 @@ public class EventModel {
 	   @RequestMapping("event/event_category_theater.do")
 	   public String event_category_theater(HttpServletRequest request,HttpServletResponse response)
 	   { 
+		   String findstr = request.getParameter("eventFindText");
+		   
 		   EventDAO dao = new EventDAO(); //newInstance형태로 수정해야함.
-		   List<EventVO> list = dao.eventTheaterData();	//진행중인 이벤트, 극장부분
-		
+		   List<EventVO> list = dao.eventTheaterData(findstr);	//진행중인 이벤트, 극장부분		
+		   
+		   
 		   request.setAttribute("list", list);
 		   request.setAttribute("main_jsp", "../event/event_category_theater.jsp");
 		   return "../main/main.jsp";
 	   }
-	   /************************************지난이벤트Page***************************************/		
-	   /* 단순 출력 시 
+	   /********************************검색 기능 *******************************************/
+	  /* @RequestMapping("event/event_category_all_finder.do")
+	   public String event_category_all_finder(HttpServletRequest request,HttpServletResponse response)
+	   { 
+		   String findstr = request.getParameter("eventFindText");
+		   System.out.println(findstr);
+		   EventDAO dao = new EventDAO(); //newInstance형태로 수정해야함.
+		   List<EventVO> list = dao.eventAllData_Finder(findstr);	//진행중인 이벤트, all부분
+		   
+		  
+		   request.setAttribute("list", list);
+		   request.setAttribute("main_jsp", "../event/event_category_all.jsp");
+		   return "../main/main.jsp";
+	   }*/
+	   
+	   
+	   
+	   /************************************지난이벤트Page***************************************/
+	   
+	   /* 단순 출력 시  
 	   @RequestMapping("event/event_last_event.do")
 	   public String event_last_event(HttpServletRequest request,HttpServletResponse response)
 	   { 
@@ -68,6 +98,8 @@ public class EventModel {
 		   return "../main/main.jsp";
 	   }
 	   */
+	   
+	   
 	   /* 데이터가 많을 경우 페이징 처리 시. 스타일 1
 	   @RequestMapping("event/event_last_event.do")
 	   public String event_last_event_paging(HttpServletRequest request,HttpServletResponse response)

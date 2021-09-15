@@ -38,6 +38,8 @@ public class LoginModel {
 		  
 		  // 세션에 저장 
 		  session.setAttribute("id", id);
+		  
+		  
 		  session.setAttribute("admin", admin);
 		  session.setAttribute("name", name);
 		  result="OK";

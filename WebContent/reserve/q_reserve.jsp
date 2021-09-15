@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -18,6 +19,23 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+		$('#btn3').click(function(){   //submit 버튼을 클릭하였을 때
+			let sendData = "btn1="+$('input[name=btn1]').val();   //폼의 이름 값을 변수 안에 담아줌
+			$.ajax({
+				type:'post',   //post 방식으로 전송
+				url:'q_reserve.do',   //데이터를 주고받을 파일 주소
+				data:sendData,   //위의 변수에 담긴 데이터를 전송해준다.
+				dataType:'html',   //html 파일 형식으로 값을 담아온다.
+				success : function(data){   //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
+					$('btn1').html(data);  //현재 화면 위 id="message" 영역 안에 data안에 담긴 html 코드를 넣어준다. 
+				}
+			});
+		});
+	});
+
+  </script>
   <style>
 .txtBox{border-style: solid; border-width: 2px; padding: 12px; word-break: break-all;
   width:200px; height: 500px;
@@ -63,43 +81,12 @@ input{
 }
 
 
- .swiper {
-        width: 1050px;
-        height: 30px;
-        margin: 10px;
-      }
-      
-
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-          display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-        
-      }
-   
-      .swiper-button-next{
-      color: #030303;
-      }
-      .swiper-button-prev{
-      color: #030303;
-      }
+ 
 
 .btn3{
 margin:10px;
-width:110px;
-height:100px;
+width:80px;
+height:40px;
 
 border: none;
 }
@@ -109,9 +96,16 @@ background-color:#4f3397;
 color: white;
 }
   </style>
-  
+  <script> 
+  function submit2(frm) { 
+    frm.action='reserve/seat.do'; 
+    frm.submit(); 
+    return true; 
+  } 
+</script> 
 </head>
 <body>
+<form name='frm' method="POST" action="q_reserve.do"> 
   <div class="container text-center">
    <h3>빠른예매</h3>          
   </div>
@@ -119,18 +113,14 @@ color: white;
 <hr>
 <div class="container" style="margin=50px">
 
- <div class="swiper">
-   <div class="swiper-wrapper">
-   <c:forEach begin="1" end="30" step="1">
-   <div class="swiper-slide">      
-      <input type="button" class="btn3" value="09-10(금)">
-   </div>
+	 
+    <c:forEach var="rvo" items="${reg_list1 }" varStatus="s">
+      <input type="submit" class="btn3" value="${rvo.regdate}" name=reg id=btn3>
+<%-- 	  <input type="hidden" name=tit value="${title_list1[s.index].title }"> --%>	  
     </c:forEach>   
-   </div>
-   <!-- <div class="swiper-pagination"></div> -->
-   <div class="swiper-button-next"></div>
-   <div class="swiper-button-prev"></div>
- </div>
+
+   <!-- <div class="swiper-pagination"></div> --> 
+ 
 
 <%--       <c:forEach begin="1" end="8" step="1">  
   <input type="button" class="btn-default" value="날짜">
@@ -146,20 +136,23 @@ color: white;
 
 <div class="container">    
   <div class="row">
+ 
     <div class="col-sm-3">
       <p>영화</p>
        <div class="txtBox" style="overflow:auto; resize: none;width: 270px;">
-       	<c:forEach begin="1" end="25" step="1">
-       	<p><input type="button" class="btn1" value="영화목록들" style="width:100%"><p>
-	    </c:forEach>	    
-       </div>
        
+       	<c:forEach var="tvo" items="${title_list1 }">
+       	<p><input type="text" readonly class="btn1" id="movie_list" onclick="document.getElementById('time_list').innerHTML='${tvo.title}'" value="${tvo.title }" style="width:100%"></p>
+       	  
+	    </c:forEach>	   	  
+       </div>       
     </div>
+   
     <div class="col-sm-3 "> 
       <p>극장<p>
        <div class="txtBox" style="overflow:auto; resize: none;width: 270px;">
-       	<c:forEach begin="1" end="10" step="1">
-       	<p><input type="button" class="btn2" value="상영관" style="width:100%"><p>
+       	<c:forEach var="thvo" items="${theater_list1 }" varStatus="s">
+       	<p><input type="text" readonly class="btn2" name=the id="theater_list" onclick="document.getElementById('time_list').innerText+= ' '+'${thvo.theater}'" value="${thvo.theater}" style="width:100%"><p>
        
 	    </c:forEach>
 	    
@@ -175,11 +168,12 @@ color: white;
        <div>
        
   <hr>
-  
-       	<c:forEach begin="1" end="6" step="1">
-       	 <p><a href=# data-toggle="modal" data-target="#myModal" style="text-decoration: none;color:black;">11:00 영화  영화제목  몇관 예약좌석/총좌석</a><p> 
+  	<div>
+       	<c:forEach var="tvo1" items="${list1 }">
+       	<p id="time_list"></p> <p id="time_list1"></p>
+       	<a href=# data-toggle="modal" data-target="#myModal" style="text-decoration: none;color:black;"><input type="submit" name=time value="${tvo1.starttime }"></a>
 	    </c:forEach>
-	    
+	 </div>   
 	    <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -191,8 +185,9 @@ color: white;
           <p>예매하시겠습니까?</p>
         </div>
         <div class="modal-footer">
-          <input type="button" class="btn btn-default" data-dismiss="modal" value="네" onClick="location.href='../reserve/seat.do'">
+          <input type="submit" class="btn btn-default" data-dismiss="modal" value="네" onclick='return submit2(this.form);'>
           <input type="button" class="btn btn-default" data-dismiss="modal" value="아니오">
+           <%-- <input type="hidden" name=reg1 value="${reg_list1[s.index].regdate }"> --%>
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">네</button> -->
           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">아니요</button> -->
         </div>
@@ -205,7 +200,10 @@ color: white;
   </div>
 </div>
 </div>
+
 </div>
+</form>
+
 </body>
  <script>
  /* $('input').click(function(){
@@ -222,37 +220,28 @@ color: white;
 		  $(this).addClass('active');
 		});
 	$('.btn3').on('click', function(){
-		  $('.btndate').removeClass('active');
+		  $('.btn3').removeClass('active');
 		  $(this).addClass('active');
-		});
+		}); 
 	
-	//슬라이드
- 
-      /* let appendNumber = 600;
-      let prependNumber = 1; */
-      const swiper = new Swiper('.swiper', {
-        slidesPerView: 7,
-        /* centeredSlides: true, */
-        spaceBetween: 5,
-        /* pagination: {
-          el: '.swiper-pagination',
-          type: 'fraction',
-        }, */
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-       /*  virtual: {
-          slides: (function () {
-            const slides = [];
-            for (var i = 0; i < 600; i += 1) {
-              slides.push('Slide ' + (i + 1));
-            }
-            return slides;
-          })(),
-        }, */
-      });    
-        
+	
+	//리스트 값 가져오기
+/*  function printName()  {
+	var name = document.getElementById('movie_list').value;
+	   document.getElementById("time_list").innerHTML = name;	   
+	  
+
+	 }
+
+   function printName2()  {
+   const name2 = document.getElementById('theater_list').value;
+   document.getElementById("time_list").innerHTML =name +" "+ name2;
+   }  */
    
+   function setInnerHTML() {
+	   const element = document.getElementById('time_list');
+	   element.innerHTML 
+	     = 'vo_list';
+	 } 
  </script>
 </html>
