@@ -46,7 +46,15 @@
 		</div>
 		</div>
 <!-- ##### Main Content Wrapper Start ##### -->
-    <div class="main-content-wrapper d-flex clearfix">
+  <div style="margin-top: 100px; margin: 0px auto; width:1200px;
+  --bs-gutter-x: 2rem;
+  --bs-gutter-y: 0;
+  display: -webkit-box;
+  /* display: -ms-flexbox; */
+  /* display: flex;
+  -ms-flex-wrap: wrap; */
+  flex-wrap: wrap;">
+    <div class="main-content-wrapper">
 
         <!-- Mobile Nav (max width 767px)-->
         <div class="mobile-nav">
@@ -77,32 +85,22 @@
                 </ul>
             </nav>
            
-        	</div>
         </div>
+     </div>
         <!-- Header Area End -->
-      
-        
-        
-        
 
-        <div class="cart-table-area section-padding-50">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <div class="checkout_details_area mt-50 clearfix">
-						<table>
-							<thead>
+        
+         <div  style="width:700px; margin-top: 100px; margin-left: 100px;">
+                    <div>
+                        <div style="">
                             <div class="cart-title">
                                 <h2>나의 예매내역</h2>
                             </div>
-
                             <form action="#" method="post">
                                 <div class="row">
                                  <div class="col-12 mb-3">
                                         <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="나의 영화할인쿠폰"></textarea>
-                                    </div>
-                                   
-                                  
+                                    </div>                                                         
                                 </div>
                             </form>
                               <div class="cart-title">
@@ -114,30 +112,23 @@
                                  <div class="col-12 mb-3">
                                         <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="나의 영화할인쿠폰 사용내역"></textarea>
                                     </div>
-                                   
-                                  
                                 </div>
-                            </form>
-                            
+                            </form>                           
                              <div class="cart-title">
                                 <h2>MY 구매정보</h2>
                             </div>
-
                             <form action="#" method="post">
                                 <div class="row">
                                  <div class="col-12 mb-3">
                                         <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="10" placeholder="나의 예매내역 확인하기"></textarea>
-                                    </div>
-                                   
-                                  
+                                    </div>          
                                 </div>
                             </form>
-                            
                         </div>
                     </div>
-             </div>
-             </div>
-             </div>
+         </div>
+    </div>
+
  
  
     <!-- ##### Main Content Wrapper End ##### -->
@@ -148,13 +139,13 @@
 
     <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
+    
     <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
+    
     <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
+    
     <script src="js/plugins.js"></script>
-    <!-- Active js -->
+   
     <script src="js/active.js"></script>
 
 </body>

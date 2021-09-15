@@ -20,6 +20,7 @@
 	    <div class="container-fluid">
 	        
 			  <ul class="nav navbar-nav" style="width: 1000px; margin-left: 350px; ">
+			    
 				  <li style="width: 16%; margin-right: 5px;">
 				   <!--  <input data-tab='notice1' type=button style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;" id="cus-all" value="전체"> -->
 				    <a href="notice.do?type=전체" style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;">전체</a>
@@ -36,6 +37,7 @@
 				    <!-- <input type=button style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;" id="cus-etc" value="기타"> -->
 				    <a href="notice.do?type=기타" style="color: #212121; text-align: center; background-color: #dce4f0; border-radius: 5px; width:100%; height: 50px;">기타</a>
 				  </li>
+				
 	          </ul>
 		</div>
     </nav>
@@ -50,35 +52,38 @@
       <c:forEach var="vo" items="${list }">
       <tr>
         <td width=5% class="text-center">${vo.no }</td>
-        <td width=5% class="text-center" id="type2">${vo.type }</td>
-        <td width=60%><a href="notice_detail.do?no=${vo.no }">${vo.title }</a></td>
+        <td width=5% class="text-center" id="type">${vo.type }</td>
+        <td width=60%><a href="notice_detail.do?page=${curpage }&no=${vo.no }">${vo.title }</a></td>
         <td width=15% class="text-center">${vo.regdate }</td>
         <td width=5% class="text-center">${vo.hit }</td>
       </tr>
   	  </c:forEach>
   	  <c:if test="${sessionScope.id==null }">
   	  <tr>
-  	    
+  	  
   	  </tr>
   	  </c:if>
   	  <c:if test="${sessionScope.id!=null and sessionScope.admin=='y'}">
   	    <td><a href="notice_insert.do" class="btn btn-danger">공지 등록</a></td>
   	  </c:if>
     </table>
-   
+	
     <nav style="text-align: center;">
       <ul class="pagination">
           <c:if test="${curpage>BLOCK }">
            <li><a href="notice.do?page=${startPage-1 }">&laquo; Previous</a></li>
           </c:if> 
            <c:forEach var="i" begin="${startPage }" end="${endPage }">
+             
               <c:if test="${curpage==i }">
                 <c:set var="ss" value="class=current"/>
               </c:if>
               <c:if test="${curpage!=i }">
                 <c:set var="ss" value=""/>
               </c:if>
+              
               <li ${ss }><a href="notice.do?page=${i }">${i }</a></li>
+             
            </c:forEach>
            <c:if test="${endPage<totalpage }">
             <li><a href="notice.do?page=${endPage+1 }">Next &raquo;</a></li>
