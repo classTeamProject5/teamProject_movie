@@ -8,9 +8,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>진행중인 이벤트 | 극장</title>
+<title>진행중인 이벤트 | 전체</title>
 <link rel="stylesheet" href="../event/css/event.css">
 <link rel="stylesheet" href="../event/css/total.css">
+<!--  
+<script type="text/javaScript">
+function findEventData(){
+     location.href = "event_category_all_finder.do";
+}
+</script>-->
+
+
 </head>
 <body>
 	
@@ -26,20 +34,24 @@
 	
 	<div class="event_subMenu">
 		<!-- 대한극장은, 클릭한 메뉴 밑에 컬러밑줄이 생긴다. 만들어야함. -->
+		 
 		<ul>
 			<li class="subMenuTitle"><a id="subMenu_total" href="event_category_all.do">전체</a></li>
 			<li class="subMenuTitle"><a id="subMenu_movie" href="event_category_movie.do">영화</a></li>
 			<li class="subMenuTitle"><a id="subMenu_theater" href="event_category_theater.do">극장</a></li>
 		</ul>
-	
+		
 	</div>
 	<div class="searchPart">
-		<form action="event_category_theater.do">
+		
+			<form action="${thisPage }">
 			<span class="search">
 				<input type="text" title="검색어를 입력해 주세요." placeholder="검색어를 입력해 주세요." class="input-text" name="eventFindText">
 				<input type="submit" class="btn-search-input" value="">
 			</span>
-		</form>
+			</form>
+				<!-- <button type="button" class="btn-search-input" onclick='location.href="event_category_all_finder.do"'></button> -->
+		
 	</div>	
 	<div class="content">
 		<c:forEach var="vo" items="${list}">
@@ -58,6 +70,8 @@
 			</ul>
 		</c:forEach>
 	</div>
+	
 	<a href=#header class="topBtn"></a>
+
 </body>
 </html>
