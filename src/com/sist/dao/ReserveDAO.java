@@ -173,5 +173,98 @@ public class ReserveDAO {
          }
          return list;
      }
+     
+     /*
+NO               NOT NULL NUMBER       
+ID                        VARCHAR2(20) 
+TITLE                     VARCHAR2(50) 
+SELECTED_THEATER          VARCHAR2(30) 
+MOVIE_DATE                VARCHAR2(50) 
+RUNNING_TIME              VARCHAR2(50) 
+MOVIE_AGE                 VARCHAR2(60) 
+SELECTED_SEAT             VARCHAR2(50) 
+PAY_MONEY                 VARCHAR2(60) 
+REGDATE                   VARCHAR2(40) 
+      */
+     //좌석 선택한값 인서트
+     public void movieReservedata(ReserveVO vo){
+         
+          try {
+        	  getConnection();
+			  String sql="INSERT INTO movie_reserve VALUES("
+					    +"(SELECT NVL(MAX(no)+1,1) FROM movie_reserve),"
+					    +"?,?,?,?,?,?,?,?,SYSDATE)";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, vo.getId());
+			  ps.setString(2, vo.getTitle());
+			  ps.setString(3, vo.getSelected_theater());
+			  ps.setString(4, vo.getMovie_date());
+			  ps.setString(5, vo.getRunning_time());
+			  ps.setString(6, vo.getMovie_age());
+			  ps.setString(7, vo.getSelected_seat());
+			  ps.setString(8, vo.getPay_money());
+			  
+			  
+			  ps.executeUpdate();
+   		  
+          } catch (Exception ex) {
+             ex.printStackTrace();
+          } finally {
+             disConnection();
+          }
+      }
                 
+    //마이페이지
+     
+     /*
+NO               NOT NULL NUMBER       
+ID                        VARCHAR2(20) 
+TITLE                     VARCHAR2(50) 
+SELECTED_THEATER          VARCHAR2(30) 
+MOVIE_DATE                VARCHAR2(50) 
+RUNNING_TIME              VARCHAR2(50) 
+MOVIE_AGE                 VARCHAR2(60) 
+SELECTED_SEAT             VARCHAR2(50) 
+PAY_MONEY                 VARCHAR2(60) 
+REGDATE                   VARCHAR2(40) 
+      */
+     public List<ReserveVO> mypageData(String id)
+	  {
+		  List<ReserveVO> list=new ArrayList<ReserveVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT no,id,title,selected_theater,movie_date,running_time,movie_age,selected_seat,pay_money,regdate "
+					    +"FROM movie_reserve "
+					    +"WHERE id=?";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, id);
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next())
+			  {
+				  ReserveVO vo=new ReserveVO();
+				  vo.setNo(rs.getInt(1));
+				  vo.setId(rs.getString(2));
+				  vo.setTitle(rs.getString(3));
+				  vo.setSelected_theater(rs.getString(4));
+				  vo.setMovie_date(rs.getString(5));
+				  vo.setRunning_time(rs.getString(6));
+				  vo.setMovie_age(rs.getString(7));
+				  vo.setSelected_seat(rs.getString(8));
+				  vo.setPay_money(rs.getString(9));
+				  vo.setRegdate(rs.getString(10));
+				  list.add(vo);
+			  }
+			  rs.close();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }
+     
 }

@@ -67,7 +67,7 @@ color: white;
 <div class="container"> 
 
   
-  <div class="row">  
+  <div class="row" >  
      <c:forEach var="tvo" items="${title_list}" varStatus="s">
         <c:if test="${tvo.rn eq '1' }">
         <div class="col-xs-6 timetable" style="">
@@ -78,37 +78,38 @@ color: white;
                   <input type="text" style="background-color: #f2f2f2; border-style: none;" name=tit value="${tvo.title}" readonly>
                   ${tvo.theater}       
              </div>
-         	</c:if>
-           
+         	</c:if>           
             <c:if test="${tvo.rn eq '1' }">
           <br>
-            </c:if>                   
+          
+                              
              <ul>           
                    <li>  
+                   </c:if> 
                        <a href="../reserve/seat.do?no=${tvo.no}" class="btn btn-default" role="button">    
                          <div> 
                                
                               <div style="font-size: 11pt;font-weight: bold;">${tvo.starttime }
-                                 <input type="hidden" name=starttime value="${tvo.starttime }" >
+                                <%--  <input type="hidden" name=starttime value="${tvo.starttime }" > --%>
                               </div> 
                          </div>
                          
                          <div style="font-size: 9pt">좌석수
                             <span>${tvo.remainseat }
-                             <input type="hidden" name=remainseat value="${tvo.remainseat }" >
-                            </span>
+                          <%--    <input type="hidden" name=remainseat value="${tvo.remainseat }" >--%>
+                            </span> 
                             <span>/</span>
                             <span>${tvo.totalseat }
-                            <input type="hidden" name=totalseat value="${tvo.totalseat }" >
+                            <%-- <input type="hidden" name=totalseat value="${tvo.totalseat }" > --%>
                             </span>
                          </div>            
                      </a>    
                    </li>
                </ul>
           <c:if test="${tvo.rn eq '4' }">  
-               
+              
        </div>
-          </c:if>
+         </c:if>  
      </c:forEach>
 </div>              
 
