@@ -49,14 +49,14 @@ public class ViploungeDAO {
 			   ps=conn.prepareStatement(sql);			
 			   ps.setString(1, idstr);
 			   ResultSet rs=ps.executeQuery();
-			   rs.next();
-			   
-			   
-			   vo.setMno(rs.getInt(1));
-			   vo.setUserid(rs.getString(2));
-			   vo.setUsergrade(rs.getString(3));
-			   vo.setTotal_point(rs.getInt(4));
-			   vo.setTotal_ticketnums(rs.getInt(5));
+			   while(rs.next())
+			   {
+				   vo.setMno(rs.getInt(1));
+				   vo.setUserid(rs.getString(2));
+				   vo.setUsergrade(rs.getString(3));
+				   vo.setTotal_point(rs.getInt(4));
+				   vo.setTotal_ticketnums(rs.getInt(5));
+			   }
 			   rs.close();
 		   }catch(Exception ex) {
 			   ex.printStackTrace();
@@ -78,8 +78,9 @@ public class ViploungeDAO {
 			ps=conn.prepareStatement(sql);			
 			  
 			   ResultSet rs=ps.executeQuery();
-			   vo.setUserid(rs.getString(1));
-			   rs.next();
+			   while(rs.next()){
+					vo.setUserid(rs.getString(1));
+					}
 			   rs.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
