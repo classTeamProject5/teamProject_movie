@@ -98,14 +98,46 @@ public class CustomerDAO {
 		try
 		{
 			getConnection();
-			String sql="INSERT INTO customer_notice "
-					+ "VALUES(no_seq.nextval,?,?,sysdate,?,0,?)";
-			ps=conn.prepareStatement(sql);
-			ps.setString(1, vo.getType());
-			ps.setString(2, vo.getTitle());
-			ps.setString(3, vo.getContent());
-			ps.setString(4, "전체");
-			ps.executeUpdate();
+			if(vo.getType().equals("시스템 점검"))
+			{
+				String sql="INSERT INTO customer_notice "
+						+ "VALUES(no_seq.nextval,?,?,sysdate,?,0,?,cus_notice_sys.nextval)";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getType());
+				ps.setString(2, vo.getTitle());
+				ps.setString(3, vo.getContent());
+				ps.setString(4, "전체");
+				
+				
+				ps.executeUpdate();
+			}
+			else if(vo.getType().equals("극장"))
+			{
+				String sql="INSERT INTO customer_notice "
+						+ "VALUES(no_seq.nextval,?,?,sysdate,?,0,?,cus_notice_theater.nextval)";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getType());
+				ps.setString(2, vo.getTitle());
+				ps.setString(3, vo.getContent());
+				ps.setString(4, "전체");
+				
+				
+				ps.executeUpdate();
+			}
+			else if(vo.getType().equals("기타"))
+			{
+				String sql="INSERT INTO customer_notice "
+						+ "VALUES(no_seq.nextval,?,?,sysdate,?,0,?,cus_notice_etc.nextval)";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getType());
+				ps.setString(2, vo.getTitle());
+				ps.setString(3, vo.getContent());
+				ps.setString(4, "전체");
+				
+				
+				ps.executeUpdate();
+			}
+			
 		}catch(Exception ex)
 		{
 			ex.printStackTrace();
@@ -123,9 +155,9 @@ public class CustomerDAO {
 			getConnection();
 			if(type2.equals("전체"))
 			{
-				String sql="SELECT type,title,regdate,hit,no,all_type,num "
-						+ "FROM (SELECT type,title,regdate,hit,no,all_type,rownum as num "
-						+ "FROM (SELECT type,title,regdate,hit,no,all_type "
+				String sql="SELECT type,title,regdate,hit,no,all_type,cno,num "
+						+ "FROM (SELECT type,title,regdate,hit,no,all_type,cno,rownum as num "
+						+ "FROM (SELECT type,title,regdate,hit,no,all_type,cno "
 						+ "FROM customer_notice ORDER BY no DESC)) "
 						+ "WHERE all_type=? "
 						+ "AND (num BETWEEN ? AND ?)";
@@ -146,25 +178,26 @@ public class CustomerDAO {
 					vo.setRegdate(rs.getDate(3));
 					vo.setHit(rs.getInt(4));
 					vo.setNo(rs.getInt(5));
+					vo.setAll_type(rs.getString(6));
+					vo.setCno(rs.getInt(7));
 					list.add(vo);
 				}
 				rs.close();
 			}
 			else 
 			{ 
-				String sql="SELECT type,title,regdate,hit,no,all_type,num " +
-						"FROM (SELECT type,title,regdate,hit,no,all_type,rownum as num " +
-						"FROM (SELECT type,title,regdate,hit,no,all_type " +
-						"FROM customer_notice ORDER BY no DESC)) " + 
-						"WHERE type=? " +
-						"AND (num BETWEEN ? AND ?)"; 
+				String sql="SELECT type,title,regdate,hit,no,all_type,cno,num " +
+						"FROM (SELECT type,title,regdate,hit,no,all_type,cno,rownum as num " +
+						"FROM (SELECT type,title,regdate,hit,no,all_type,cno " +
+						"FROM customer_notice WHERE type=? ORDER BY cno DESC)) " + 
+						"WHERE num BETWEEN ? AND ?"; 
 				ps=conn.prepareStatement(sql);
 				int rowSize=10;
 				int start=(rowSize*page)-(rowSize-1);
 				int end=rowSize*page; ps.setString(1,type2); 
 				ps.setInt(2, start);
-				ps.setInt(3, end); ResultSet
-				rs=ps.executeQuery();
+				ps.setInt(3, end);
+				ResultSet rs=ps.executeQuery();
 				while(rs.next())
 				{ 
 					CustomerNoticeVO vo=new
@@ -173,7 +206,9 @@ public class CustomerDAO {
 					vo.setTitle(rs.getString(2)); 
 					vo.setRegdate(rs.getDate(3));
 					vo.setHit(rs.getInt(4)); 
-					vo.setNo(rs.getInt(5)); 
+					vo.setNo(rs.getInt(5));
+					vo.setAll_type(rs.getString(6));
+					vo.setCno(rs.getInt(7));
 					list.add(vo); 
 				}
 				rs.close();
@@ -213,7 +248,89 @@ public class CustomerDAO {
     	}
     	return total;
 	}
+	public List<CustomerNoticeVO> customerNoticeFind(String fd,int page)
+	{
+		List<CustomerNoticeVO> list=new ArrayList<CustomerNoticeVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT type,title,regdate,hit,no,all_type,cno,num "
+					+ "FROM (SELECT type,title,regdate,hit,no,all_type,cno,rownum as num "
+					+ "FROM (SELECT type,title,regdate,hit,no,all_type,cno "
+					+ "FROM customer_notice WHERE title LIKE ? ORDER BY no DESC)) "
+					+ "WHERE num BETWEEN ? AND ?";
+			ps=conn.prepareStatement(sql);
+			int rowSize=10;
+			int start=(rowSize*page)-(rowSize-1);
+    		int end=rowSize*page;
+    		
+			ps.setString(1, "%" + fd +"%");
+			ps.setInt(2, start);
+			ps.setInt(3, end);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				CustomerNoticeVO vo=new CustomerNoticeVO();
+				vo.setType(rs.getString(1));
+				vo.setTitle(rs.getString(2));
+				vo.setRegdate(rs.getDate(3));
+				vo.setHit(rs.getInt(4));
+				vo.setNo(rs.getInt(5));
+				vo.setAll_type(rs.getString(6));
+				vo.setCno(rs.getInt(7));
+				list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
 	public CustomerNoticeVO customerNoticeDetail(int no)
+	{
+		CustomerNoticeVO vo=new CustomerNoticeVO();
+		try
+		{
+			getConnection();
+			// 조회수 증가 
+			
+			String sql="UPDATE customer_notice SET "
+				     +"hit=hit+1 "
+				     +"WHERE no=?";
+		    ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.executeUpdate();
+			sql="SELECT no,type,title,regdate,content,hit "
+					+ "FROM customer_notice "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setType(rs.getString(2));
+			vo.setTitle(rs.getString(3));
+			vo.setRegdate(rs.getDate(4));
+			vo.setContent(rs.getString(5));
+			vo.setHit(rs.getInt(6));
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
+	//detail 위아래목차
+	public CustomerNoticeVO customerNoticeDetailud(int no)
 	{
 		CustomerNoticeVO vo=new CustomerNoticeVO();
 		try
@@ -243,7 +360,6 @@ public class CustomerDAO {
 		}
 		return vo;
 	}
-	
 	public void qnaInsert(CustomerQNAVO vo)
 	{
 		try
@@ -269,5 +385,81 @@ public class CustomerDAO {
 		{
 			disConnection();
 		}
+	}
+	public CustomerNoticeVO noticeUpdateData(int no)
+	{
+		   CustomerNoticeVO vo=new CustomerNoticeVO();
+		   try
+		   {
+			   getConnection();
+			   // 조회수 증가 
+			   String sql="SELECT no,type,title,content "
+				  +"FROM customer_notice "
+				  +"WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   vo.setNo(rs.getInt(1));
+			   vo.setType(rs.getString(2));
+			   vo.setTitle(rs.getString(3));
+			   vo.setContent(rs.getString(4));
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return vo;
+	}
+	public void noticeUpdate(CustomerNoticeVO vo)
+	{
+		try
+		{
+			getConnection();
+			String sql="UPDATE customer_notice SET "
+					+ "type=?,title=?,content=? "
+					+ "WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, vo.getType());
+			ps.setString(2, vo.getTitle());
+			ps.setString(3, vo.getContent());
+			ps.setInt(4, vo.getNo());
+			ps.executeUpdate();
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+	}
+	public void noticeDelete(int no)
+    {
+		   
+		   try
+		   {
+			   getConnection();
+			   
+			   String sql="DELETE FROM customer_notice "
+					  +"WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   ps.executeUpdate();
+
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   
 	}
 }

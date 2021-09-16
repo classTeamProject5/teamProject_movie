@@ -27,7 +27,6 @@
 			      <th width=20% class="text-center"  style="background-color: #d3d3d3">제목</th>
 			      <td width=25%><input type="text" name=title></td>
 			    </tr>
-			    
 			  </table>
 			  <div>
 			    <textarea name="content" id="note" cols="120" rows="10"></textarea>

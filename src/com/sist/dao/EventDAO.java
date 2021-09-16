@@ -17,32 +17,26 @@ import com.sist.vo.EventWinnerVO;
 import javax.naming.*;
 public class EventDAO {
 
-	// 오라클 연결 객체
-	private Connection conn;
-	// SQL문장 전송 객체
-	private PreparedStatement ps;
-	// 오라클 서버 주소
-	private final String URL = "jdbc:oracle:thin:@211.238.142.208:1521:XE";
+	
+	private Connection conn; // 오라클 연결 객체
+	private PreparedStatement ps; // SQL문장 전송 객체
+	private final String URL = "jdbc:oracle:thin:@211.238.142.208:1521:XE"; // 오라클 서버 주소
 
-	// 1. 드라이버 등록
-	public EventDAO() {
+	public EventDAO() { // 1. 드라이버 등록
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
-	// 2. 오라클 연결
-	public void getConnection() {
+	public void getConnection() { // 2. 오라클 연결
 		try {
 			conn = DriverManager.getConnection(URL, "hr", "happy");
 			// conn hr/happy
 		} catch (Exception ex) {
 		}
 	}
-
-	// 3. 오라클 해제 => JDBC => DBCP => ORM(MyBatis,JPA,Hibernate...)
-	public void disConnection() {
+	public void disConnection() { // 3. 오라클 해제
 		try {
 			if (ps != null)
 				ps.close(); // 연결중이면 닫는다
@@ -55,10 +49,8 @@ public class EventDAO {
    private Connection conn;
    private PreparedStatement ps;
    // 주소 얻기
-   public void getConnetion()
-   {
-	   try
-	   {
+   public void getConnetion() {
+	   try {
 		   Context init=new InitialContext();
 		   Context c=(Context)init.lookup("java://comp//env");
 		   DataSource ds=(DataSource)c.lookup("jdbc/oracle");
@@ -69,10 +61,8 @@ public class EventDAO {
 	   }
    }
    // 반환
-   public void disConnection()
-   {
-	   try
-	   {
+   public void disConnection() {
+	   try{
 		   if(ps!=null) ps.close();
 		   if(conn!=null) conn.close();
 	   }catch(Exception ex) {}
@@ -396,15 +386,62 @@ public class EventDAO {
 		   }
 		   return list;
 	   }
-	//****************************************************************************************************//
-	public List<EventVO> eventMovieData() 
+	//**********************************************************************************************************//
+	public List<EventVO> eventAllData_Finder(String whatFind) 
 	   {
 		   List<EventVO> list=new ArrayList<EventVO>();
 		   try
 		   {
 			   getConnection();
 			   String sql="SELECT * FROM event_main2 "
+			   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND "
+			   		+ "event_title LIKE '%"+whatFind+"%' ORDER BY event_term DESC";
+			   
+			   ps=conn.prepareStatement(sql);			
+			   
+			   // 실행 
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   EventVO vo=new EventVO();
+				   vo.setMno(rs.getInt(1));
+				   vo.setCategory(rs.getString(2));
+				   vo.setPoster(rs.getString(3));
+				   vo.setTitle(rs.getString(4));
+				   vo.setTerm(rs.getString(5));
+				   vo.setState(rs.getString(6));
+				   vo.setContent(rs.getString(7));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return list;
+	   }
+	
+	
+	//****************************************************************************************************//
+	public List<EventVO> eventMovieData(String searchData) 
+	   {
+		   List<EventVO> list=new ArrayList<EventVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql;
+			   if(searchData==null) {
+				   sql="SELECT * FROM event_main2 "
 			   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND event_category = '영화'";
+			   }else {
+				   sql="SELECT * FROM event_main2 "
+					   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND event_category = '영화' "
+					   		+ "AND event_title LIKE '%"+searchData+"%'";
+			   }
 			   
 			   ps=conn.prepareStatement(sql);			
 			   
@@ -434,15 +471,21 @@ public class EventDAO {
 		   return list;
 	   }
 	//***************************************************************************************************//
-	public List<EventVO> eventTheaterData() 
+	public List<EventVO> eventTheaterData(String searchData) 
 	   {
 		   List<EventVO> list=new ArrayList<EventVO>();
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT * FROM event_main2 "
+			   String sql;
+			   if(searchData==null) {
+				   sql="SELECT * FROM event_main2 "
 			   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND event_category = '극장'";
-			   
+			   }else {
+				   sql="SELECT * FROM event_main2 "
+					   		+ "WHERE event_poster IS NOT NULL AND event_state = '진행중인 이벤트' AND event_category = '극장' "
+					   		+ "AND event_title LIKE '%"+searchData+"%'";
+			   }
 			   ps=conn.prepareStatement(sql);			
 			   
 			   // 실행 
@@ -478,8 +521,9 @@ public class EventDAO {
 		   {
 			   getConnection();
 			   String sql="SELECT * FROM event_main2 "
-			   		+ "WHERE event_poster IS NOT NULL AND event_state = '지난 이벤트' "
-			   		+ "ORDER BY event_term DESC";
+				   		+ "WHERE event_poster IS NOT NULL AND event_state = '지난 이벤트' "
+				   		+ "ORDER BY event_term DESC";
+			  
 			   
 			   ps=conn.prepareStatement(sql);			
 			   
@@ -508,6 +552,7 @@ public class EventDAO {
 		   }
 		   return list;
 	   }
+	
 	/******************************************************************************************************/
 	/*******************************************************************************************************/
 	public List<EventWinnerVO> boardListData() 

@@ -1,5 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -357,20 +359,19 @@
 					</div>
 				</div>
 					<div class="select-seat-information">
-					<div class="selected-movie">영화제목</div>
+					<div class="selected-movie">${svo.title}</div>
 					<div class="select-seat-information-wrapper">
 					
-						<div class="select-theater-place selected-theater-place-info">3관
-							8층</div>
+						<div class="select-theater-place selected-theater-place-info">${svo.theater }</div>
 						<div class="select-theater-place">
-							<span>남은좌석</span><span class="remain-seats">152</span>/<span
-								class="all-seats">172</span>
+							<span>남은좌석</span><span class="remain-seats">${svo.remainseat }</span>/<span
+								class="all-seats">${svo.totalseat }</span>
 						</div>
 
 					</div>
 					<div class="select-theater-date">
-						<div class="theater-date">날짜</div>
-						<div class="theater-time">시간</div>
+						<div class="theater-date">${svo.regdate }</div>
+						<div class="theater-time">${svo.starttime }</div>
 					</div>
 					<div class="selected-seats-wrapper">
 						<span class="selected-seats-title">좌석번호</span> <span
@@ -381,8 +382,8 @@
 						<div class="ticket-price">0원</div>
 					</div>
 					<form action="moveKakao.do" class="seatForm" method="post">
-						<input type="hidden" class="title" name="title"> <input
-							type="hidden" class="selectedTheater" name="selectedTheater">
+						<input type="hidden" class="title" name="title"> 
+						<input type="hidden" class="selectedTheater" name="selectedTheater">
 						<input type="hidden" class="reserveDate" name="movieDate">
 						<input type="hidden" class="runningTime" name="runningTime">
 						<%-- <input type="hidden" class="movieAge" name="movieAge"
@@ -393,7 +394,7 @@
 						<!-- 결제 정보 -->
 						<input type="hidden" class="payMoney" name="payMoney">
 						<button type="button" class="reserve-button" onClick="location.href='../reserve/pay.do'">
-							결제하기<img src="#">
+							결제하기
 						</button>
 					</form>
 				</div>
@@ -717,5 +718,4 @@ reserveButton.addEventListener('click', function() {
 });
 </script>
 
-</html>
 </html>

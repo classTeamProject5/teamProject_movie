@@ -70,7 +70,7 @@ public class MemberModel {
   // 로그인 , 검색 => Ajax
   // 회원가입 처리 
   @RequestMapping("member/login_ok.do")
-  public String member_join_ok(HttpServletRequest request,HttpServletResponse response)
+  public String member_login_ok(HttpServletRequest request,HttpServletResponse response)
   {
 	  System.out.println("회원 데이터 전송완료");
 	  // 사용자가 보내준 데이터를 받는다 
@@ -91,6 +91,8 @@ public class MemberModel {
 	  String tel1=request.getParameter("tel1");// UNIQUE => 아이디 찾기 (후보키)
 	  String tel2=request.getParameter("tel2");//
 	  String genre=request.getParameter("genre");
+	  
+	 
 	  
 	  MemberVO vo=new MemberVO();
 	  vo.setId(id);

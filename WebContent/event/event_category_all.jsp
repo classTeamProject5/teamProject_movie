@@ -11,6 +11,14 @@
 <title>진행중인 이벤트 | 전체</title>
 <link rel="stylesheet" href="../event/css/event.css">
 <link rel="stylesheet" href="../event/css/total.css">
+<!--  
+<script type="text/javaScript">
+function findEventData(){
+     location.href = "event_category_all_finder.do";
+}
+</script>-->
+
+
 </head>
 <body>
 	
@@ -34,10 +42,15 @@
 	
 	</div>
 	<div class="searchPart">
-		<span class="search">
-				<input type="text" title="검색어를 입력해 주세요." placeholder="검색어를 입력해 주세요." class="input-text">
-				<button type="button" class="btn-search-input"></button>
-		</span>
+		
+			<form action="event_category_all.do">
+			<span class="search">
+				<input type="text" title="검색어를 입력해 주세요." placeholder="검색어를 입력해 주세요." class="input-text" name="eventFindText">
+				<input type="submit" class="btn-search-input" value="">
+			</span>
+			</form>
+				<!-- <button type="button" class="btn-search-input" onclick='location.href="event_category_all_finder.do"'></button> -->
+		
 	</div>	
 	<div class="content">
 		<c:forEach var="vo" items="${list}">

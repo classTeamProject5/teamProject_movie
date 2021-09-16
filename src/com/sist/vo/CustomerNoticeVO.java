@@ -11,10 +11,16 @@ HIT              NUMBER
 import java.util.Date;
 
 public class CustomerNoticeVO {
-	private int no,hit;
+	private int no,hit,cno;
 	private String type,title,content,all_type;
 	private Date regdate;
 	
+	public int getCno() {
+		return cno;
+	}
+	public void setCno(int cno) {
+		this.cno = cno;
+	}
 	public String getAll_type() {
 		return all_type;
 	}

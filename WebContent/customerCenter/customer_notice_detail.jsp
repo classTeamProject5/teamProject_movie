@@ -19,36 +19,38 @@
 	      </tr>
 	     
 	      <tr>
+	        
 	        <td class="text-center" width=50%>${vo.title}</td>
-	        <td class="text-center" width=20%>${vo.regdate }</td>
+	        <td class="text-center" width=20%>${vo.regdate }
+	          
+	        </td>
 	        <td class="text-center" width=20%>${vo.hit }</td>
 	      </tr>
 	    </table>
 	    <hr>
 	    <table class="table">
 	      <tr> 
-	        <td colspan="4" style="border: 1px solid #ccc; width:1200px; height : 400px; margin-top: 30px;"><pre>${vo.content }</pre></td> 
+	        <td colspan="4"  style="border: 1px solid #ccc; width:1000px; height : 400px; margin-top: 30px;">
+	        <pre style="padding:10px; overflow: auto; white-space: pre-wrap;">${vo.content }</pre></td> 
 	      </tr>
-	      <tr>
-	        <td colspan="4" class="text-right">
+	    </table>
+	    <table class="table">
+	      <tr style="text-align: right;">
+	        <td>
+	         <c:if test="${sessionScope.id==null }">
+	          
+	         </c:if>
+	         <c:if test="${sessionScope.id!=null and sessionScope.admin=='y'}">
+	           <a href="notice_delete.do?no=${vo.no }" class="btn btn-xs btn-danger">삭제
+	             
+	           </a>
+	           <a href="notice_update.do?no=${vo.no }" class="btn btn-xs btn-primary">수정</a>
+	         </c:if>
 	         <a href="notice.do" class="btn btn-xs btn-info">목록</a>
 	        </td>
 	      </tr>
 	    </table>
 	    <table class="table">
-	     <c:choose >
-	      <c:when test="${empty vodown.title}">
-	        
-	      </c:when>
-	      <c:otherwise>
-	        <tr>
-	          <td class="text-center" width=10%>이전글</td>
-	          <td class="text-center" width=10%>▲</td>
-	          <td class="text-center" width=50%><a href="notice_detail.do?no=${vodown.no }">${vodown.title }</a></td>
-	          <td class="text-center text-right" width=20%>날짜</td>
-	        </tr>
-	      </c:otherwise>
-	     </c:choose>
 	     <c:choose >
 	      <c:when test="${empty voup.title}">
 	        
@@ -56,8 +58,21 @@
 	      <c:otherwise>
 	        <tr>
 	          <td class="text-center" width=10%>다음글</td>
-	          <td class="text-center" width=10%>▼</td>
+	          <td class="text-center" width=10%>▲</td>
 	          <td class="text-center" width=50%><a href="notice_detail.do?no=${voup.no }">${voup.title }</a></td>
+	          <td class="text-center text-right" width=20%>날짜</td>
+	        </tr>
+	      </c:otherwise>
+	     </c:choose>
+	     <c:choose >
+	      <c:when test="${empty vodown.title}">
+	        
+	      </c:when>
+	      <c:otherwise>
+	        <tr>
+	          <td class="text-center" width=10%>이전글</td>
+	          <td class="text-center" width=10%>▼</td>
+	          <td class="text-center" width=50%><a href="notice_detail.do?no=${vodown.no }">${vodown.title }</a></td>
 	          <td class="text-center text-right" width=20%>날짜</td>
 	        </tr>
 	      </c:otherwise>

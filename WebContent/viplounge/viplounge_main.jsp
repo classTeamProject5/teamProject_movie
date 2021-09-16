@@ -13,18 +13,19 @@
 </head>
 <body class="viplounge_body">
 	<div class="viplounge_all">
+	<c:if test="${sessionScope.id!=null }"><%--로그인 된 상태 --%>
 		<div class="viplounge_info">
-			<div class="viplounge_grade">svip</div>
+			<div class="viplounge_grade">${vo.usergrade}</div>
 			<div class="viplounge_textbox">
 				<!-- id,grade,0 자리에 테이블 데이터가 들어갈 것임. -->
 				<div class="viplounge_userdata">
-					<div class="viplounge_iddata">userid</div>
+					<div class="viplounge_iddata">${vo.userid}</div>
 					<div class="viplounge_basictext">님은</div>
-					<div class="viplounge_gradedata">grade</div>
+					<div class="viplounge_gradedata">${vo.usergrade}</div>
 					<div class="viplounge_basictext">입니다.</div>
 				</div>	
 				<div class="viplounge_pointdata">
-					<div class="viplounge_numberdata">0</div>
+					<div class="viplounge_numberdata">${vo.total_point}</div>
 					<div class="viplounge_basictext">P</div>
 				</div>
 			</div>
@@ -34,14 +35,15 @@
 				</div>
 				<div class="viplounge_mycoupons">
 					<div class="viplounge_mycoupons_basictext">사용 가능한 나의 쿠폰 </div>
-					<div class="viplounge_mycoupons_numberdata">15</div>
+					<div class="viplounge_mycoupons_numberdata">${vo.total_ticketnums}</div>
 					<div class="viplounge_mycoupons_basictext">장</div>
 				</div>
 				<div class="viplounge_linkMypage">
 					<a href="#">My홍대극장</a>
 				</div>
 			</div>
-		</div>
+		</div><!-- viplounge_info끝 -->
+		</c:if>
 		
 		<div class="viplounge_table">
 			<!-- 테이블 태그는 나중에 다시 DB랑 비슷하게 맞춰보자 -->
