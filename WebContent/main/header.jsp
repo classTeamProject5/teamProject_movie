@@ -15,7 +15,7 @@
                     <div class="header-topnav">
                       <div class="header-topnav-side">
 	                      <!-- Left-aligned links (default) -->
-						  <a href="#news">멤버십</a>
+						  <a href="../viplounge/viplounge_main.do">멤버십</a>
 						  <a href="../customerCenter/main.do">고객센터</a>
 						
 						  <!-- Right-aligned links -->
