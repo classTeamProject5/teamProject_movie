@@ -77,7 +77,7 @@ public class CustomerMainModel {
 			page="1";
 		
 		int curpage=Integer.parseInt(page);
-		System.out.println(fd);
+		
 		CustomerDAO dao=CustomerDAO.newInstance();
 		List<CustomerNoticeVO> findList=dao.customerNoticeFind(fd, curpage);
 		

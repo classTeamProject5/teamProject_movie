@@ -3,6 +3,13 @@
  
   
 }
+.paginations{display:block; width:100%; text-align:center; clear:both;}
+.paginations li{display:inline-block; margin:0 2px 0 0;}
+.paginations li:last-child{margin-right:0;}
+.paginations a, .paginations strong{display:block; padding:8px 11px; border:1px solid; font-weight:normal;}
+
+.paginations a, .paginations strong{border-color:#D7D7D7;}
+.paginations .current{color:white; background-color:#00BFFF;}
 
 .topnav input[type=text] {
   padding: 6px;
