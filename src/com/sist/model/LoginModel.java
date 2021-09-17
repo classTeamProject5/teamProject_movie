@@ -55,4 +55,12 @@ public class LoginModel {
 	  session.invalidate(); // 데이터 전체 삭제
 	  return "redirect:../main/main.do";
   }
+  
+  // id찾기
+  @RequestMapping("login/idfind.do")
+  public String login_idfind(HttpServletRequest request,HttpServletResponse response)
+  {
+	  request.setAttribute("main_jsp", "../login/idfind.jsp");
+	  return "../main/main.jsp";
+  }
 }

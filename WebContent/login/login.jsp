@@ -53,13 +53,13 @@
                             </div>
                             <button type="submit" class="site-btn">로그인</button>
                          </form>
-                        <a href="#" class="forget_pass">비밀번호를 잊어버리셨나요?</a>
+                        <a href="../login/idfind.do" class="forget_pass">아이디를 잊어버리셨나요?</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="login__register">
                         <h3>계정이 없으신가요?</h3>
-                        <a href="#" class="primary-btn">회원가입하러 가기</a>
+                        <a href="../member/join.jsp" class="primary-btn">회원가입하러 가기</a>
                     </div>
                 </div>
             </div>
