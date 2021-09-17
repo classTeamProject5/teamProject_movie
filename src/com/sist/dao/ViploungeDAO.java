@@ -5,32 +5,39 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import com.sist.vo.EventVO;
 import com.sist.vo.ViploungeVO;
 
 public class ViploungeDAO {
-	private Connection conn; // 오라클 연결 객체
-	private PreparedStatement ps; // SQL문장 전송 객체
-	private final String URL = "jdbc:oracle:thin:@211.238.142.208:1521:XE"; // 오라클 서버 주소
+	private Connection conn;
+	private PreparedStatement ps;
+	private static ViploungeDAO dao;
 
-	public ViploungeDAO() { // 1. 드라이버 등록
+	public static ViploungeDAO newInstance() {
+		if (dao == null)
+			dao = new ViploungeDAO();
+		return dao;
+	}
+
+	public void getConnection() {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Context init = new InitialContext();
+			Context c = (Context) init.lookup("java://comp//env");
+			DataSource ds = (DataSource) c.lookup("jdbc/oracle");
+			conn = ds.getConnection();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
-	public void getConnection() { // 2. 오라클 연결
-		try {
-			conn = DriverManager.getConnection(URL, "hr", "happy");
-			// conn hr/happy
-		} catch (Exception ex) {
-		}
-	}
-	public void disConnection() { // 3. 오라클 해제
+
+	public void disConnection() {
 		try {
 			if (ps != null)
-				ps.close(); // 연결중이면 닫는다
+				ps.close();
 			if (conn != null)
 				conn.close();
 		} catch (Exception ex) {
@@ -49,14 +56,14 @@ public class ViploungeDAO {
 			   ps=conn.prepareStatement(sql);			
 			   ps.setString(1, idstr);
 			   ResultSet rs=ps.executeQuery();
-			   rs.next();
-			   
-			   
-			   vo.setMno(rs.getInt(1));
-			   vo.setUserid(rs.getString(2));
-			   vo.setUsergrade(rs.getString(3));
-			   vo.setTotal_point(rs.getInt(4));
-			   vo.setTotal_ticketnums(rs.getInt(5));
+			   while(rs.next())
+			   {
+				   vo.setMno(rs.getInt(1));
+				   vo.setUserid(rs.getString(2));
+				   vo.setUsergrade(rs.getString(3));
+				   vo.setTotal_point(rs.getInt(4));
+				   vo.setTotal_ticketnums(rs.getInt(5));
+			   }
 			   rs.close();
 		   }catch(Exception ex) {
 			   ex.printStackTrace();
@@ -78,8 +85,9 @@ public class ViploungeDAO {
 			ps=conn.prepareStatement(sql);			
 			  
 			   ResultSet rs=ps.executeQuery();
-			   vo.setUserid(rs.getString(1));
-			   rs.next();
+			   while(rs.next()){
+					vo.setUserid(rs.getString(1));
+					}
 			   rs.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();

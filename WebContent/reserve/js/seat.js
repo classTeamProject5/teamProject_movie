@@ -278,7 +278,7 @@ function mapping(input, i, j) {
 }
 
 //form 제출시 hidden설정하기
-reserveButton.addEventListener('click', function() {
+reserveButton.addEventListener('click', function submitForm() {
     title.value = selectedMovie.innerHTML;
     selectedTheater.value =
         selectedTheaterPlaceInfo[0].innerHTML +

@@ -6,10 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-import com.sist.dao.EventDAO;
-import com.sist.dao.LoginDAO;
+//import com.sist.dao.LoginDAO;
 import com.sist.dao.ViploungeDAO;
-import com.sist.vo.EventVO;
+
 import com.sist.vo.ViploungeVO;
 
 @Controller
@@ -25,7 +24,7 @@ public class VipLoungeModel {
 		//System.out.println("세션에 저장된 id값은:"+id);//개인확인용 메세지. 삭제하지말것.
 	
 		//2. 세션에서 가져온 id==viplounge의 userid 같은 행에 대해 vo데이터를 가져온다.
-		ViploungeDAO dao = new ViploungeDAO(); //newInstance형태로 수정해야함.
+		ViploungeDAO dao = ViploungeDAO.newInstance();
 		dao.memberDataUpdate();
 		
 		ViploungeVO vo = dao.viploungeUserData(id);	//id==userid인경우 데이터를 뽑아옴.

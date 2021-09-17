@@ -6,15 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+</style>
 </head>
 <body>
   <div class="customer-container">
     <div class="customer-row">
       <div class="search-container" style="text-align: right; width: 1000px;">
 	    <form method="post" action="notice_search.do">
-	      <input type=text name="fd" placeholder="검색어를 입력해 주세요"></input>
+	     <span class="notice-search">
+	      <input type=text name="fd" placeholder="검색어를 입력해 주세요" class="input-text">
 	      <input type=hidden name=type value=전체> 
-	      <button type="submit" class="glyphicon glyphicon-search"></button>
+	      <button type="submit" class="glyphicon glyphicon-search gly-search"></button>
+	     </span>
+	     
 	    </form>
 	  </div>
 	<nav class="navbar navbar-defualt" style="text-align: center;">
@@ -78,22 +84,23 @@
   	  </c:if>
     </table>
 	
-    <nav style="text-align: center;">
-      <ul class="pagination">
+    <nav class="paginations">
+      <ul >
           <c:if test="${curpage>BLOCK }">
            <li><a href="notice.do?page=${startPage-1 }&type=${type}">&laquo; Previous</a></li>
           </c:if> 
            <c:forEach var="i" begin="${startPage }" end="${endPage }">
              
-              <c:if test="${curpage==i }">
-                <c:set var="ss" value="class=current"/>
+              <c:if test="${i==curpage }">
+                  <li class="current"><strong>${i }</strong></li>
               </c:if>
-              <c:if test="${curpage!=i }">
-                <c:set var="ss" value=""/>
+              <c:if test="${i!=curpage }">
+                <li><a href="notice.do?page=${i }&type=${type}">${i }</a></li>
               </c:if>
               
-              <li ${ss }><a href="notice.do?page=${i }&type=${type}">${i }</a></li>
-             
+            
+            
+            
            </c:forEach>
            <c:if test="${endPage<totalpage }">
             <li><a href="notice.do?page=${endPage+1 }&type=${type}">Next &raquo;</a></li>

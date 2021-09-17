@@ -27,11 +27,11 @@
 	        <td class="text-center" width=20%>${vo.hit }</td>
 	      </tr>
 	    </table>
-	    <hr>
+	    
 	    <table class="table">
 	      <tr> 
 	        <td colspan="4"  style="border: 1px solid #ccc; width:1000px; height : 400px; margin-top: 30px;">
-	        <pre style="padding:10px; overflow: auto; white-space: pre-wrap;">${vo.content }</pre></td> 
+	        <pre style="padding:10px; overflow: auto; white-space: pre-wrap; background-color: white;">${vo.content }</pre></td> 
 	      </tr>
 	    </table>
 	    <table class="table">
@@ -60,7 +60,7 @@
 	          <td class="text-center" width=10%>다음글</td>
 	          <td class="text-center" width=10%>▲</td>
 	          <td class="text-center" width=50%><a href="notice_detail.do?no=${voup.no }">${voup.title }</a></td>
-	          <td class="text-center text-right" width=20%>날짜</td>
+	          <td class="text-center text-right" width=20%>${voup.regdate }</td>
 	        </tr>
 	      </c:otherwise>
 	     </c:choose>
@@ -73,7 +73,7 @@
 	          <td class="text-center" width=10%>이전글</td>
 	          <td class="text-center" width=10%>▼</td>
 	          <td class="text-center" width=50%><a href="notice_detail.do?no=${vodown.no }">${vodown.title }</a></td>
-	          <td class="text-center text-right" width=20%>날짜</td>
+	          <td class="text-center text-right" width=20%>${vodown.regdate }</td>
 	        </tr>
 	      </c:otherwise>
 	     </c:choose>

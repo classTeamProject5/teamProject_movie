@@ -38,7 +38,7 @@
 		<form action="">
 			<span class="search">
 				<input type="text" title="검색어를 입력해 주세요." placeholder="검색어를 입력해 주세요." class="input-text" name="eventFindText">
-				<input type="submit" class="btn-search-input" value="아직임">
+				<input type="submit" class="btn-search-input" value="">
 			</span>
 			</form>
 	</div>	

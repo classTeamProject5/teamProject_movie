@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 import com.sist.vo.*;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.sist.dao.*;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -80,10 +82,48 @@ public class ReserveModel {
    
    
    
-   @RequestMapping("reserve/pay.do")
-   public String reserve_pay(HttpServletRequest request, HttpServletResponse response) {
-      request.setAttribute("main_jsp", "../reserve/pay.jsp");
-      return "../main/main.jsp";
+   @RequestMapping("reserve/reserve_ok.do")
+   public String reserve_ok(HttpServletRequest request, HttpServletResponse response) {
+	   	  
+	   	  ReserveDAO dao=ReserveDAO.newInstance();
+	   	  HttpSession session=request.getSession();
+	   	  String id=(String)session.getAttribute("id"); 
+	  	  String title=request.getParameter("title");
+	  	  String selectedTheater=request.getParameter("selectedTheater");
+	  	  String movieDate=request.getParameter("movieDate");
+	  	  String runningTime=request.getParameter("runningTime");
+	  	  String movieAge=request.getParameter("movieAge");
+//		  String reserve_Date=request.getParameter("reserve_Date");
+			/* String ticketNumber=request.getParameter("ticketNumber"); */
+	  	  String finwon=request.getParameter("finwon");
+	  	  String payMoney=request.getParameter("payMoney");
+	  	  
+//	  	  String pay_Money=request.getParameter("pay_Money");
+	  	 
+	  	    System.out.println("id:"+id); 
+		  	System.out.println("title:"+title);  
+		  	System.out.println("selectedTheater:"+selectedTheater); 
+		  	System.out.println("movieDate:"+movieDate); 
+		  	System.out.println("runningTime:"+runningTime); 
+		  	System.out.println("movieAge:"+movieAge); 
+			/* System.out.println("ticketNumber:"+ticketNumber); */
+		  	System.out.println("selectedSeat:"+finwon); 
+		  	System.out.println("payMoney:"+payMoney); 
+	  	  ReserveVO vo=new ReserveVO();
+		  vo.setId(id);
+		  vo.setTitle(title);
+		  vo.setSelected_theater(selectedTheater);
+		  vo.setMovie_date(movieDate); //영화보는날
+		  vo.setRunning_time(runningTime); //시작시간
+		  vo.setMovie_age(movieAge);
+			/* vo.setTicket_number(ticketNumber); */
+		  vo.setSelected_seat(finwon);
+		  vo.setPay_money(payMoney);
+		            
+          dao.movieReservedata(vo);
+          return "redirect:../reserve/mypage.do";
+      //request.setAttribute("main_jsp", "../reserve/pay.jsp");
+      //return "../main/main.jsp";
    }
 
    @RequestMapping("reserve/seat.do")
@@ -94,11 +134,28 @@ public class ReserveModel {
       ReserveDAO dao=ReserveDAO.newInstance();
 
       	String no=request.getParameter("no");
-
         MovieTimeVO svo=dao.selectListData(Integer.parseInt(no));
-      	
+        
+      
+	  
       request.setAttribute("svo", svo);
       request.setAttribute("main_jsp", "../reserve/seat.jsp");
       return "../main/main.jsp";
+   }
+   
+   
+   
+   @RequestMapping("reserve/mypage.do")
+   public String reserve_mypage(HttpServletRequest request,HttpServletResponse response)
+   {
+ 	  HttpSession session=request.getSession();
+ 	  String id=(String)session.getAttribute("id");
+ 	  ReserveDAO dao=ReserveDAO.newInstance();
+ 	  
+ 	  List<ReserveVO> list=dao.mypageData(id);
+ 	  
+ 	  request.setAttribute("list", list);
+ 	  request.setAttribute("main_jsp", "../reserve/mypage.jsp");
+ 	  return "../main/main.jsp";
    }
 }
