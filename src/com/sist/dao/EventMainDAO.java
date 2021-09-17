@@ -1,47 +1,52 @@
 package com.sist.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+//import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 import com.sist.vo.EventVO;
 import com.sist.vo.EventWinnerVO;
 
 public class EventMainDAO {
 	
+	private Connection conn;
+	private PreparedStatement ps;
+	private static EventMainDAO dao;
 
-	private Connection conn; // 오라클 연결 객체
-	private PreparedStatement ps; // SQL문장 전송 객체
-	private final String URL = "jdbc:oracle:thin:@211.238.142.208:1521:XE"; // 오라클 서버 주소
+	public static EventMainDAO newInstance() {
+		if (dao == null)
+			dao = new EventMainDAO();
+		return dao;
+	}
 
-	public EventMainDAO() { // 1. 드라이버 등록
+	public void getConnection() {
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Context init = new InitialContext();
+			Context c = (Context) init.lookup("java://comp//env");
+			DataSource ds = (DataSource) c.lookup("jdbc/oracle");
+			conn = ds.getConnection();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
-	public void getConnection() { // 2. 오라클 연결
-		try {
-			conn = DriverManager.getConnection(URL, "hr", "happy");
-			// conn hr/happy
-		} catch (Exception ex) {
-		}
-	}
-	public void disConnection() { // 3. 오라클 해제
+
+	public void disConnection() {
 		try {
 			if (ps != null)
-				ps.close(); // 연결중이면 닫는다
+				ps.close();
 			if (conn != null)
 				conn.close();
 		} catch (Exception ex) {
 		}
 	}
-	
-	
+	/******************************************************************************************/
 	public List<EventVO> eventMainDataList(String whatCategory, String whatFind) 
 	   {
 		   List<EventVO> list=new ArrayList<EventVO>();

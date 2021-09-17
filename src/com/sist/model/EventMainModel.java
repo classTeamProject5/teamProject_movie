@@ -24,7 +24,7 @@ public class EventMainModel {
 		   String thisPage = "event_category_all.do";
 		   String searchFind = null;
 		   
-		   EventMainDAO dao = new EventMainDAO(); //newInstance형태로 수정해야함.
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   List<EventVO> list = dao.eventMainDataList(selectCategoryData, searchFind);	//진행중인 이벤트, all(전체)를 기본으로 출력.
 		   
 		   request.setAttribute("thisPage",thisPage);
@@ -42,7 +42,7 @@ public class EventMainModel {
 		   String thisPage = "event_category_all.do";
 		   String searchFind = null;
 		   searchFind = request.getParameter("eventFindText");
-		   EventMainDAO dao = new EventMainDAO(); //newInstance형태로 수정해야함.
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   List<EventVO> list = dao.eventMainDataList(selectCategoryData, searchFind);	//진행중인 이벤트, all(전체)를 기본으로 출력.
 		   
 		   System.out.println("선택한 카테고리 : "+selectCategoryData);
@@ -59,7 +59,7 @@ public class EventMainModel {
 		   String searchFind = null; //아무 검색도 하지 않았을 때 searchFind의 기본값은 null로 초기화.
 		   searchFind = request.getParameter("eventFindText");
 		   
-		   EventMainDAO dao = new EventMainDAO(); //newInstance형태로 수정해야함.
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   List<EventVO> list = dao.eventMainDataList(selectCategoryData, searchFind);	//진행중인 이벤트, all(전체)를 기본으로 출력.
 		   
 		   System.out.println("선택한 카테고리 : "+selectCategoryData);
@@ -76,7 +76,7 @@ public class EventMainModel {
 		   String searchFind = null;
 		   searchFind = request.getParameter("eventFindText");
 		   
-		   EventMainDAO dao = new EventMainDAO(); //newInstance형태로 수정해야함.
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   List<EventVO> list = dao.eventMainDataList(selectCategoryData, searchFind);	//진행중인 이벤트, all(전체)를 기본으로 출력.
 		   
 		   System.out.println("선택한 카테고리 : "+selectCategoryData);
@@ -100,7 +100,7 @@ public class EventMainModel {
 			  // 현재페이지 
 			  int curpage=Integer.parseInt(page);
 			  // 페이지에 해당되는 데이터 읽기 
-			  EventMainDAO dao=new EventMainDAO();
+			  EventMainDAO dao = EventMainDAO.newInstance();
 			  List<EventVO> list=dao.eventLastEventData_Paging(curpage, searchFind);
 			  // 총페이지 읽기 
 			  int totalpage=dao.eventLastEventTotal_Paging(searchFind);
@@ -145,7 +145,7 @@ public class EventMainModel {
 	   public String event_detail(HttpServletRequest request,HttpServletResponse response)
 	   { 
 		   String mno = request.getParameter("mno");
-		   EventMainDAO dao = new EventMainDAO(); //newInstance형태로 수정해야함.
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   EventVO vo = dao.eventDetailData(Integer.parseInt(mno));	//지난이벤트
 		
 		   request.setAttribute("vo", vo);
@@ -158,7 +158,7 @@ public class EventMainModel {
 	   @RequestMapping("event/event_board_list.do")
 	   public String event_board_list(HttpServletRequest request,HttpServletResponse response)
 	   {
-		   EventMainDAO dao = new EventMainDAO();
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   List<EventWinnerVO> list = dao.boardListData();
 		   request.setAttribute("list", list);
 		   request.setAttribute("main_jsp", "../event/event_board_list.jsp");
@@ -169,7 +169,7 @@ public class EventMainModel {
 	   public String event_board_list_detail(HttpServletRequest request,HttpServletResponse response)
 	   {
 		   String mno = request.getParameter("mno");
-		   EventMainDAO dao = new EventMainDAO();
+		   EventMainDAO dao = EventMainDAO.newInstance();
 		   EventWinnerVO vo = dao.eventBoardDetailData(Integer.parseInt(mno));
 		   
 		   request.setAttribute("vo", vo);
