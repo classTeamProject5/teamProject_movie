@@ -23,11 +23,12 @@
 					<div class="viplounge_basictext">님은</div>
 					<div class="viplounge_gradedata">${vo.usergrade}</div>
 					<div class="viplounge_basictext">입니다.</div>
-				</div>	
+				</div>
+				<!-- 
 				<div class="viplounge_pointdata">
 					<div class="viplounge_numberdata">${vo.total_point}</div>
 					<div class="viplounge_basictext">P</div>
-				</div>
+				</div> -->
 			</div>
 			<div class="viplounge_link">
 				<div class="viplounge_linkCustomerCenter">
@@ -38,9 +39,14 @@
 					<div class="viplounge_mycoupons_numberdata">${vo.total_ticketnums}</div>
 					<div class="viplounge_mycoupons_basictext">장</div>
 				</div>
+				 
 				<div class="viplounge_linkMypage">
-					<a href="../mypage/mypage_main.jsp">My홍대극장</a>
-				</div>
+					<!-- <a href="../mypage/mypage_main.jsp">My홍대극장</a> -->
+					<div class="viplounge_pointdata">
+						<div class="viplounge_numberdata">${vo.total_point}</div>
+						<div class="viplounge_ptext">P</div>
+					</div>
+				</div> 
 			</div>
 		</div><!-- viplounge_info끝 -->
 		</c:if>

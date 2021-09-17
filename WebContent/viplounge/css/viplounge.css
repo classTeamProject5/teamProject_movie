@@ -59,9 +59,9 @@ div.viplounge_textbox{
 }
 div.viplounge_textbox div.viplounge_userdata{
 	position:relative;
-	top:10px;
+	top:25px;
 	left:20px;
-	font-size: 28px;
+	font-size: 35px;
 	height:50px;
 }
 div.viplounge_textbox div.viplounge_userdata div.viplounge_iddata{
@@ -90,12 +90,21 @@ div.viplounge_textbox div.viplounge_pointdata{
 	margin:0 auto;
 	
 }
+.viplounge_ptext{
+	float:left;
+}
 div.viplounge_textbox div.viplounge_pointdata div.viplounge_numberdata{
 	width:100px;
 	float:left;
 	text-align:right;
 	color:#71678c;
 	
+}
+div.viplounge_linkMypage div.viplounge_pointdata div.viplounge_numberdata{
+	width:max-content;
+	float:left;
+	padding-left:20px;
+	color:#71678c;
 }
 div.viplounge_textbox div.viplounge_pointdata div.viplounge_basictext{
 	width:100px;
@@ -136,7 +145,7 @@ div.viplounge_link div.viplounge_linkCustomerCenter{
 	left:50px;
 	float:left;
 	font-weight: bold;
-	padding-right:27px;
+	padding-right:60px;
 	border-right: 2px solid #ddcde6;
 }
 
