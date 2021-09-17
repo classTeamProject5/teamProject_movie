@@ -33,7 +33,7 @@ div.mypage_info{
 	margin:0 auto;
 	padding:0;
 	border: none;
-	background-image: url("../imgs/mypage.png");
+	background-image: url("../imgs/mypage.jpg");
 	background-repeat:no-repeat;
 	background-size: contain; /*div크기에 이미지 사이즈를 맞춤*/
 }

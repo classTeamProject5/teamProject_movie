@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
     
 <!DOCTYPE html>
@@ -8,39 +8,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../mypage/css/main_mypage.css">
+<link rel="stylesheet" href="../mypage/css/main_mypage.css?after">
 <link rel="stylesheet" href="../mypage/css/core-style.css">
 <link rel="stylesheet" href="../mypage/imgs/mypage_main.png">
 
 </head>
 <body class="main_mypage">
 	<div class="mypage_all">
-		<div class="mypage_info">
-			<div class="myimg">svip</div>
-			<div class="mypage_infobox">
+			<div class="mypage_info">
+				<div class="myimg"></div>
+					<div class="mypage_infobox">
 				<!-- id,grade,0 자리에 테이블 데이터가 들어갈 것임. 그럴거임 -->
-				<div class="mypage_user">
-					<div class="mypage_id">name님</div>
-					<div class="mypage_text">id</div>
-					<div class="mypage_grade"></div>
-					<div class="mypage_text"></div>
-				</div>	
-				<div class="mypage_point">
+						<div class="mypage_user">
+							<div class="mypage_id">${vo.name }</div>
+							<div class="mypage_text">님 어서오세요! ${vo.id }</div>
+							<div class="mypage_grade">${vo.usergrade}</div>
+							<div class="mypage_text">입니다.</div>
+					</div>	
+				<%--  --><div class="mypage_point">
 					<div class="point_number">0</div>
 					<div class="mypage_text">P</div>
 				</div>
+				--%>
 			</div>
 			<div class="mypage_coupon">
 				<div class="mypage_linkcoupon">
-					<a href="#">고객센터를 통해 궁금증을 해결하세요.</a>
+					<a href="#">총 보유 포인트</a>
+					<a href="#">500point</a>
 				</div>
 				<div class="mypage_event">
-					<div class="mypage_event_text">사용 가능한 나의 쿠폰 </div>
-					<div class="mypage_event_number">15</div>
+					<div class="mypage_event_text">관람권/쿠폰 </div>
+					<div class="mypage_event_number">10</div>
 					<div class="mypage_event_text">장</div>
 				</div>
 				<div class="mypage_often_theater">
-					<a href="#">My홍대극장</a>
+					<a href="#">선호하는 영화 장르 보러가기</a>
 				</div>
 			</div>
 		</div>
@@ -68,26 +70,26 @@
         <div class="header-area clearfix">
             <!-- Close Icon -->
            
-            <!-- Amado Nav -->
+            <!-- 옆에 카테고리들 -->
             <nav class="amado-nav">
                 <ul>
-                    <li><a href="#">예매/구매내역</a></li>
-                    <li><a href="#">영화/스토어 관람권</a></li>
-                    <li><a href="#">예매/구매내역</a></li>
-                    <li><a href="#">예매/구매내역</a></li>
-                    <li><a href="#">할인/제휴쿠폰</a></li>
-                    <li><a href="#">멤버십 포인트</a></li>
-                    <li><a href="#">나의 무비스토리</a></li>
-                    <li><a href="#">나의 이벤트 응모내역</a></li>
-                    <li><a href="#">나의 문의내역</a></li>
-                    <li><a href="#">회원정보</a></li>
-                 
+                     <li><a href="#" style="width:120px;">예매/구매내역</a></li>
+                    <li><a href="#" style="width:120px;">영화 관람권</a></li>
+                    <li><a href="#" style="width:150px;">스토어 교환권</a></li>
+                    <li><a href="#" style="width:170px;">할인/제휴쿠폰</a></li>
+                    <li><a href="#" style="width:140px;">포인트 이용내역</a></li>
+                    <li><a href="#" style="width:140px;">멤버쉽 카드관리</a></li>
+                    <li><a href="#" style="width:140px;">나의 무비스토리</a></li>
+                    <li><a href="#" style="width:190px;">나의 이벤트 응모내역</a></li>
+                    <li><a href="#" style="width:130px;">나의 문의내역</a></li>
+                    <li><a href="#" style="width:170px;">자주쓰는 카드 관리</a></li>
+                    <li><a href="#" style="width:130px;">개인정보 수정</a></li>
                 </ul>
             </nav>
            
         </div>
      </div>
-        <!-- Header Area End -->
+        <!-- 옆에 카테고리 끝 -->
 
         
          <div  style="width:700px; margin-top: 100px; margin-left: 100px;">
@@ -147,7 +149,7 @@
     <script src="js/plugins.js"></script>
    
     <script src="js/active.js"></script>
-
+	
 </body>
 
 </html>
