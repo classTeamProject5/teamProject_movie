@@ -49,8 +49,8 @@ public class MovieModel {
 	   return "../main/main.jsp";// 메뉴/footer가 사라진다 
    }
    // 영화 상세
-   @RequestMapping("movie/movie_detail.do")
-   public String movie_detail(HttpServletRequest request,HttpServletResponse response)
+   @RequestMapping("movie_detail/movie_detailpage.do")
+   public String movie_detailpage(HttpServletRequest request,HttpServletResponse response)
    {
 	   // mno,cno
 	   String mno=request.getParameter("mno");
@@ -62,7 +62,7 @@ public class MovieModel {
 	   
 	   request.setAttribute("vo", vo);
 	   request.setAttribute("cno", cno);// 목록으로 이동 (개봉/상영)
-	   request.setAttribute("main_jsp", "../movie/movie_detailpage.jsp");
+	   request.setAttribute("main_jsp", "../movie_detail/movie_detailpage.jsp");
 	   return "../main/main.jsp";
    }
    
