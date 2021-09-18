@@ -7,6 +7,8 @@ import javax.servlet.http.HttpSession;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.LoginDAO;
+import com.sist.dao.MemberDAO;
+
 import java.util.*;
 import com.sist.vo.*;
 
@@ -62,5 +64,24 @@ public class LoginModel {
   {
 	  request.setAttribute("main_jsp", "../login/idfind.jsp");
 	  return "../main/main.jsp";
+  }
+  
+  @RequestMapping("login/idfind_email.do")
+  public String login_idfind_email(HttpServletRequest request,HttpServletResponse response)
+  {
+	  String email=request.getParameter("email");
+	  LoginDAO dao=LoginDAO.newInstance();
+	  String s=dao.login_idfind_email(email);
+	  request.setAttribute("result", s);
+	  return "../login/idfind_email.jsp";
+  }
+  @RequestMapping("login/idfind_tel.do")
+  public String login_idfind_tel(HttpServletRequest request,HttpServletResponse response)
+  {
+	  String tel=request.getParameter("tel");
+	  LoginDAO dao=LoginDAO.newInstance();
+	  String s=dao.login_idfind_tel(tel);
+	  request.setAttribute("result", s);
+	  return "../login/idfind_tel.jsp";
   }
 }
