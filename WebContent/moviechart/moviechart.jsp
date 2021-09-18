@@ -1,213 +1,70 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>영화차트</title>
-<link href="moviechartcss/moviechart.css" rel="stylesheet" />
+<link href="moviechartcss/style.css" rel="stylesheet" />
 </head>
-<body>
-<main>
-<div class="mc-paging-links">
-				<nav>
-					<ul>
-						<li class="mc-paging-item"><a href="#" class="mc-paging-link active">현재상영작</a></li>
-						
-						<li class="mc-paging-item"><a href="#" class="mc-paging-link">상영예정작</a></li>
-					</ul>
-				</nav>
-			</div>
-
-			<!-- 1.현재상영작 -->
-			<div class="row mc-movie">
-				<!-- gallery page 1 -->
-				<div id="mc-movie-page-현재상영작" class="mc-movie-page">
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="shangchi.jpeg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/02.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/03.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/04.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/05.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/06.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-							
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/08.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-				</div> <!-- 현재상영작 끝 -->
-				
-			
-				
-			<!-- 2.상영예정작 -->
-				<div id="mc-movie-page-상영예정작" class="mc-movie-page hidden">
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-gallery-item">
-						<figure>
-							<img src="shangchi.jpeg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="shangchi.jpeg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/05.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/01.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/08.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-					<article class="col-lg-3 col-md-4 col-sm-6 col-12 mc-movie-item">
-						<figure>
-							<img src="img/gallery/07.jpg" alt="Image" class="img-fluid mc-movie-img" />
-							<figcaption>
-								<h4 class="mc-movie-title">영화제목</h4>
-								<p class="mc-movie-description">영화정보</p>
-								
-							</figcaption>
-						</figure>
-					</article>
-				</div> <!-- 상영예정작 끝 -->
-			
-			</div>
-			</main>
-			<script src="moviechart_js/jquery.min.js"></script>
-	<script src="moviechart_js/parallax.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			// Handle click on paging links
-			$('.mc-paging-link').click(function(e){
-				e.preventDefault();
-				
-				var page = $(this).text().toLowerCase();
-				$('.mc-movie-page').addClass('hidden');
-				$('#mc-movie-page-' + page).removeClass('hidden');
-				$('.mc-paging-link').removeClass('active');
-				$(this).addClass("active");
-			});
-		});
-	</script>
+<body >
+<!--movie-->
+   
+        <div class="container">
+            <div class="row">
+                <div class="movie">
+                    
+                    <div class="movie_title">
+                        <ul>
+                        
+                            <li ><a href="../moviechart/moviechart.do?cno=1">박스오피스</a></li>
+                           
+                            <li><a href="../moviechart/moviechart.do?cno=2">상영예정작</a></li>
+                          
+                        </ul>
+                    </div>
+                     <div class="movie_chart">
+                                <div class="poster">
+                                    <figure>
+                  <ul class="nospace clear">              
+               <c:forEach var="vo" items="${list }" varStatus="s">
+             <c:if test="${s.index%4==0 }">
+               <li class="one_quarter first"><a href="../movie/movie_detail.do?mno=${vo.mno }&cno=${cno}"><img style="width:250px;height:250px" src="${vo.poster }" title="${vo.title }">${vo.title }</a></li>
+              
+             </c:if>
+             <c:if test="${s.index%4!=0 }">
+               <li class="one_quarter"><a href="../movie/movie_detail.do?mno=${vo.mno }&cno=${cno}"><img style="width:250px;height:250px" src="${vo.poster }" title="${vo.title }">${vo.title }</a></li>
+               
+            </c:if>
+           </c:forEach>
+           </ul>
+           </figure>
+                        </div>
+                        </div>
+                   </div>
+                  </div>
+         </div>
+          
+          <nav class="pagination">
+        <ul>
+          <c:if test="${startPage>1 }">
+            <li><a href="../moviechart/moviechart.do?page=${startPage-1 }&cno=${cno}">&laquo; 이전</a></li>
+          </c:if>
+           <c:forEach var="i" begin="${startPage }" end="${endPage }">
+            <c:if test="${i==curpage }"><%--현재페이지라면 --%>
+              <li class="current"><strong>${i }</strong></li>
+            </c:if>
+            <c:if test="${i!=curpage }"><%--현재페이지가 아닌경우 --%>
+              <li><a href="../moviechart/moviechart.do?page=${i }&cno=${cno}">${i }</a></li>
+            </c:if>
+          </c:forEach>
+          <c:if test="${endPage<totalpage }">
+            <li><a href="../moviechart/moviechart.do?page=${endPage+1 }&cno=${cno}">다음 &raquo;</a></li>
+          </c:if>
+        </ul>
+      </nav>
+                      
+ 
 </body>
 </html>
