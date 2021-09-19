@@ -1,198 +1,302 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+    
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title  -->
-    <title>마이 페이지</title>
-
-    <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-
-    <!-- Core Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css">
-    <link rel="stylesheet" href="style.css">
-    <style type="text/css">
-.userInfo {
-    width: 900px;
-    height:300px;
-    border: 1px solid;
-    
-}    
-.inner {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  
-}
-
-    </style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../mypage/css/main_mypage.css?after">
+<link rel="stylesheet" href="../mypage/css/core-style.css">
+<link rel="stylesheet" href="../mypage/imgs/mypage_main.png">
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+Shadowbox.init({
+	players:['iframe']
+});
+$(function(){
+	$('#idBtn').click(function(){
+		 Shadowbox.open({
+			content:'../member/idcheck.jsp',
+			player:'iframe',
+			title:'아이디 중복체크',
+			width:340,
+			height:200
+		}); 
+	});
+	// id,class(javascript/css) ,name(java에 값을 보낸다) 
+	$('#postBtn').click(function(){
+		 Shadowbox.open({
+			content:'../member/postfind.jsp',
+			player:'iframe',
+			title:'우편번호 찾기',
+			width:530,
+			height:350
+		}); 
+	});
+	$('#sendBtn').click(function(){
+		// NOT NULL => 강제 입력 (오라클에서 오류 방지 => 유효성 검사)
+		//alert("click");
+		/* let id=$('#id').val();
+		if(id.trim()=="")
+		{
+			$('#id').focus();
+			return;
+		} */
+		
+		let pwd=$('#pwd').val();
+		if(pwd.trim()=="")
+		{
+			$('#pwd').focus();
+			return;
+		}
+		
+		// 이름 
+		let name=$('#name').val();
+		if(name.trim()=="")
+		{
+			$('#name').focus();
+			return;
+		}
+		// 생년월일
+		let birth=$('#birthday').val();
+		if(birth.trim()=="")
+		{
+			$('#birthday').focus();
+			return;
+		}
+		// 이메일
+		let email=$('#email').val();
+		if(email.trim()=="")
+		{
+			$('#email').focus();
+			return;
+		}
+		// 주소 
+		/* let addr1=$('#addr1').val();
+		if(addr1.trim()=="")
+		{
+			$('#addr1').focus();
+			return;
+		} */
+		
+		// 전화번호
+		let tel2=$('#tel2').val();
+		if(tel2.trim()=="")
+		{
+			$('#tel2').focus();
+			return;
+		}
+		
+		// 정상수행 
+		$('#joinFrm').submit();
+	})
+})
+</script>
 </head>
-
-<body>
-    
-    <!-- Search Wrapper Area Start -->
-    <div class="search-wrapper section-padding-100">
-        <div class="search-close">
-            <i class="fa fa-close" aria-hidden="true"></i>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="search-content">
-                        <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
-                         
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Search Wrapper Area End -->
-         <div class="container">
-            <div class="row">
-              <div class="userInfo inner" >
-	              <div style="width:30%;float: left;">
-	                <table >
-	                  <td><img src="#" style=" width:200px; height: 100px;"></td>
-	                </table>
-	              </div>
-	              <div style="width:70%;float: right;">
-	                <table >
-	                  <tr>
-	                    <td  style=" border: 1px solid;  width:400px; height: 50px;">이름</td>
-	                  </tr>
-	                  <tr>
-	                    <td  style=" border: 1px solid;  width:400px; height: 50px;">등급</td>
-	                  </tr>
-	                </table>
-	              </div>
-	              <table  style="width:800px;">
-	                <tr>
-	                  <td style=" border: 1px solid;  width:50%; height: 100px;">
-	                    <h4>My Coupon</h4>
-	                    <ul>
-	                      <li>혜택보기</li>
-	                      <li>할인쿠폰&nbsp;개수</li>
-	                      <li>영화쿠폰&nbsp;개수</li>
-	                    </ul>
-	                  </td>
-	                  <td style=" border: 1px solid;  width:50%; height: 100px;">
-	                    <h4>My Point</h4>
-	                    <ul>
-	                      <li>사용가능 포인트&nbsp;개수</li>
-	                    </ul>
-	                  </td>
-	                </tr>
-	              </table>
-	           </div>
-            </div>
-         
-    <!-- ##### Main Content Wrapper Start ##### -->
-    <div class="main-content-wrapper d-flex clearfix">
+<body class="main_mypage">
+	<div class="mypage_all">
+			<div class="mypage_info">
+				<div class="myimg"></div>
+					<div class="mypage_infobox">
+				<!-- id,grade,0 자리에 테이블 데이터가 들어갈 것임. 그럴거임 -->
+						<div class="mypage_user">
+							<div class="mypage_id">${vo.name }</div>
+							<div class="mypage_text">님 어서오세요! ${vo.id }</div>
+							<div class="mypage_grade">${vo.usergrade}</div>
+							<div class="mypage_text">입니다.</div>
+					</div>	
+				<%--  --><div class="mypage_point">
+					<div class="point_number">0</div>
+					<div class="mypage_text">P</div>
+				</div>
+				--%>
+			</div>
+			<div class="mypage_coupon">
+				<div class="mypage_linkcoupon">
+					<a href="#">총 보유 포인트</a>
+					<a href="#">500point</a>
+				</div>
+				<div class="mypage_event">
+					<div class="mypage_event_text">관람권/쿠폰 </div>
+					<div class="mypage_event_number">10</div>
+					<div class="mypage_event_text">장</div>
+				</div>
+				<div class="mypage_often_theater">
+					<a href="#">선호하는 영화 장르 보러가기</a>
+				</div>
+			</div>
+		</div>
+		</div>
+<!-- ##### Main Content Wrapper Start ##### -->
+  <div style="margin-top: 100px; margin: 0px auto; width:1200px;
+  --bs-gutter-x: 2rem;
+  --bs-gutter-y: 0;
+  display: -webkit-box;
+  /* display: -ms-flexbox; */
+  /* display: flex;
+  -ms-flex-wrap: wrap; */
+  flex-wrap: wrap;">
+    <div class="main-content-wrapper">
 
         <!-- Mobile Nav (max width 767px)-->
         <div class="mobile-nav">
-            <!-- Navbar Brand -->
-            <div class="amado-navbar-brand">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Navbar Toggler -->
+             <!-- 옆에 메뉴 바  선택하면 노랑색 나옴 -->
             <div class="amado-navbar-toggler">
                 <span></span><span></span><span></span>
             </div>
         </div>
-
+		
         <!-- Header Area Start -->
-        <header class="header-area clearfix">
+        <div class="header-area clearfix">
             <!-- Close Icon -->
-            <div class="nav-close">
-                <i class="fa fa-close" aria-hidden="true"></i>
-            </div>
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Amado Nav -->
+           
+            <!-- 옆에 카테고리들 -->
             <nav class="amado-nav">
                 <ul>
-                    <li><a href="#">예매/구매내역</a></li>
-                    <li><a href="#">영화/스토어 관람권</a></li>
-                    <li><a href="#">예매/구매내역</a></li>
-                    <li><a href="#">할인/제휴쿠폰</a></li>
-                    <li><a href="#">멤버십 포인트</a></li>
-                    <li><a href="#">나의 무비스토리</a></li>
-                    <li><a href="#">나의 이벤트 응모내역</a></li>
-                    <li><a href="#">나의 문의내역</a></li>
-                    <li><a href="#">회원정보</a></li>
-                 
+                     <li><a href="#" style="width:120px;">예매/구매내역</a></li>
+                    <li><a href="#" style="width:120px;">영화 관람권</a></li>
+                    <li><a href="#" style="width:150px;">스토어 교환권</a></li>
+                    <li><a href="#" style="width:170px;">할인/제휴쿠폰</a></li>
+                    <li><a href="#" style="width:140px;">포인트 이용내역</a></li>
+                    <li><a href="#" style="width:140px;">멤버쉽 카드관리</a></li>
+                    <li><a href="#" style="width:140px;">나의 무비스토리</a></li>
+                    <li><a href="#" style="width:190px;">나의 이벤트 응모내역</a></li>
+                    <li><a href="#" style="width:130px;">나의 문의내역</a></li>
+                    <li><a href="#" style="width:170px;">자주쓰는 카드 관리</a></li>
+                    <li><a href="#" style="width:130px;">개인정보 수정</a></li>
                 </ul>
             </nav>
-           
-            
-        </header>
-        <!-- Header Area End -->
-
-         <section>
-    <h1>회원수정 페이지</h1>
-  
-  
-  <section>
-  <form name="login" action="index.html" method="post">
-      비밀번호<br> 
-      <input type="password" name="user_PW1" value="123456"><br>
-      비밀번호 재확인<br> 
-      <input type="password" name="user_PW2" value="123456">
-      <input type="button" name="user_PWcheck" value="비밀번호 재확인">
-      <br><br>
-      이메일<br><input type="email" name="user_email" placeholder=""><br><br>
-      휴대전화<br>  
-      <input type="text" name="user_phone" placeholder="010-****-****">
-      <input type="button" name="certification" value="인증번호 받기"><br>
-      <input type="text" name="certification" placeholder="인증번호를 입력하세요">
-      <input type="button" name="certification" value="확인"><br><br>
-      장르<br> 
-     코미디<input type="checkbox" name="check" value="hobby1">
-      로맨스/멜로<input type="checkbox" name="check" value="hobby2">
-      공포/스릴러<input type="checkbox" name="check" value="hobby3">
-     SF/판타지<input type="checkbox" name="check" value="hobby4">
-      <br><br>
-      본인 사진 <br>
-      <input type="file" name="" value="">
-      <br><br><br>
-      <input type="submit" name="" value="회원수정하기">
+           </div>
+        </div>
+     
+        <!-- 옆에 카테고리 끝 -->
+   <div  style="width:700px; margin-top: 100px; margin-left: 100px;">
+                    <div>
+                        <div style="">
+                            <div class="cart-title">
+                                <h2>회원 수정</h2>
+                            </div>   
+                             <form action="#" method="post">     
       
+<div class="wrapper row3">
+  <main class="container clear">
+
+    <form method="post" action="../member/join_update_ok.do" id="joinFrm" name="joinFrm">
+     <table class="table">
+       <tr>
+         <th class="text-right" width=15%>ID</th>
+         <td width=85% class="inline">
+           <input type=text name=id size=20 value="${vo.id }" class="input-sm" readonly id=id>
+          
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>비밀번호</th>
+         <td width=85% class="inline">
+           <input type=password name=pwd size=20 class="input-sm" id=pwd>(영문 대소문자/숫자/특수문자 중 2가지 이상 조합,10자~16자)
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>이름</th>
+         <td width=85% class="inline">
+           <input type=text name=name size=20 class="input-sm" id=name value="${vo.name }">
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>성별</th>
+         <td width=85% class="inline">
+           <input type="radio" value="남자" name=sex ${vo.sex=='남자'?"checked":"" }>남자
+           <input type="radio" value="여자" name=sex ${vo.sex=='여자'?"checked":"" }>여자
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>생년월일</th>
+         <td width=85%>
+           <input type="date" size=30 name=birthday id=birthday value="${vo.birthday }">
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>이메일</th>
+         <td width=85%>
+           <input type=text name=email size=55 class="input-sm" id=email value="${vo.email }">
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>우편번호</th>
+         <td width=85% class="inline">
+           <input type=text name=post1 size=7 class="input-sm" readonly id="post1" value=${post1 }>-<input type=text value="${post2 }" id=post2 name=post2 size=7 class="input-sm" readonly>
+           <input type=button value="우편번호검색" class="btn btn-sm btn-primary" id=postBtn>
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>주소</th>
+         <td width=85%>
+           <input type=text name=addr1 size=55 class="input-sm" id=addr1 readonly value="${vo.addr1 }">
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>상세주소</th>
+         <td width=85%>
+           <input type=text name=addr2 size=55 class="input-sm" value="${vo.addr2 }">
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>전화번호</th>
+         <td width=85% class="inline">
+           <select name=tel1 class="input-sm">
+            <option>010</option>
+            <option>011</option>
+           </select>
+           <input type=text name=tel2 size=20 class="input-sm" id=tel2 value="${tel2 }">
+         </td>
+       </tr>
+       <tr>
+         <td colspan="2" class="text-center inline">
+           <input type=button value="회원수정" class="btn btn-sm btn-info" id=sendBtn>
+           <input type=button value="취소" class="btn btn-sm btn-success" 
+             onclick="javascript:history.back()"
+           >
+         </td>
+       </tr>
+       <tr>
+         <th class="text-right" width=15%>선호하는 장르</th>
+         <td width=85% class="inline">
+           <select name=genre class="input-sm">
+            <option>코미디</option>
+            <option>로맨스/멜로</option>
+            <option>스릴러/공포</option>
+            <option>SF/미스터리</option>
+           </select>
+         </td>
+       </tr>
+       
+     </table>
+      
+     </form>
+      </div>
+  
+    </div>
     </form>
-  </section>
-  
-            
-  		
+    
+  </main>
+ </div>
+
+</body>
+</html>
+
+        
  
-    <!-- ##### Main Content Wrapper End ##### -->
-  
- 
+   
             
 
 
-    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
-
+   
+	
 </body>
 
 </html>
