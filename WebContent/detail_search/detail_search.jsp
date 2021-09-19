@@ -229,11 +229,11 @@
 				    <div class="thumbnail" style="width: 260px; height: 510px; border-radius: 30px; padding: 0px;">
 				      <img src="${m.poster}" alt="..." style="width: 100%;">
 				      <div class="caption text-right">
-				        <c:if test="${fn:length(title) > 10 }">
-				        	<h3>${fn:substring(m.title, 0, 10)}...</h3>
+				        <c:if test="${fn:length(title) > 15 }">
+				        	<h4 class="text-center">${fn:substring(m.title, 0, 15)}...</h4>
 				        </c:if>
-				        <c:if test="${fn:length(title) <= 10 }">
-				        	<h3>${m.title}</h3>
+				        <c:if test="${fn:length(title) <= 15 }">
+				        	<h4 class="text-center">${m.title}</h4>
 				        </c:if>
 				        <p><a href="../movie_detail/movie_detailpage.do?mno=${m.mno}" class="btn btn-primary" role="button">상세보기</a></p>
 				        <p>${m.regdate}</p>

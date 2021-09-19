@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.sist.vo.EventVO;
 import com.sist.vo.MovieInfoVO;
 
 public class MovieMainDAO {
@@ -74,6 +75,36 @@ public class MovieMainDAO {
 	    		  disConnection();
 	    	  }
 	    	  
+	    	  return list;
+	      }
+	      
+	      public List<EventVO> getTopEvent() {
+	    	  final List<EventVO> list = new ArrayList<>();
+	    	  
+	    	  final String sql = "SELECT * FROM (" + 
+	    	  		"    SELECT mno, event_title, event_poster, event_term FROM event_main2" + 
+	    	  		"    WHERE event_state = '진행중인 이벤트'" + 
+	    	  		"    ORDER BY event_term DESC" + 
+	    	  		") WHERE ROWNUM BETWEEN 1 AND 4";
+	    	  try {
+	    		  getConnection();
+	    		  ps = conn.prepareStatement(sql);
+	    		  ResultSet rs = ps.executeQuery();
+	    		  
+	    		  while(rs.next()) {
+	    			  EventVO vo = new EventVO();
+	    			  vo.setPoster(rs.getString("event_poster"));
+	    			  vo.setTitle(rs.getString("event_title"));
+	    			  vo.setTerm(rs.getString("event_term"));
+	    			  vo.setMno(rs.getInt("mno"));
+	    			  list.add(vo);
+	    		  }
+	    		  rs.close();
+	    	  } catch(Exception e) {
+	    		  e.printStackTrace();
+	    	  } finally {
+	    		  disConnection();
+	    	  }
 	    	  return list;
 	      }
 	   
