@@ -13,6 +13,7 @@ public class MovieFinderVO {
 	private String title;
 	private String poster;
 	private String regdate;
+	private int mno;
 	
 		
 }

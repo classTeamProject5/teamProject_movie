@@ -235,7 +235,7 @@
 				        <c:if test="${fn:length(title) <= 10 }">
 				        	<h3>${m.title}</h3>
 				        </c:if>
-				        <p><a href="#" class="btn btn-primary" role="button">예매하기</a></p>
+				        <p><a href="../movie_detail/movie_detailpage.do?mno=${m.mno}" class="btn btn-primary" role="button">상세보기</a></p>
 				        <p>${m.regdate}</p>
 				      </div>
 				    </div>

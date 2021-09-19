@@ -16,7 +16,7 @@ public class MovieFinderModel{
 	MovieFinderService movieFinderService = new MovieFinderService(); 
 	
 	@RequestMapping("main/moviefind.do")
-	public String main_main(HttpServletRequest request,HttpServletResponse response)
+	public String movieFinder(HttpServletRequest request,HttpServletResponse response)
 	{
 		if(request.getMethod().equals("GET")) {
 			System.out.println("겟 요청");
@@ -47,6 +47,5 @@ public class MovieFinderModel{
 			return "../main/main.jsp";
 		}
 	}
-	
 	
 }
