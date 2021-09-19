@@ -26,7 +26,7 @@
 .select-wrapper {
     width: 900px;
     background-color: #f9fafb;
-    margin: 0 auto;
+    margin: 0 0 100px 400px;
     border-left: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
 }
@@ -220,7 +220,7 @@
 }
 
 .seat-container {
-    margin-top: 20px;
+    margin-top: 1px;
     display: flex;
     justify-content: center;
 }
@@ -306,6 +306,14 @@ $(function(){
 </script>	
 </head>
 <body>
+
+ <c:if test="${sessionScope.id==null }">   
+ <script>
+		alert("로그인이 필요한 작업입니다 로그인을 해주세요!")
+		history.back();
+	</script>
+ </c:if>
+
 <div class="select-container">
 		<div class="select-wrapper">
 			<div class="select-title">인원/좌석</div>
@@ -410,8 +418,8 @@ $(function(){
 						
 						<!-- 결제 정보 -->
 						<input type="hidden" class="payMoney" name="payMoney">
-						<button type="submit" class="reserve-button">
-							결제하기
+						<button type="submit" class="reserve-button" style="background-color: #4f3397; color: white; width:80px; height:30px; text-align: center;">
+						&emsp;결제하기
 						</button>
 					</form>
 				</div>

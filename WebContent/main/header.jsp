@@ -23,7 +23,7 @@
 						   <c:if test="${sessionScope.id==null }">
 						    <a href="../login/login.do">로그인</a>
 						    <a href="../member/join.do">회원가입</a>
-						    <a href="#about">빠른예매</a>
+						    <a href="../reserve/q_reserve.do">빠른예매</a>
 						   </c:if>
 						   <c:if test="${sessionScope.id!=null }">
 						     <table class="table" style="border:none">

@@ -23,19 +23,14 @@ public class ReserveModel {
          request.setCharacterEncoding("UTF-8");
       }catch(Exception ex) {}
       
-       String reg=request.getParameter("reg");
-//       System.out.println("모델레그"+reg);          
+       String reg=request.getParameter("reg");      
        String reg2=reg;
        System.out.println("");
-//      String tit=request.getParameter("tit");
-//      String thea=request.getParameter("thea");
       ReserveDAO dao=ReserveDAO.newInstance();
    
    
       List<RegdateVO> reg_list=dao.regDateList();
-//      List<MovieTimeVO> title_listAll=dao.titleListDataAll(reg2,tit);
       List<MovieTimeVO> title_list=dao.titleListData(reg);
-//      List<MovieTimeVO> list=dao.movieTimeListData(tit,reg);
       List<MovieTimeVO> theater_list=dao.theaterData();
             
       request.setAttribute("reg_list", reg_list);
@@ -52,30 +47,10 @@ public class ReserveModel {
    
    @RequestMapping("reserve/q_reserve.do")
    public String reserve_q_reserve(HttpServletRequest request, HttpServletResponse response) {
-      try {
-         request.setCharacterEncoding("UTF-8");
-      }catch(Exception ex) {}
-      String reg=request.getParameter("reg");
-      String mov=request.getParameter("mov");
-      String the=request.getParameter("the");
-      String tit=request.getParameter("tit");
-      String time=request.getParameter("time");
-      
-      if(reg==null);
-         reg="09-16(목)";
-      ReserveDAO dao=ReserveDAO.newInstance();
-      
-      List<RegdateVO> reg_list1=dao.regDateList();
-//      List<MovieTimeVO> theater_list1=dao.theaterData2(tit,reg);
-      List<MovieTimeVO> title_list1=dao.titleListData(reg);
-//      List<MovieTimeVO> list1=dao.movieTimeListData(tit,reg);
-//      List<MovieTimeVO> list3=dao.theaterData(rd,ti);
-      request.setAttribute("reg_list1", reg_list1);
-//      request.setAttribute("theater_list1", theater_list1);
-      request.setAttribute("title_list1", title_list1);
-//      request.setAttribute("list1", list1);
-      
    
+    
+      
+     
       request.setAttribute("main_jsp", "../reserve/q_reserve.jsp");
       return "../main/main.jsp";
    }
@@ -100,15 +75,15 @@ public class ReserveModel {
 	  	  
 //	  	  String pay_Money=request.getParameter("pay_Money");
 	  	 
-	  	    System.out.println("id:"+id); 
-		  	System.out.println("title:"+title);  
-		  	System.out.println("selectedTheater:"+selectedTheater); 
-		  	System.out.println("movieDate:"+movieDate); 
-		  	System.out.println("runningTime:"+runningTime); 
-		  	System.out.println("movieAge:"+movieAge); 
-			/* System.out.println("ticketNumber:"+ticketNumber); */
-		  	System.out.println("selectedSeat:"+finwon); 
-		  	System.out.println("payMoney:"+payMoney); 
+//	  	    System.out.println("id:"+id); 
+//		  	System.out.println("title:"+title);  
+//		  	System.out.println("selectedTheater:"+selectedTheater); 
+//		  	System.out.println("movieDate:"+movieDate); 
+//		  	System.out.println("runningTime:"+runningTime); 
+//		  	System.out.println("movieAge:"+movieAge); 
+//			/* System.out.println("ticketNumber:"+ticketNumber); */
+//		  	System.out.println("selectedSeat:"+finwon); 
+//		  	System.out.println("payMoney:"+payMoney); 
 	  	  ReserveVO vo=new ReserveVO();
 		  vo.setId(id);
 		  vo.setTitle(title);
@@ -157,5 +132,73 @@ public class ReserveModel {
  	  request.setAttribute("list", list);
  	  request.setAttribute("main_jsp", "../reserve/mypage.jsp");
  	  return "../main/main.jsp";
+   }
+   
+   
+   
+   
+   @RequestMapping("reserve/regdate_list.do")
+   public String regdate_list(HttpServletRequest request,HttpServletResponse response)
+   {
+	   try {
+	         request.setCharacterEncoding("UTF-8");
+	      }catch(Exception ex) {}
+ 	  ReserveDAO dao=ReserveDAO.newInstance();
+ 	  
+ 	  List<RegdateVO> list=dao.regDate_List();
+ 	  
+ 	  request.setAttribute("list", list);
+ 	  
+ 	 return "../reserve/regdate_list.jsp";
+   }
+   
+   
+   
+   @RequestMapping("reserve/movie_list.do")
+   public String movie_list(HttpServletRequest request,HttpServletResponse response)
+   {
+	   try {
+	         request.setCharacterEncoding("UTF-8");
+	      }catch(Exception ex) {}
+	  String regdate=request.getParameter("regdate");	 
+ 	  ReserveDAO dao=ReserveDAO.newInstance();
+ 	  List<MovieTimeVO> list1=dao.allData(regdate); 	  	  
+ 
+ 	  request.setAttribute("list1", list1);
+ 	 return "../reserve/movie_list.jsp";
+   }
+   
+   
+   @RequestMapping("reserve/theater_list.do")
+   public String theater_list(HttpServletRequest request,HttpServletResponse response)
+   {
+	   try {
+	         request.setCharacterEncoding("UTF-8");
+	      }catch(Exception ex) {}	   
+	   String regdate=request.getParameter("regdate");
+	   String title=request.getParameter("title");	 
+	   ReserveDAO dao=ReserveDAO.newInstance();
+	   List<MovieTimeVO> list=dao.theaterData(regdate, title);
+	   
+	   request.setAttribute("list", list);
+ 	 return "../reserve/theater_list.jsp";
+   }
+   
+   @RequestMapping("reserve/time_list.do")
+   public String time_list(HttpServletRequest request,HttpServletResponse response)
+   {
+	   try {
+	         request.setCharacterEncoding("UTF-8");
+	      }catch(Exception ex) {}	   
+	   String theater=request.getParameter("theater");
+	   String regdate=request.getParameter("regdate");
+//	   System.out.println("regdate:"+regdate);
+//	   System.out.println("theater:"+theater);
+	   ReserveDAO dao=ReserveDAO.newInstance();
+	   
+	   List<MovieTimeVO> list=dao.timeData(regdate, theater);
+	   
+	   request.setAttribute("list", list);
+	   return "../reserve/time_list.jsp";
    }
 }

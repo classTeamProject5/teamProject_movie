@@ -54,15 +54,12 @@ public class ReserveDAO {
             // 원하는 순서와 갯수만큼 잘라오기 => 인라인뷰 사용(rownum=순서를 변경)
             String sql = "SELECT regdate FROM movie_regdate where rno<= 9 "
                   + "ORDER BY regdate ASC";
-            // where regdate= "?"
-            
+          
             ps = conn.prepareStatement(sql);
-         
             ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+            while(rs.next()) {
                RegdateVO vo = new RegdateVO();            
-
-                           
+      
                vo.setRegdate(rs.getString(1));            
                list.add(vo);
             }
@@ -266,5 +263,175 @@ REGDATE                   VARCHAR2(40)
 		  }
 		  return list;
 	  }
+     
+     
+     
+     //=============================================
+     //ajax
+     
+     public List<RegdateVO> regDate_List() {
+         List<RegdateVO> list = new ArrayList<RegdateVO>();
+          try {
+             getConnection();
+             // 원하는 순서와 갯수만큼 잘라오기 => 인라인뷰 사용(rownum=순서를 변경)
+             String sql = "SELECT regdate FROM movie_regdate where rno<= 9 "
+                   + "ORDER BY regdate ASC";
+             // where regdate= "?"
+           
+             ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery();
+             while (rs.next()) {
+                RegdateVO vo = new RegdateVO();                   
+                vo.setRegdate(rs.getString(1));            
+                list.add(vo);
+             }
+             rs.close();
+          } catch (Exception ex) {
+             ex.printStackTrace();
+          } finally {
+             disConnection();
+          }
+          return list;
+      }
+     
+
+     public List<MovieTimeVO> movie_ListData(String regdate)
+	  {
+		  List<MovieTimeVO> list=new ArrayList<MovieTimeVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT DISTINCT title,grade FROM movie_timetable WHERE regdate=?";
+			  ps=conn.prepareStatement(sql);	
+			  ps.setString(1, regdate);
+			  
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next()) {			  
+				  MovieTimeVO vo=new MovieTimeVO();
+			
+				  vo.setTitle(rs.getString(1));
+				  vo.setGrade(rs.getString(2));
+				  list.add(vo);
+			  }
+			  rs.close();
+		
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }  
+     
+     
+     public List<MovieTimeVO> allData(String regdate) {
+         List<MovieTimeVO> list = new ArrayList<MovieTimeVO>();
+         try {
+             getConnection();
+             String sql = "SELECT * from movie_timetable ";
+             if(regdate != null) {
+                sql = " select * from(SELECT rank()over(PARTITION BY title order by no)rn" + 
+                      ",movie_timetable.* from movie_timetable where regdate="+"'"+regdate+"')";
+             }
+//             sql =select * from(SELECT rank()over(PARTITION BY title order by no)rn
+//                   ,movie_timetable.* from movie_timetable where regdate='09-16(목)');
+             ps = conn.prepareStatement(sql);
+
+          
+             ResultSet rs = ps.executeQuery();
+             while (rs.next()) {
+                MovieTimeVO vo = new MovieTimeVO();            
+                vo.setRn(rs.getInt(1));
+                vo.setNo(rs.getInt(2));
+                vo.setMno(rs.getInt(3));
+                vo.setRegdate(rs.getString(4));
+                vo.setTitle(rs.getString(5));
+                vo.setTheater(rs.getString(6));
+                vo.setStarttime(rs.getString(7));
+                vo.setEndtime(rs.getString(8));
+                vo.setTotalseat(rs.getInt(9));
+                vo.setRemainseat(rs.getInt(10));
+                vo.setGrade(rs.getString(11));
+                list.add(vo);
+             }
+             rs.close();
+          } catch (Exception ex) {
+             ex.printStackTrace();
+          } finally {
+             disConnection();
+          }
+          return list;
+       }
+     
+     
+
+     public List<MovieTimeVO> theaterData(String regdate,String title)
+	  {
+		  List<MovieTimeVO> list=new ArrayList<MovieTimeVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT DISTINCT theater,regdate FROM movie_timetable WHERE regdate=? AND title=?";
+			  ps=conn.prepareStatement(sql);	
+			  ps.setString(1, regdate);
+			  ps.setString(2, title);
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next()) {			  
+				  MovieTimeVO vo=new MovieTimeVO();
+			
+				  vo.setTheater(rs.getString(1));
+				  vo.setRegdate(rs.getString(2));
+				  list.add(vo);
+			  }
+			  rs.close();
+		
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }  
+     
+     
+     public List<MovieTimeVO> timeData(String regdate,String theater)
+	  {
+		  List<MovieTimeVO> list=new ArrayList<MovieTimeVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="select no,starttime FROM movie_timetable WHERE regdate=? AND theater=?";
+			  ps=conn.prepareStatement(sql);	
+			  ps.setString(1, regdate);			  
+			  ps.setString(2, theater);
+			  
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next()) {			  
+				  MovieTimeVO vo=new MovieTimeVO();
+			
+				  vo.setNo(rs.getInt(1));
+				  vo.setStarttime(rs.getString(2));
+				  list.add(vo);
+			  }
+			  rs.close();
+		
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }  
+     
+     
      
 }
