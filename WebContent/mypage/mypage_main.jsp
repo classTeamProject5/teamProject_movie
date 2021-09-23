@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../mypage/imgs/mypage_main.png">
 
 </head>
+<c:if test="${sessionScope.id!=null }">
 <body class="main_mypage">
 	<div class="mypage_all">
 			<div class="mypage_info">
@@ -126,7 +127,7 @@
     </div>
 
  
- 
+ </c:if>
  
     <!-- ##### Main Content Wrapper End ##### -->
   
