@@ -64,6 +64,7 @@
 					        <span title="검색"class="glyphicon glyphicon-search"></span>
 					     </a>
 					     <div class="wrap_my">
+					     <!-- 로그인하고 들어갈 수 있게 설정 할 수 있는 방법 -->
 						     <a href="../myapge/mypage_main.do" class="searchButton">
 						        <span title="마이페이지"><img src="../main/mega_image/personicon.jpg" class="my_icon"></span>
 						     </a>
