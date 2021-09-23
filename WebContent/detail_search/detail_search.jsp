@@ -24,7 +24,7 @@
 				</select>
 			</div>
 			<div class="col-md-3">
-				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required value="${not empty param.title ? param.title : ''}">
+				<input id="search-word" type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required value="${not empty param.title ? param.title : ''}">
 			</div>
 		</div>
 		<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
@@ -213,7 +213,7 @@
 		<div class="row text-center" style="margin-bottom: 30px;">
 			<div class="col-md-4 col-md-offset-4">
 				<button class="btn btn-primary btn-lg" style="margin: 0px 20px;" type="submit">검색</button>
-				<button class="btn btn-info btn-lg" style="margin: 0px 20px;">초기화</button>
+				<button class="btn btn-info btn-lg" style="margin: 0px 20px;" id="initButton" type="button">초기화</button>
 			</div>
 		</div>
 		</form>
@@ -229,13 +229,13 @@
 				    <div class="thumbnail" style="width: 260px; height: 510px; border-radius: 30px; padding: 0px;">
 				      <img src="${m.poster}" alt="..." style="width: 100%;">
 				      <div class="caption text-right">
-				        <c:if test="${fn:length(title) > 10 }">
-				        	<h3>${fn:substring(m.title, 0, 10)}...</h3>
+				        <c:if test="${fn:length(title) > 15 }">
+				        	<h4 class="text-center">${fn:substring(m.title, 0, 15)}...</h4>
 				        </c:if>
-				        <c:if test="${fn:length(title) <= 10 }">
-				        	<h3>${m.title}</h3>
+				        <c:if test="${fn:length(title) <= 15 }">
+				        	<h4 class="text-center">${m.title}</h4>
 				        </c:if>
-				        <p><a href="#" class="btn btn-primary" role="button">예매하기</a></p>
+				        <p><a href="../movie_detail/movie_detailpage.do?mno=${m.mno}" class="btn btn-primary" role="button">상세보기</a></p>
 				        <p>${m.regdate}</p>
 				      </div>
 				    </div>
@@ -333,5 +333,21 @@
 	        }
 	    })
 		}
+	 const searchInput = document.querySelector('#search-word');
+	 const initButton = document.querySelector('#initButton');
+		
+	
+	 initButton.addEventListener("click", function (e) {
+	   e.preventDefault;
+	   searchInput.value = "";
+	   genreAll.checked = false;
+	   rateAll.checked = false;
+	   for (const rateBtn of rateBtns) {
+	     rateBtn.checked = false;
+	   }
+	   for (const genreCheckbox of genreCheckboxs) {
+	     genreCheckbox.checked = false;
+	   }
+	 });
 	</script>
 </div>

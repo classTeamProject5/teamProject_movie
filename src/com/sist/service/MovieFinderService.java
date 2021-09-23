@@ -202,6 +202,7 @@ public class MovieFinderService {
 				vo.setTitle(rs.getString("title"));
 				vo.setPoster(rs.getString("poster"));
 				vo.setRegdate(rs.getString("regdate"));
+				vo.setMno(rs.getInt("mno"));
 				list.add(vo);
 			}
 			rs.close();
@@ -221,7 +222,6 @@ public class MovieFinderService {
 			temp += s + "|";
 		}
 		String result = temp.substring(0, temp.length() -1);
-		System.out.println(result);
 		return result;
 	}
 	
@@ -238,19 +238,19 @@ public class MovieFinderService {
 		String sql = "";
 		
 		if (type.equals("all")) {
-			sql = "SELECT title, poster, regdate FROM project_movie "
+			sql = "SELECT title, poster, regdate, mno FROM project_movie "
 					+ "WHERE (REGEXP_LIKE(title, ?) OR REGEXP_LIKE(actor, ?) OR REGEXP_LIKE(director, ?)) "
 					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
 		} else if (type.equals("title")) {
-			sql = "SELECT title, poster, regdate FROM project_movie "
+			sql = "SELECT title, poster, regdate, mno FROM project_movie "
 					+ "WHERE (REGEXP_LIKE(title, ?)) "
 					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
 		} else if (type.equals("actor")) {
-			sql = "SELECT title, poster, regdate FROM project_movie "
+			sql = "SELECT title, poster, regdate, mno FROM project_movie "
 					+ "WHERE (REGEXP_LIKE(actor, ?)) "
 					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
 		} else if (type.equals("director")) {
-			sql = "SELECT title, poster, regdate FROM project_movie "
+			sql = "SELECT title, poster, regdate, mno FROM project_movie "
 					+ "WHERE (REGEXP_LIKE(director, ?)) "
 					+ "AND (REGEXP_LIKE(genre, ?) AND REGEXP_LIKE(grade, ?) AND SUBSTR(TRIM(regdate), 1, 4) BETWEEN ? AND ?)";
 		}
