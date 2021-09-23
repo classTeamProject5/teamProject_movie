@@ -24,7 +24,7 @@
 				</select>
 			</div>
 			<div class="col-md-3">
-				<input type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required value="${not empty param.title ? param.title : ''}">
+				<input id="search-word" type="text" class="form-control" placeholder="검색어를 입력해주세요" style="border-radius: 30px" name="title" required value="${not empty param.title ? param.title : ''}">
 			</div>
 		</div>
 		<div class="row" style="margin-top: 30px; margin-bottom: 30px;">
@@ -213,7 +213,7 @@
 		<div class="row text-center" style="margin-bottom: 30px;">
 			<div class="col-md-4 col-md-offset-4">
 				<button class="btn btn-primary btn-lg" style="margin: 0px 20px;" type="submit">검색</button>
-				<button class="btn btn-info btn-lg" style="margin: 0px 20px;">초기화</button>
+				<button class="btn btn-info btn-lg" style="margin: 0px 20px;" id="initButton" type="button">초기화</button>
 			</div>
 		</div>
 		</form>
@@ -333,5 +333,21 @@
 	        }
 	    })
 		}
+	 const searchInput = document.querySelector('#search-word');
+	 const initButton = document.querySelector('#initButton');
+		
+	
+	 initButton.addEventListener("click", function (e) {
+	   e.preventDefault;
+	   searchInput.value = "";
+	   genreAll.checked = false;
+	   rateAll.checked = false;
+	   for (const rateBtn of rateBtns) {
+	     rateBtn.checked = false;
+	   }
+	   for (const genreCheckbox of genreCheckboxs) {
+	     genreCheckbox.checked = false;
+	   }
+	 });
 	</script>
 </div>
