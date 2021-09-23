@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<div class="wrapper row3 reserve_row">
+<div class="wrapper row3 reserve_row" style="margin: 130px;">
   <main class="container clear">
     <h2 class="sectiontitle">영화 예약목록</h2>
     <table class="table">

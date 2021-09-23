@@ -35,7 +35,10 @@
 						            <a href="../login/logout.do" class="btn btn-sm btn-danger" style="color:white;">로그아웃</a>
 						          </td>
 						          <td style="border:none">
-						            <a href="#about">빠른예매</a>
+						            <a href="../reserve/q_reserve.do">빠른예매</a>
+						          </td>
+						          <td style="border:none">
+						            <a href="../reserve/mypage.do">예매내역</a>
 						          </td>
 						        </tr>
 						        
