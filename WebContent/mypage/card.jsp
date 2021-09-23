@@ -25,7 +25,6 @@
 							<div class="mypage_grade">${vo.usergrade}</div>
 							<div class="mypage_text">입니다.</div>
 					</div>	
-				
 			</div>
 			<div class="mypage_coupon">
 				<div class="mypage_linkcoupon">
