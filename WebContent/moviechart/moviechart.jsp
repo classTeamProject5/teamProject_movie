@@ -30,11 +30,11 @@
                   <ul class="nospace clear">              
                <c:forEach var="vo" items="${list }" varStatus="s">
              <c:if test="${s.index%4==0 }">
-               <li class="one_quarter first"><a href="../movie_detail/movie_detailpage.do?mno=${vo.mno }&cno=${cno}"><img style="width:250px;height:250px" src="${vo.poster }" title="${vo.title }">${vo.title }</a></li>
+               <li class="one_quarter first"><a href="../movie_detail/movie_detailpage.do?mno=${vo.mno }&cno=${cno}"><img style="width:250px;height:250px" src="${vo.poster }" title="${vo.title }"> ${vo.mno }. ${vo.title }</a></li>
               
              </c:if>
              <c:if test="${s.index%4!=0 }">
-               <li class="one_quarter"><a href="../movie_detail/movie_detailpage.do?mno=${vo.mno }&cno=${cno}"><img style="width:250px;height:250px" src="${vo.poster }" title="${vo.title }">${vo.title }</a></li>
+               <li class="one_quarter"><a href="../movie_detail/movie_detailpage.do?mno=${vo.mno }&cno=${cno}"><img style="width:250px;height:250px" src="${vo.poster }" title="${vo.title }">${vo.mno }. ${vo.title }</a></li>
                
             </c:if>
            </c:forEach>
