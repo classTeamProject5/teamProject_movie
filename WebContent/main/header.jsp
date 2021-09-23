@@ -61,7 +61,7 @@
 					        <span title="검색"class="glyphicon glyphicon-search"></span>
 					     </a>
 					     <div class="wrap_my">
-						     <a href="#" class="searchButton">
+						     <a href="../myapge/mypage_main.do" class="searchButton">
 						        <span title="마이페이지"><img src="../main/mega_image/personicon.jpg" class="my_icon"></span>
 						     </a>
 					     </div>

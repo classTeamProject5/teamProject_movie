@@ -18,14 +18,12 @@
 			<div class="mypage_info">
 				<div class="myimg"></div>
 					<div class="mypage_infobox">
-				
 						<div class="mypage_user">
 							<div class="mypage_id">${vo.name }</div>
 							<div class="mypage_text">님 어서오세요! ${vo.id }</div>
 							<div class="mypage_grade">${vo.usergrade}</div>
 							<div class="mypage_text">입니다.</div>
 					</div>	
-			
 			</div>
 			<div class="mypage_coupon">
 				<div class="mypage_linkcoupon">
@@ -91,7 +89,7 @@
                     <div>
                         <div style="">
                             <div class="cart-title">
-                                <h2>나의 포인트 정보</h2>
+                                <h2>멤버십 카드관리</h2>
                             </div>
                             <form action="#" method="post">
                                 <div class="row">
@@ -101,7 +99,7 @@
                                 </div>
                             </form>
                               <div class="cart-title">
-                                <h2>사용 가능 포인트 </h2>
+                                <h2>카드 등록</h2>
                             </div>
 
                             <form action="#" method="post">
@@ -112,7 +110,7 @@
                                 </div>
                             </form>                           
                              <div class="cart-title">
-                                <h2>이용내역 조회</h2>
+                                <h2>카드 삭제</h2>
                             </div>
                             <form action="#" method="post">
                                 <div class="row">

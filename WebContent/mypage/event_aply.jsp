@@ -18,14 +18,12 @@
 			<div class="mypage_info">
 				<div class="myimg"></div>
 					<div class="mypage_infobox">
-				
 						<div class="mypage_user">
 							<div class="mypage_id">${vo.name }</div>
 							<div class="mypage_text">님 어서오세요! ${vo.id }</div>
 							<div class="mypage_grade">${vo.usergrade}</div>
 							<div class="mypage_text">입니다.</div>
 					</div>	
-			
 			</div>
 			<div class="mypage_coupon">
 				<div class="mypage_linkcoupon">
@@ -69,7 +67,7 @@
             <!-- 옆에 카테고리들 -->
             <nav class="amado-nav">
                 <ul>
-                     <li><a href="../mypage/mypage_main.jsp" style="width:120px;">예매/구매내역</a></li>
+                    <li><a href="../mypage/mypage_main.jsp" style="width:120px;">예매/구매내역</a></li>
                     <li><a href="../mypage/movieticket.jsp" style="width:120px;">영화 관람권</a></li>
                     <li><a href="../mypage/discount.jsp" style="width:170px;">할인/제휴쿠폰</a></li>
                     <li><a href="../mypage/membershippoint.jsp" style="width:140px;">포인트 이용내역</a></li>
@@ -91,7 +89,7 @@
                     <div>
                         <div style="">
                             <div class="cart-title">
-                                <h2>나의 포인트 정보</h2>
+                                <h2>나의 응모내역</h2>
                             </div>
                             <form action="#" method="post">
                                 <div class="row">
@@ -101,7 +99,7 @@
                                 </div>
                             </form>
                               <div class="cart-title">
-                                <h2>사용 가능 포인트 </h2>
+                                <h2>당첨된 내역</h2>
                             </div>
 
                             <form action="#" method="post">
@@ -112,7 +110,7 @@
                                 </div>
                             </form>                           
                              <div class="cart-title">
-                                <h2>이용내역 조회</h2>
+                                <h2>종료된 이벤트</h2>
                             </div>
                             <form action="#" method="post">
                                 <div class="row">
