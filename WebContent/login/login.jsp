@@ -48,7 +48,7 @@
                                 <span class="icon_profile"></span>
                             </div>
                             <div class="input__item">
-                                <input type="text" name="pwd" placeholder="비밀번호">
+                                <input type="password" name="pwd" placeholder="비밀번호">
                                 <span class="icon_lock"></span>
                             </div>
                             <button type="submit" class="site-btn">로그인</button>
