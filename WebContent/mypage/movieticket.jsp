@@ -48,9 +48,6 @@
   --bs-gutter-x: 2rem;
   --bs-gutter-y: 0;
   display: -webkit-box;
-  /* display: -ms-flexbox; */
-  /* display: flex;
-  -ms-flex-wrap: wrap; */
   flex-wrap: wrap;">
     <div class="main-content-wrapper">
 

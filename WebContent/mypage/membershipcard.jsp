@@ -60,7 +60,7 @@
             </div>
         </div>
 		
-        <!-- Header Area Start -->
+        <!-- 헤더부분 시작  -->
         <div class="header-area clearfix">
             <!-- Close Icon -->
            

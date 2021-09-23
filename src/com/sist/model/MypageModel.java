@@ -10,7 +10,7 @@ import com.sist.controller.RequestMapping;
 
 @Controller
 public class MypageModel {
-		
+		//모델
 	   @RequestMapping("mypage/mypage_main.do")
 	   public String mypage_main(HttpServletRequest request,HttpServletResponse response)
 	   { 

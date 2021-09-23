@@ -18,18 +18,12 @@
 			<div class="mypage_info">
 				<div class="myimg"></div>
 					<div class="mypage_infobox">
-				<!-- id,grade,0 자리에 테이블 데이터가 들어갈 것임. 그럴거임 -->
 						<div class="mypage_user">
 							<div class="mypage_id">${vo.name }</div>
 							<div class="mypage_text">님 어서오세요! ${vo.id }</div>
 							<div class="mypage_grade">${vo.usergrade}</div>
 							<div class="mypage_text">입니다.</div>
 					</div>	
-				<%--  --><div class="mypage_point">
-					<div class="point_number">0</div>
-					<div class="mypage_text">P</div>
-				</div>
-				--%>
 			</div>
 			<div class="mypage_coupon">
 				<div class="mypage_linkcoupon">
