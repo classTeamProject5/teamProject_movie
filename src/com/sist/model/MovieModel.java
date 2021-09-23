@@ -131,11 +131,11 @@ public class MovieModel {
  	 MovieInfoDAO dao=MovieInfoDAO.newInstance();
  	  // 삭제 메소드 호출 
  	  dao.replyDelete(Integer.parseInt(no));
- 	  return "redirect:../freeboard/detail.do?mno="+mno;// 게시판 상세보기를 보여 달라 
+ 	  return "redirect:../movie_detail/movie_detailpage.do?mno="+mno;// 게시판 상세보기를 보여 달라 
    }
    // 어노테이션은 (찾기) => 적용된 메소드 , 클래스 => 항상 밑에 있다 
    // 웹사이트 => 해당페이지 이동 (어떤 파일을 보여줄것인지) => 흐름  => main_jsp
-   @RequestMapping("freeboard/reply_update.do")
+   @RequestMapping("movie_detail/reply_update.do")
    public String reply_update(HttpServletRequest request,HttpServletResponse response)
    {
  	  // 요청 데이터를 받는다  (no,bno,msg)
