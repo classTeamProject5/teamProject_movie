@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../mypage/css/main_mypage.css?after">
+<link rel="stylesheet" href="../mypage/css/main_mypage.css">
 <link rel="stylesheet" href="../mypage/css/core-style.css">
 <link rel="stylesheet" href="../mypage/imgs/mypage_main.png">
 
@@ -18,14 +18,12 @@
 			<div class="mypage_info">
 				<div class="myimg"></div>
 					<div class="mypage_infobox">
-				
 						<div class="mypage_user">
 							<div class="mypage_id">${vo.name }</div>
 							<div class="mypage_text">님 어서오세요! ${vo.id }</div>
 							<div class="mypage_grade">${vo.usergrade}</div>
 							<div class="mypage_text">입니다.</div>
 					</div>	
-				
 			</div>
 			<div class="mypage_coupon">
 				<div class="mypage_linkcoupon">
@@ -48,6 +46,9 @@
   --bs-gutter-x: 2rem;
   --bs-gutter-y: 0;
   display: -webkit-box;
+  /* display: -ms-flexbox; */
+  /* display: flex;
+  -ms-flex-wrap: wrap; */
   flex-wrap: wrap;">
     <div class="main-content-wrapper">
 
@@ -66,7 +67,7 @@
             <!-- 옆에 카테고리들 -->
             <nav class="amado-nav">
                 <ul>
-                     <li><a href="../mypage/mypage_main.jsp" style="width:120px;">예매/구매내역</a></li>
+                    <li><a href="../mypage/mypage_main.jsp" style="width:120px;">예매/구매내역</a></li>
                     <li><a href="../mypage/movieticket.jsp" style="width:120px;">영화 관람권</a></li>
                     <li><a href="../mypage/discount.jsp" style="width:170px;">할인/제휴쿠폰</a></li>
                     <li><a href="../mypage/membershippoint.jsp" style="width:140px;">포인트 이용내역</a></li>
@@ -83,6 +84,7 @@
      </div>
         <!-- 옆에 카테고리 끝 -->
 
+        
         
          <div  style="width:700px; margin-top: 100px; margin-left: 100px;">
                     <div>
@@ -123,6 +125,7 @@
          </div>
     </div>
 
+ 
  
  
     <!-- ##### Main Content Wrapper End ##### -->

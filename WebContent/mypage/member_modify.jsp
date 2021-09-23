@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../mypage/css/main_mypage.css?after">
+<link rel="stylesheet" href="../mypage/css/main_mypage.css">
 <link rel="stylesheet" href="../mypage/css/core-style.css">
 <link rel="stylesheet" href="../mypage/imgs/mypage_main.png">
 <link rel="stylesheet" href="../shadow/css/shadowbox.css">

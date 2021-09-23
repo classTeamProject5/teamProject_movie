@@ -39,11 +39,13 @@ div.mypage_info{
 }
 
 div.myimg{
-	font-size: 50px;
+	font-size: 48px;
 	color:white;
 	position:relative;
-	top:192px;
-	left:237px;
+	top:196px;
+	left:230px;
+	width:max-content;
+	height:62px;
 }
 div.mypage_infobox{
 	width:500px;
@@ -52,7 +54,7 @@ div.mypage_infobox{
 	text-align:center;
 	font-weight:bold;
 	position:relative;
-	top:110px;
+	top:115px;
 	left:400px;
 }
 div.mypage_infobox div.mypage_user{
@@ -60,16 +62,21 @@ div.mypage_infobox div.mypage_user{
 	top:10px;
 	left:20px;
 	font-size: 28px;
+	height:50px;
 }
 div.mypage_infobox div.mypage_user div.mypage_id{
-	width:30%;
+	width:130px;
 	float:left;	
 	text-align:right;
+	margin:0 5px 0 0;
+	color:#71678c;
 }
 div.mypage_infobox div.mypage_user div.mypage_grade{
 	width:18%;
 	float:left;
 	text-align:right;
+	margin:0 5px 0 0;
+	color:#71678c;
 }
 div.mypage_infobox div.mypage_user div.point_number{
 	width:max-content;
@@ -78,7 +85,7 @@ div.mypage_infobox div.mypage_user div.point_number{
 div.mypage_infobox div.mypage_point{
 	width:max-content;
 	position:relative;
-	top:35px;
+	top:25px;
 	font-size: 20px;
 	margin:0 auto;
 }
@@ -86,6 +93,7 @@ div.mypage_infobox div.mypage_point div.point_number{
 	width:100px;
 	float:left;
 	text-align:right;
+	color:#71678c;
 	
 }
 div.mypage_infobox div.mypage_point div.point_number{
@@ -147,4 +155,5 @@ div.mypage_coupon div.mypage_event div.mypage_event_number{
 	float:left;
 	width:30px;
 	text-align:right;
+	color:#71678c;
 }
