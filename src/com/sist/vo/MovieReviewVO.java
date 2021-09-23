@@ -1,6 +1,6 @@
 package com.sist.vo;
 /*
- *  NO      NOT NULL NUMBER       
+      no    notnull 
 	BNO              NUMBER       
 	TYPE             NUMBER       
 	ID               VARCHAR2(20) 

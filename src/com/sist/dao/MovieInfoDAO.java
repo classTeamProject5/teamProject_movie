@@ -7,6 +7,7 @@ import com.sist.vo.MovieReviewVO;
 
 import javax.naming.*;
 
+
 public class MovieInfoDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
@@ -233,15 +234,8 @@ public class MovieInfoDAO {
 	   		   // 실행 명령 
 	   		   ps.executeUpdate(); //commit() 포함 
 	   		   // setInt() setString() setDouble()
-	   		   //   있는 그대로 값을 설정  , ''를 붙여서 첨부 , 있는 그대로 설정 
-	   		   /*
-	   		    *   INSERT INTO project_reply VALUES(?,?,?)
-	   		    *   setInt(1,1)
-	   		    *   setString(2,"홍길동")
-	   		    *   setDouble(3,185.45)
-	   		    *   
-	   		    *   INSERT INTO project_reply VALUES(1,'홍길동',185.45)
-	   		    */
+	   		 
+	   		  
 	   	   }catch(Exception ex)
 	   	   {
 	   		   ex.printStackTrace();

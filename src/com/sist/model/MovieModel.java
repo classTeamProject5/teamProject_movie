@@ -155,6 +155,7 @@ public class MovieModel {
  	  dao.replyUpdate(Integer.parseInt(mno), msg);
  	  return "redirect:../movie_detail/movie_detailpage.do?mno="+bno;// Ajax => Spring
    }
+   
  }
 
 

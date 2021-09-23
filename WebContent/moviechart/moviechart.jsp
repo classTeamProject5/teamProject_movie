@@ -40,8 +40,8 @@
            </c:forEach>
            </ul>
            </figure>
-                        </div>
-                        </div>
+                      </div>
+                     </div>
                    </div>
                   </div>
          </div>
