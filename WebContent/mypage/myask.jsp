@@ -64,16 +64,16 @@
             <!-- 옆에 카테고리들 -->
             <nav class="amado-nav">
                 <ul>
-                     <li><a href="../mypage/mypage_main.jsp" style="width:120px;">예매/구매내역</a></li>
-                    <li><a href="../mypage/movieticket.jsp" style="width:120px;">영화 관람권</a></li>
-                    <li><a href="../mypage/discount.jsp" style="width:170px;">할인/제휴쿠폰</a></li>
-                    <li><a href="../mypage/membershippoint.jsp" style="width:140px;">포인트 이용내역</a></li>
-                    <li><a href="../mypage/membershipcard.jsp" style="width:140px;">멤버쉽 카드관리</a></li>
-                    <li><a href="../mypage/moivestory.jsp" style="width:140px;">나의 무비스토리</a></li>
-                    <li><a href="../mypage/event_aply.jsp" style="width:190px;">나의 이벤트 응모내역</a></li>
-                    <li><a href="../mypage/myask.jsp" style="width:130px;">나의 문의내역</a></li>
-                    <li><a href="../mypage/card.jsp" style="width:170px;">자주쓰는 카드 관리</a></li>
-                    <li><a href="../mypage/member_moidfy.jsp" style="width:130px;">개인정보 수정</a></li>
+                     <li><a href="../mypage/mypage_main.do" style="width:120px;">예매/구매내역</a></li>
+                    <li><a href="../mypage/movieticket.do" style="width:120px;">영화 관람권</a></li>
+                    <li><a href="../mypage/discount.do" style="width:170px;">할인/제휴쿠폰</a></li>
+                    <li><a href="../mypage/membershippoint.do" style="width:140px;">포인트 이용내역</a></li>
+                    <li><a href="../mypage/membershipcard.do" style="width:140px;">멤버쉽 카드관리</a></li>
+                    <li><a href="../mypage/moivestory.do" style="width:140px;">나의 무비스토리</a></li>
+                    <li><a href="../mypage/event_aply.do" style="width:190px;">나의 이벤트 응모내역</a></li>
+                    <li><a href="../mypage/myask.do" style="width:130px;">나의 문의내역</a></li>
+                    <li><a href="../mypage/card.do" style="width:170px;">자주쓰는 카드 관리</a></li>
+                    <li><a href="../mypage/member_moidfy.do" style="width:130px;">개인정보 수정</a></li>
                 </ul>
             </nav>
            
