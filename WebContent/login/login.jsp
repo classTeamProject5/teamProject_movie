@@ -59,7 +59,7 @@
                 <div class="col-lg-6">
                     <div class="login__register">
                         <h3>계정이 없으신가요?</h3>
-                        <a href="../member/join.jsp" class="primary-btn">회원가입하러 가기</a>
+                        <a href="../member/join.do" class="primary-btn">회원가입하러 가기</a>
                     </div>
                 </div>
             </div>
