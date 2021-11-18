@@ -12,10 +12,7 @@ public class MovieInfoDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
 	   private static MovieInfoDAO dao; // new (메모리 누적) , static은 한번만 생성(메모리 1개) 
-	   // 메모리 누수 방지 
-	   // => VO => 일반 데이터형으러 사용 
-	   // Spring => new(VO) => 결합성을 낮게 (결합성;영향력) 
-	   // Connection주소 얻기
+	  
 	      public void getConnection()
 		  {
 			  try
@@ -170,8 +167,7 @@ public class MovieInfoDAO {
 	   				     +"FROM project_reply "
 	   				     +"WHERE bno=? AND type=? "
 	   				     +"ORDER BY no DESC";
-	   		   //bno => 어떤 게시물 번호(1번), 어떤 맛집 번호(1번)
-	   		   //type => 구분 (맛집,게시판)
+	   		   
 	   		   ps=conn.prepareStatement(sql);
 	   		   ps.setInt(1, bno);
 	   		   ps.setInt(2, type);
@@ -201,8 +197,8 @@ public class MovieInfoDAO {
 	      // 댓글 쓰기
 	      /*
 	       *      no NUMBER,
-	   		   bno NUMBER,  -- 게시판 번호,영화번호 , 맛집번호 , 레시피번호
-	   		   type NUMBER, -- 게시판(1) , 영화(2) , 맛집(3) 레시피(4) ,여행(5)
+	   		   bno NUMBER,
+	   		   type NUMBER,
 	   		   id VARCHAR2(20),
 	   		   name VARCHAR2(34) CONSTRAINT pr_name_nn NOT NULL,
 	   		   msg CLOB CONSTRAINT pr_msg_nn NOT NULL,
