@@ -134,15 +134,7 @@ $(function(){
          </ul>
       </div>
       <%-- 로그인이 된 상태 (id(fk),name(not null)) --%>
-      <%--
-                        요청 
-             <a href="../movie/list.do">
-             <form action="../freeboard/reply_insert.do">
-             Ajax => button 클릭 
-             === $.ajax({
-                      url:"../freeboard/reply_insert.do"
-                 })
-       --%>
+      
       <c:if test="${sessionScope.id!=null }">
          <form method="post" action="../movie_detail/reply_insert.do">
 	       <table class="table">
