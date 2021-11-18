@@ -197,7 +197,7 @@
 	<script src="js/parallax.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			// Handle click on paging links
+			
 			$('.mc-paging-link').click(function(e){
 				e.preventDefault();
 				
